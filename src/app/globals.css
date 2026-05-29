@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+:root {
+  --bg-base: #05070e;
+  --bg-elevated: #080c18;
+  --bg-card: #0c1120;
+  --bg-card-hover: #101929;
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --accent: #3b82f6;
+  --accent-dim: rgba(59, 130, 246, 0.12);
+
+  /* Legacy compatibility */
+  --background: #05070e;
+  --foreground: #f0f0f0;
+  --border: rgba(255, 255, 255, 0.09);
+  --surface: #080c18;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.28);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.28);
+  border-radius: 2px;
+}
+
+/* Animated nav underline */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #60a5fa;
+  transition: width 0.22s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* SVG architecture animation */
+@keyframes node-breathe {
+  0%, 100% { opacity: 0.55; r: 4; }
+  50% { opacity: 1; r: 5.5; }
+}
+
+@keyframes edge-flow {
+  0% { stroke-dashoffset: 20; opacity: 0.12; }
+  50% { opacity: 0.28; }
+  100% { stroke-dashoffset: 0; opacity: 0.12; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section divider gradient */
+.divider-gradient {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.09) 30%, rgba(255,255,255,0.09) 70%, transparent);
+}
+
+/* ============================================================
+   Form controls — dark theme
+   Applies to native browser popups (selects, datalists).
+   color-scheme: dark hints Chrome/Safari to use dark native UI.
+   Option background rules are the fallback for Firefox/Chrome.
+   ============================================================ */
+
+input,
+textarea,
+select {
+  color-scheme: dark;
+}
+
+/* Option elements: used by Chrome/Edge/Firefox for the dropdown popup.
+   Safari ignores these but color-scheme: dark handles Safari's native rendering. */
+select option {
+  background-color: #0c1120;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+select option:disabled {
+  color: rgba(255, 255, 255, 0.28);
+  background-color: #080c18;
+}
+
+select option:hover,
+select option:focus,
+select option:checked {
+  background-color: #131c35;
+  color: #ffffff;
+}
+
+/* Autofill — prevent browser yellow/white override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.88);
+  -webkit-box-shadow: 0 0 0 1000px #06091a inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Card premium hover */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+/* Data flow / scan animations */
+@keyframes scan-line {
+  0% { top: -1px; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes flow-right {
+  0% { transform: translateX(0); opacity: 0; }
+  15% { opacity: 0.8; }
+  85% { opacity: 0.8; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes beam-pulse {
+  0%, 100% { opacity: 0.25; transform: scaleX(0.8); }
+  50% { opacity: 0.55; transform: scaleX(1); }
+}
+
+/* Glow border on premium cards */
+.glow-card {
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.08), 0 8px 32px rgba(0,0,0,0.4);
+  transition: box-shadow 0.3s ease;
+}
+.glow-card:hover {
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.18), 0 12px 48px rgba(0,0,0,0.5), 0 0 40px rgba(59,130,246,0.08);
+}
