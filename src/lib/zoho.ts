@@ -20,14 +20,8 @@ export function generateLeadId(): string {
 
 async function getAccessToken(): Promise<string> {
   const base = process.env.ZOHO_ACCOUNTS_URL ?? "https://accounts.zoho.com";
-  const tokenUrl = `${base}/oauth/v2/token`;
 
-  console.log("[zoho] → token exchange");
-  console.log("[zoho]   url:", tokenUrl);
-  console.log("[zoho]   client_id:", process.env.ZOHO_CLIENT_ID?.slice(0, 12) + "...");
-  console.log("[zoho]   refresh_token present:", Boolean(process.env.ZOHO_REFRESH_TOKEN));
-
-  const res = await fetch(tokenUrl, {
+  const res = await fetch(`${base}/oauth/v2/token`, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
@@ -40,9 +34,6 @@ async function getAccessToken(): Promise<string> {
 
   const rawBody = await res.text();
 
-  console.log("[zoho]   token response status:", res.status);
-  console.log("[zoho]   token response body:", rawBody);
-
   if (!res.ok) {
     throw new Error(`Zoho OAuth HTTP ${res.status}: ${rawBody}`);
   }
@@ -51,22 +42,19 @@ async function getAccessToken(): Promise<string> {
   try {
     json = JSON.parse(rawBody);
   } catch {
-    throw new Error(`Zoho OAuth: non-JSON response — ${rawBody}`);
+    throw new Error(`Zoho OAuth: non-JSON response (status ${res.status})`);
   }
 
   if (typeof json !== "object" || json === null) {
-    throw new Error(`Zoho OAuth: unexpected response format — ${rawBody}`);
+    throw new Error(`Zoho OAuth: unexpected response format (status ${res.status})`);
   }
 
   const obj = json as Record<string, unknown>;
 
   if (typeof obj.access_token !== "string") {
-    throw new Error(
-      `Zoho OAuth: access_token missing — ${rawBody}`
-    );
+    throw new Error(`Zoho OAuth: access_token missing (status ${res.status})`);
   }
 
-  console.log("[zoho] ✓ access token obtained");
   return obj.access_token;
 }
 
@@ -87,31 +75,23 @@ export async function appendLeadToSheet(lead: LeadRow): Promise<void> {
 
   // Correct endpoint: POST /api/v2/{id} with method=worksheet.jsondata.append
   // (NOT /api/v2/{id}/rowdata — that path does not exist in the Zoho Sheet Data API v2)
-  const appendUrl = `${sheetBase}/api/v2/${process.env.ZOHO_SPREADSHEET_ID}`;
-
-  console.log("[zoho] → sheet append");
-  console.log("[zoho]   url:", appendUrl);
-  console.log("[zoho]   method: worksheet.jsondata.append");
-  console.log("[zoho]   worksheet: INX Lead Tracker");
-  console.log("[zoho]   lead:", JSON.stringify(lead));
-
-  const res = await fetch(appendUrl, {
-    method: "POST",
-    headers: {
-      Authorization: `Zoho-oauthtoken ${accessToken}`,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: new URLSearchParams({
-      method: "worksheet.jsondata.append",
-      worksheet_name: "INX Lead Tracker",
-      json_data: JSON.stringify([lead]),
-    }),
-  });
+  const res = await fetch(
+    `${sheetBase}/api/v2/${process.env.ZOHO_SPREADSHEET_ID}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Zoho-oauthtoken ${accessToken}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        method: "worksheet.jsondata.append",
+        worksheet_name: "INX Lead Tracker",
+        json_data: JSON.stringify([lead]),
+      }),
+    }
+  );
 
   const rawBody = await res.text();
-
-  console.log("[zoho]   append response status:", res.status);
-  console.log("[zoho]   append response body:", rawBody);
 
   if (!res.ok) {
     throw new Error(`Zoho Sheet API HTTP ${res.status}: ${rawBody}`);
@@ -121,8 +101,7 @@ export async function appendLeadToSheet(lead: LeadRow): Promise<void> {
   try {
     json = JSON.parse(rawBody);
   } catch {
-    // Non-JSON success body — treat as success if HTTP was OK
-    console.log("[zoho] ✓ row appended (non-JSON response body)");
+    console.log("[zoho] ✓ row appended");
     return;
   }
 

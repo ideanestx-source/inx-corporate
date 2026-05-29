@@ -216,8 +216,6 @@ export async function POST(request: NextRequest) {
     request.headers.get("x-real-ip") ??
     "unknown";
 
-  console.log("[contact] → POST from ip:", ip);
-
   // ── Rate limit ──────────────────────────────────────────────────────────
   if (!checkRateLimit(ip)) {
     console.warn("[contact] Rate limit exceeded for ip:", ip);
@@ -245,7 +243,6 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  console.log("[contact] → Turnstile verify");
   const turnstileOk = await verifyTurnstile(turnstileToken, ip);
   if (!turnstileOk) {
     return NextResponse.json(
@@ -253,7 +250,6 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
-  console.log("[contact] ✓ Turnstile passed");
 
   // ── Field validation ────────────────────────────────────────────────────
   const validationError = validate(formFields);
@@ -275,30 +271,21 @@ export async function POST(request: NextRequest) {
   });
 
   // ── Resend emails ────────────────────────────────────────────────────────
-  console.log("[contact] → Resend: sending notification");
-  console.log("[contact]   from: notifications@ideanestx.com");
-  console.log("[contact]   to: info@ideanestx.com, reach_us@ideanestx.com");
-  console.log("[contact]   replyTo:", email);
-  console.log("[contact]   submitter:", name, "/", company);
-
   try {
-    const notificationResult = await resend.emails.send({
+    await resend.emails.send({
       from: "INX Contact Form <notifications@ideanestx.com>",
       to: ["info@ideanestx.com", "reach_us@ideanestx.com"],
       replyTo: email,
       subject: "New Website Inquiry - INX",
       html: notificationHtml({ name, company, email, projectType, budget, message }, timestamp),
     });
-    console.log("[contact] ✓ Resend notification result:", JSON.stringify(notificationResult));
 
-    console.log("[contact] → Resend: sending confirmation to:", email);
-    const confirmationResult = await resend.emails.send({
+    await resend.emails.send({
       from: "INX <info@ideanestx.com>",
       to: [email],
       subject: "Thank you for contacting INX",
       html: confirmationHtml(name),
     });
-    console.log("[contact] ✓ Resend confirmation result:", JSON.stringify(confirmationResult));
   } catch (err) {
     console.error("[contact] ✗ Resend error — message:", err instanceof Error ? err.message : String(err));
     console.error("[contact] ✗ Resend error — full:", devDetail(err));
@@ -313,7 +300,6 @@ export async function POST(request: NextRequest) {
 
   // ── Zoho Sheet ───────────────────────────────────────────────────────────
   const leadId = generateLeadId();
-  console.log("[contact] → Zoho: appending lead", leadId);
 
   try {
     const lead: LeadRow = {
