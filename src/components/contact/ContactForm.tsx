@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import { motion, useInView } from "framer-motion";
 import { ChevronDown, ArrowRight, CheckCircle } from "lucide-react";
+import { fireGAEvent } from "@/lib/analytics";
 
 type FormData = {
   name: string;
@@ -56,6 +57,7 @@ function validate(data: FormData): FieldError {
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     errors.email = "Enter a valid email address";
   }
+  if (!data.projectType) errors.projectType = "Please select a project type";
   if (!data.message.trim() || data.message.trim().length < 20) {
     errors.message = "Please provide at least 20 characters";
   }
@@ -65,6 +67,7 @@ function validate(data: FormData): FieldError {
 export default function ContactForm() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.1 });
+  const trackedSubmit = useRef(false);
 
   const [form, setForm] = useState<FormData>({
     name: "",
@@ -157,6 +160,15 @@ export default function ContactForm() {
       }
 
       setStatus("success");
+
+      if (!trackedSubmit.current) {
+        trackedSubmit.current = true;
+        fireGAEvent("contact_form_submit", {
+          project_type: form.projectType || undefined,
+          budget: form.budget || undefined,
+          service: form.projectType || undefined,
+        });
+      }
     } catch {
       setErrorMessage("Network error. Please check your connection and try again.");
       setStatus("error");
@@ -301,7 +313,7 @@ export default function ContactForm() {
                         value={form.projectType}
                         onChange={set("projectType")}
                         style={{ colorScheme: "dark" }}
-                        className={`${selectClass} ${
+                        className={`${errors.projectType ? inputErrorClass : selectClass} ${
                           form.projectType ? "text-white" : "text-white/30"
                         }`}
                       >
@@ -316,6 +328,11 @@ export default function ContactForm() {
                       </select>
                       <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-white/28 pointer-events-none" />
                     </div>
+                    {errors.projectType && (
+                      <p className="mt-1.5 text-[11px] text-red-400/80">
+                        {errors.projectType}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -434,11 +451,11 @@ function SuccessState({ name }: { name: string }) {
     <div className="rounded-[3px] border border-white/[0.11] bg-[#080c18] p-8 lg:p-10">
       <div className="flex items-start gap-4 mb-7">
         <div className="shrink-0 mt-0.5">
-          <CheckCircle className="h-5 w-5 text-white/45" />
+          <CheckCircle className="h-5 w-5 text-blue-400/70" />
         </div>
         <div>
           <h3 className="text-lg font-semibold text-white mb-1">
-            Inquiry Received
+            Inquiry Received{name ? `, ${name.split(" ")[0]}` : ""}
           </h3>
           <p className="text-[11px] text-white/30 font-mono tracking-wider uppercase">
             Submitted Successfully
@@ -448,22 +465,37 @@ function SuccessState({ name }: { name: string }) {
 
       <div className="h-px bg-white/[0.06] mb-7" />
 
-      <p className="text-sm text-white/45 leading-relaxed mb-6">
-        Thank you{name ? `, ${name.split(" ")[0]}` : ""}. Your inquiry has been
-        received and will be reviewed by our leadership team. We will respond
-        directly to the email address provided within two business days.
+      <p className="text-[11px] font-medium text-white/30 tracking-[0.14em] uppercase mb-5">
+        What Happens Next
       </p>
+      <div className="space-y-4 mb-8">
+        {[
+          "We review your requirements and assess technical fit.",
+          "We determine whether an INX engagement is the right match.",
+          "We respond within two business days with a direct answer.",
+          "If aligned, we schedule a discovery conversation to scope the engagement.",
+        ].map((step, i) => (
+          <div key={i} className="flex gap-4">
+            <span className="font-mono text-[11px] text-white/20 tracking-widest shrink-0 mt-0.5">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <p className="text-sm text-white/55 leading-relaxed">{step}</p>
+          </div>
+        ))}
+      </div>
 
-      <p className="text-sm text-white/30 leading-relaxed">
-        If your requirement is time-sensitive, you may also reach us directly at{" "}
+      <div className="border-t border-white/[0.07] pt-6">
+        <p className="text-xs text-white/28 mb-1.5">For urgent requirements</p>
         <a
           href="mailto:info@ideanestx.com"
-          className="text-white/55 hover:text-white/75 transition-colors"
+          className="text-sm text-white/50 hover:text-white/75 transition-colors"
         >
           info@ideanestx.com
         </a>
-        .
-      </p>
+        <p className="text-[11px] text-white/22 mt-0.5">
+          Read directly by INX leadership
+        </p>
+      </div>
     </div>
   );
 }

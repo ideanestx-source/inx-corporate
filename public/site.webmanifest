@@ -1,0 +1,16 @@
+{
+  "name": "INX | Custom Software Development",
+  "short_name": "INX",
+  "description": "Custom software development and product engineering for global organizations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070e",
+  "theme_color": "#05070e",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

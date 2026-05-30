@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import LegalPage, { type LegalPageData } from "@/components/legal/LegalPage";
+import { BASE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Accessibility Statement - INX",
+  title: "Accessibility Statement",
   description:
     "INX's commitment to accessible engineering and the current accessibility status of this website.",
+  alternates: {
+    canonical: `${BASE_URL}/accessibility`,
+  },
+  robots: { index: false, follow: true },
 };
 
 const data: LegalPageData = {
@@ -26,7 +31,7 @@ const data: LegalPageData = {
     {
       index: "02",
       category: "This Website",
-      heading: "Accessibility Status of inx.co.in",
+      heading: "Accessibility Status of ideanestx.com",
       subsections: [
         {
           heading: "Current Standard",

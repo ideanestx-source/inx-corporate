@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/lib/insights";
-
-const BASE_URL = "https://ideanestx.com";
+import { industryPages } from "@/lib/industries-data";
+import { BASE_URL } from "@/lib/seo";
 
 // Article dates are stored as "Month YYYY" — convert to the first of that month.
 function parseArticleDate(dateStr: string): Date {
@@ -12,6 +12,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const buildDate = new Date();
 
   const staticPages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/expertise`,
+      lastModified: buildDate,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/our-process`,
+      lastModified: buildDate,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/engagement-models`,
+      lastModified: buildDate,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/why-inx`,
+      lastModified: buildDate,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
     {
       url: BASE_URL,
       lastModified: buildDate,
@@ -81,5 +105,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...articlePages];
+  const industryLandingPages: MetadataRoute.Sitemap = industryPages.map((p) => ({
+    url: `${BASE_URL}/industries/${p.slug}`,
+    lastModified: buildDate,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...industryLandingPages, ...articlePages];
 }

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function CtaSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -65,11 +65,11 @@ export default function CtaSection() {
 
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
-                href="mailto:info@ideanestx.com"
+                href="/contact"
                 className="inline-flex items-center gap-2 rounded-[3px] bg-blue-500 text-white px-7 py-3 text-sm font-semibold hover:bg-blue-400 transition-all duration-200 shadow-[0_0_32px_rgba(59,130,246,0.35)]"
               >
-                <Mail className="h-4 w-4" />
-                Contact INX
+                Start a Project
+                <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/services"

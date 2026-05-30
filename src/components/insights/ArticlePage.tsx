@@ -4,6 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import type { Article, Block, ArticleSection } from "@/lib/insights";
+import type { Author } from "@/lib/authors";
+
+export type RelatedResource = {
+  label: string;
+  href: string;
+  description: string;
+  type: "service" | "industry" | "page";
+};
 
 // ─── Block renderer ──────────────────────────────────────────────────────────
 
@@ -169,9 +177,13 @@ function RelatedCard({ article }: { article: Article }) {
 export default function ArticlePage({
   article,
   allArticles,
+  author,
+  relatedResources = [],
 }: {
   article: Article;
   allArticles: Article[];
+  author: Author;
+  relatedResources?: RelatedResource[];
 }) {
   const [activeId, setActiveId] = useState<string>(
     article.sections[0]?.id ?? ""
@@ -257,6 +269,19 @@ export default function ArticlePage({
               {article.executiveSummary}
             </p>
           </div>
+
+          {/* Author byline */}
+          <div className="mt-10 flex items-center gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.04]">
+              <span className="font-mono text-[11px] font-medium text-white/45">
+                {author.initials}
+              </span>
+            </div>
+            <div>
+              <p className="text-[13px] font-medium text-white/65">{author.name}</p>
+              <p className="text-[11px] text-white/28">{author.role} · {author.organization}</p>
+            </div>
+          </div>
         </motion.div>
       </div>
 
@@ -299,6 +324,37 @@ export default function ArticlePage({
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {relatedArticles.map((related) => (
               <RelatedCard key={related.slug} article={related} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── Related Services & Industries ─────────────────────────────── */}
+      {relatedResources.length > 0 && (
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-16 pt-14 border-t border-white/[0.06]">
+          <p className="text-[11px] font-medium text-blue-400/65 tracking-[0.16em] uppercase mb-3">
+            INX Services
+          </p>
+          <h2 className="text-2xl font-semibold text-white mb-10">
+            Relevant Capabilities
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {relatedResources.map((res) => (
+              <Link
+                key={res.href}
+                href={res.href}
+                className="group block border border-white/[0.09] rounded-[3px] bg-[#080c18] p-6 transition-colors duration-200 hover:border-white/[0.18] hover:bg-[#0c1120]"
+              >
+                <p className="text-[10px] font-mono text-white/22 uppercase tracking-widest mb-2">
+                  {res.type === "industry" ? "Industry" : "Service"}
+                </p>
+                <p className="text-sm font-semibold text-white mb-2 leading-snug group-hover:text-white/90">
+                  {res.label}
+                </p>
+                <p className="text-[12px] text-white/40 leading-relaxed">
+                  {res.description}
+                </p>
+              </Link>
             ))}
           </div>
         </div>

@@ -12,11 +12,11 @@ const links = {
     { label: "Partnerships", href: "/partnerships" },
     { label: "Careers", href: "/careers" },
   ],
-  Services: [
-    { label: "Enterprise Web", href: "/services" },
-    { label: "SaaS Engineering", href: "/services" },
-    { label: "AI Solutions", href: "/services" },
-    { label: "Staff Augmentation", href: "/services" },
+  "How We Work": [
+    { label: "Our Process", href: "/our-process" },
+    { label: "Engagement Models", href: "/engagement-models" },
+    { label: "Our Expertise", href: "/expertise" },
+    { label: "Why INX", href: "/why-inx" },
   ],
   Legal: [
     { label: "Privacy Policy", href: "/privacy" },

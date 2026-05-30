@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import LegalPage, { type LegalPageData } from "@/components/legal/LegalPage";
+import { BASE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Security Policy - INX",
+  title: "Security Policy",
   description:
     "INX's approach to infrastructure security, credential management, access controls, and responsible handling of client systems.",
+  alternates: {
+    canonical: `${BASE_URL}/security`,
+  },
+  robots: { index: false, follow: true },
 };
 
 const data: LegalPageData = {

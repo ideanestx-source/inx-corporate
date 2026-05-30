@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import LegalPage, { type LegalPageData } from "@/components/legal/LegalPage";
+import { BASE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy - INX",
+  title: "Cookie Policy",
   description:
     "How INX uses cookies and similar technologies on its website.",
+  alternates: {
+    canonical: `${BASE_URL}/cookies`,
+  },
+  robots: { index: false, follow: true },
 };
 
 const data: LegalPageData = {
@@ -20,7 +25,7 @@ const data: LegalPageData = {
       heading: "Cookies and Similar Technologies",
       paragraphs: [
         "Cookies are small text files placed on your device by a website when you visit it. They are widely used to make websites function, to persist user preferences, and to collect information about how a site is used.",
-        "This policy applies to this website (inx.co.in) only. It does not apply to systems INX builds for clients - those systems operate under their own cookie and data handling practices, for which the client is responsible.",
+        "This policy applies to this website (ideanestx.com) only. It does not apply to systems INX builds for clients - those systems operate under their own cookie and data handling practices, for which the client is responsible.",
       ],
     },
     {

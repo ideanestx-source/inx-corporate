@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import LegalPage, { type LegalPageData } from "@/components/legal/LegalPage";
+import { BASE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - INX",
+  title: "Privacy Policy",
   description:
     "How INX collects, handles, and protects personal information in the course of its operations.",
+  alternates: {
+    canonical: `${BASE_URL}/privacy`,
+  },
+  robots: { index: false, follow: true },
 };
 
 const data: LegalPageData = {

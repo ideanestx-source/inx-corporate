@@ -15,23 +15,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "INX - MAKE IT PERFORM | Product Engineering & Digital Infrastructure",
+  metadataBase: new URL("https://ideanestx.com"),
+  title: {
+    default: "INX | Custom Software Development & Product Engineering",
+    template: "%s | INX",
+  },
   description:
-    "INX (IDEANEST X PRIVATE LIMITED) is a premium global product engineering and digital infrastructure company. We build enterprise software, SaaS platforms, mobile applications, AI systems, and cloud-native infrastructure for organizations worldwide.",
+    "Custom software development, SaaS engineering, and product delivery for global organizations. Enterprise-grade systems built to perform in production.",
   openGraph: {
-    title: "INX - MAKE IT PERFORM",
+    title: "INX | Custom Software Development & Product Engineering",
     description:
-      "Premium global product engineering and digital infrastructure. Enterprise software, SaaS platforms, AI systems, mobile applications, cloud architecture.",
-    siteName: "INX - IDEANEST X PRIVATE LIMITED",
+      "Custom software development, SaaS engineering, and product delivery for global organizations.",
+    siteName: "INX",
     locale: "en_US",
     type: "website",
+    url: "https://ideanestx.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "INX - MAKE IT PERFORM",
+    title: "INX | Custom Software Development & Product Engineering",
     description:
-      "Premium global product engineering and digital infrastructure.",
+      "Custom software development, SaaS engineering, and product delivery for global organizations.",
   },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({

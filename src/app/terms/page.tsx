@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import LegalPage, { type LegalPageData } from "@/components/legal/LegalPage";
+import { BASE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions - INX",
+  title: "Terms & Conditions",
   description:
     "Terms governing the engagement between INX and its clients for the delivery of engineering services.",
+  alternates: {
+    canonical: `${BASE_URL}/terms`,
+  },
+  robots: { index: false, follow: true },
 };
 
 const data: LegalPageData = {

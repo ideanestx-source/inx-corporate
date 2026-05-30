@@ -234,19 +234,19 @@ export default function HeroSection() {
             >
               {/* Primary */}
               <Link
-                href="/services"
+                href="/contact"
                 className="group inline-flex items-center gap-2.5 rounded-[3px] bg-blue-500 text-white px-7 py-[11px] text-sm font-semibold hover:bg-blue-400 transition-all duration-200 shadow-[0_0_28px_rgba(59,130,246,0.28)] hover:shadow-[0_0_44px_rgba(59,130,246,0.48)] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
-                Explore Services
+                Start a Project
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform duration-150" />
               </Link>
 
               {/* Secondary */}
               <Link
-                href="/contact"
+                href="/services"
                 className="inline-flex items-center gap-2 rounded-[3px] border border-white/[0.11] text-white/70 px-7 py-[11px] text-sm font-medium hover:border-white/[0.22] hover:bg-white/[0.04] hover:text-white/90 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
               >
-                Start a Project
+                Explore Services
               </Link>
             </motion.div>
           </div>

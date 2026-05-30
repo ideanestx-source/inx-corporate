@@ -64,10 +64,10 @@ export default function ContactCta() {
                   Direct Line
                 </p>
                 <a
-                  href="mailto:reach_us@ideanestx.com"
+                  href="mailto:info@ideanestx.com"
                   className="block text-sm text-white/45 hover:text-white/70 transition-colors"
                 >
-                  reach_us@ideanestx.com
+                  info@ideanestx.com
                 </a>
                 <p className="text-xs text-white/35">
                   Read by INX leadership - not a support queue

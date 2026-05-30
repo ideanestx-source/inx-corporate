@@ -62,10 +62,10 @@ export default function ServicesCta() {
               <div className="pt-2 border-t border-white/[0.09]">
                 <p className="text-xs text-white/25 mb-1">Direct contact</p>
                 <a
-                  href="mailto:reach_us@ideanestx.com"
+                  href="mailto:info@ideanestx.com"
                   className="text-sm text-white/45 hover:text-white/70 transition-colors"
                 >
-                  reach_us@ideanestx.com
+                  info@ideanestx.com
                 </a>
               </div>
             </div>

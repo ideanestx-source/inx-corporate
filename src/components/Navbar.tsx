@@ -29,6 +29,7 @@ export default function Navbar() {
   }, []);
 
   return (
+    <>
     <motion.header
       initial={{ y: -72, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -144,5 +145,19 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </motion.header>
+
+    {/* Mobile sticky bottom CTA — hidden on contact page */}
+    {pathname !== "/contact" && (
+      <div className="fixed bottom-0 left-0 right-0 lg:hidden z-40 px-4 py-3 bg-[#05070e]/95 backdrop-blur-xl border-t border-white/[0.08]">
+        <Link
+          href="/contact"
+          className="flex items-center justify-center gap-2 w-full rounded-[3px] bg-blue-500 text-white py-3 text-sm font-semibold hover:bg-blue-400 transition-colors duration-150 shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+        >
+          Start a Project
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
+    )}
+  </>
   );
 }

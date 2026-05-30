@@ -89,10 +89,10 @@ export default function ContactHero() {
                   Project Engagements
                 </p>
                 <a
-                  href="mailto:reach_us@ideanestx.com"
+                  href="mailto:info@ideanestx.com"
                   className="text-[15px] font-medium text-white/80 hover:text-white transition-colors"
                 >
-                  reach_us@ideanestx.com
+                  info@ideanestx.com
                 </a>
                 <p className="text-xs text-white/30 mt-1">
                   For new project and partnership discussions
