@@ -70,8 +70,6 @@ export default function INXModelMatrix() {
 
   const rowHeight = 34;
   const firstRowCenterY = 67;
-  const cornerLen = 8;
-
   // Corner L-marks
   const corners = [
     // top-left

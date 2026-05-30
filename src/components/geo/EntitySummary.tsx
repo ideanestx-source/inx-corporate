@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ENTITY, ORG_NAME, BASE_URL } from "@/lib/seo";
+import { ENTITY } from "@/lib/seo";
 
 const serviceLinks: { label: string; href: string }[] = [
   { label: "Custom Software Development", href: "/services" },

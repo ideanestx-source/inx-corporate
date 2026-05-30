@@ -40,7 +40,7 @@ export default function TechnologyPhilosophy() {
             Technology Philosophy
           </p>
           <h2 className="text-3xl sm:text-4xl font-semibold text-white leading-tight max-w-2xl">
-            An engineering organisation's technology choices reveal its values.
+            An engineering organisation&apos;s technology choices reveal its values.
           </h2>
         </motion.div>
 

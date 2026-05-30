@@ -57,7 +57,7 @@ export default function IndustryDeliveryModel() {
             <p className="text-sm text-white/35 leading-relaxed">
               The five-phase delivery model adapts to the operational context of
               each industry - the sequence does not change, but what each phase
-              produces is determined by the industry's specific constraints.
+              produces is determined by the industry&apos;s specific constraints.
             </p>
           </div>
         </motion.div>

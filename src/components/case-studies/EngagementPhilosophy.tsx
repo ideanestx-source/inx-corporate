@@ -52,7 +52,7 @@ export default function EngagementPhilosophy() {
             <p className="text-sm text-white/32 leading-relaxed">
               The operational model behind every INX engagement - how we
               communicate, how we own technical decisions, and how we define the
-              boundary between our work and the client's.
+              boundary between our work and the client&apos;s.
             </p>
           </div>
         </motion.div>
