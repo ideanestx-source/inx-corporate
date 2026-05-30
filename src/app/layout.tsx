@@ -22,6 +22,16 @@ export const metadata: Metadata = {
   },
   description:
     "Custom software development, SaaS engineering, and product delivery for global organizations. Enterprise-grade systems built to perform in production.",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon.ico",       sizes: "any",   type: "image/x-icon" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "INX | Custom Software Development & Product Engineering",
     description:

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 28" fill="none" role="img" aria-label="INX — IDEANEST X">
+  <defs>
+    <!--
+      Gradient spans the exact width of the INX mark (0 → 37.1 px in this coordinate space).
+      Colors sampled from the brand asset: cyan → deep blue → purple-magenta.
+    -->
+    <linearGradient id="inx-grad" x1="0" y1="0" x2="37.1" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#00C4FF"/>
+      <stop offset="38%"  stop-color="#0500FF"/>
+      <stop offset="100%" stop-color="#CC00FF"/>
+    </linearGradient>
+  </defs>
+
+  <!--
+    INX mark — geometric paths scaled to 28 px tall (base 90×68, scale ≈ 0.412).
+    Scale applied per-coordinate; no SVG transform so the gradient stays in userSpaceOnUse.
+
+    Base viewBox coords × 0.412:
+      I  : rect(0,0,10,68)        → rect(0,0,4.1,28)
+      N  : left rect(16,0,10,68)  → rect(6.6,0,4.1,28)
+           diagonal (16,0)(26,0)(48,68)(38,68) → (6.6,0)(10.7,0)(19.8,28)(15.7,28)
+           right rect(38,0,10,68) → rect(15.7,0,4.1,28)
+      X  : \ poly (54,0)(64,0)(90,68)(80,68) → (22.2,0)(26.4,0)(37.1,28)(32.9,28)
+           / poly (80,0)(90,0)(64,68)(54,68) → (32.9,0)(37.1,0)(26.4,28)(22.2,28)
+  -->
+  <g fill="url(#inx-grad)">
+    <!-- I -->
+    <rect x="0" y="0" width="4.1" height="28"/>
+
+    <!-- N: left bar -->
+    <rect x="6.6" y="0" width="4.1" height="28"/>
+    <!-- N: diagonal (connects top of left bar to bottom of right bar) -->
+    <polygon points="6.6,0 10.7,0 19.8,28 15.7,28"/>
+    <!-- N: right bar -->
+    <rect x="15.7" y="0" width="4.1" height="28"/>
+
+    <!-- X: \ stroke -->
+    <polygon points="22.2,0 26.4,0 37.1,28 32.9,28"/>
+    <!-- X: / stroke -->
+    <polygon points="32.9,0 37.1,0 26.4,28 22.2,28"/>
+  </g>
+
+  <!-- Separator — centred on the 28px height -->
+  <rect x="44" y="5" width="1" height="18" fill="rgba(255,255,255,0.2)"/>
+
+  <!-- IDEANEST X — matches Tailwind text-[10px] tracking-[0.2em] font-mono uppercase -->
+  <text
+    x="52"
+    y="19.5"
+    fill="rgba(255,255,255,0.38)"
+    font-family="ui-monospace,SFMono-Regular,Menlo,'Courier New',monospace"
+    font-size="10"
+    font-weight="500"
+    letter-spacing="2"
+  >IDEANEST X</text>
+</svg>

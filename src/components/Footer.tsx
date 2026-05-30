@@ -40,8 +40,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-1 lg:pr-8">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-lg font-bold text-white tracking-tight">INX</span>
+            <div className="mb-4">
+              <img
+                src="/logo-mark.png"
+                alt="INX"
+                width={1468}
+                height={991}
+                className="h-9 w-auto object-contain"
+              />
             </div>
             <p className="text-[10px] text-white/28 font-mono tracking-[0.2em] uppercase mb-5">
               IDEANEST X PRIVATE LIMITED

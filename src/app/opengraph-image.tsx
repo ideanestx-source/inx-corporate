@@ -16,50 +16,73 @@ export default function Image() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          padding: "80px",
-          gap: "20px",
+          padding: "96px",
+          position: "relative",
         }}
       >
-        <div
-          style={{
-            color: "#4b6fff",
-            fontSize: "13px",
-            letterSpacing: "0.22em",
-            fontFamily: "sans-serif",
-          }}
-        >
+        {/* Top accent */}
+        <div style={{
+          position: "absolute", top: 0, left: 0, right: 0, height: "2px",
+          background: "linear-gradient(90deg, transparent, #0500FF 30%, #CC00FF 70%, transparent)",
+        }} />
+
+        {/* Entity label */}
+        <div style={{
+          display: "flex",
+          color: "rgba(255,255,255,0.28)",
+          fontSize: "14px",
+          letterSpacing: "0.28em",
+          fontFamily: "monospace",
+          fontWeight: 500,
+          marginBottom: "28px",
+        }}>
           IDEANEST X PRIVATE LIMITED
         </div>
-        <div
-          style={{
-            color: "#ffffff",
-            fontSize: "88px",
-            fontWeight: 700,
-            lineHeight: 1,
-            fontFamily: "sans-serif",
-          }}
-        >
+
+        {/* INX wordmark — brand gradient */}
+        <div style={{
+          display: "flex",
+          fontSize: "130px",
+          fontWeight: 800,
+          lineHeight: 1,
+          fontFamily: "sans-serif",
+          letterSpacing: "-0.02em",
+          marginBottom: "28px",
+          background: "linear-gradient(90deg, #00C4FF 0%, #0500FF 38%, #CC00FF 100%)",
+          backgroundClip: "text",
+          color: "transparent",
+        }}>
           INX
         </div>
-        <div
-          style={{
-            color: "#e2e8f0",
-            fontSize: "30px",
-            fontWeight: 500,
-            fontFamily: "sans-serif",
-          }}
-        >
+
+        {/* Tagline */}
+        <div style={{
+          display: "flex",
+          color: "rgba(255,255,255,0.75)",
+          fontSize: "32px",
+          fontWeight: 500,
+          fontFamily: "sans-serif",
+          marginBottom: "16px",
+        }}>
           Custom Software Development
         </div>
-        <div
-          style={{
-            color: "#475569",
-            fontSize: "20px",
-            fontFamily: "sans-serif",
-          }}
-        >
+
+        {/* Sub-tagline */}
+        <div style={{
+          display: "flex",
+          color: "rgba(255,255,255,0.30)",
+          fontSize: "20px",
+          fontFamily: "sans-serif",
+          letterSpacing: "0.04em",
+        }}>
           Product Engineering · SaaS · AI Systems · Cloud Infrastructure
         </div>
+
+        {/* Bottom accent */}
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0, height: "2px",
+          background: "linear-gradient(90deg, transparent, #0500FF 30%, #CC00FF 70%, transparent)",
+        }} />
       </div>
     ),
     { ...size }

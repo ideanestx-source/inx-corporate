@@ -47,15 +47,15 @@ export default function Navbar() {
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="text-xl font-bold tracking-tight text-white group-hover:text-blue-400 transition-colors duration-200">
-              INX
-            </span>
-            <span className="hidden sm:block h-3.5 w-px bg-white/20" />
-            <span className="hidden sm:block text-[10px] text-white/38 font-mono tracking-[0.2em] uppercase group-hover:text-white/55 transition-colors duration-200">
-              IDEANEST X
-            </span>
+          {/* Logo — tight-cropped mark PNG (1468×991, no transparent padding) */}
+          <Link href="/" className="flex items-center group" aria-label="INX — Home">
+            <img
+              src="/logo-mark.png"
+              alt="INX"
+              width={1468}
+              height={991}
+              className="h-8 w-auto shrink-0 object-contain group-hover:opacity-80 transition-opacity duration-200"
+            />
           </Link>
 
           {/* Desktop nav */}

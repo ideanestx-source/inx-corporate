@@ -4,6 +4,14 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+// Deterministic breathe durations per primary node.
+// These replace Math.random() which caused SSR/client hydration mismatches.
+const BREATHE_DURATION: Record<string, number> = {
+  api: 3.2,
+  db:  2.8,
+  ai:  3.7,
+};
+
 /* Abstract enterprise architecture diagram */
 function ArchDiagram() {
   const nodes = [
@@ -98,7 +106,7 @@ function ArchDiagram() {
             strokeWidth={node.primary ? 1.5 : 1}
             style={
               node.primary
-                ? { animation: `node-breathe ${2.5 + Math.random() * 1.5}s ease-in-out infinite` }
+                ? { animation: `node-breathe ${BREATHE_DURATION[node.id] ?? 3.0}s ease-in-out infinite` }
                 : undefined
             }
           />
