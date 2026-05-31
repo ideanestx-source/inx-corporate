@@ -48,13 +48,11 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo — tight-cropped mark PNG (1468×991, no transparent padding) */}
-          <Link href="/" className="flex items-center group" aria-label="INX — Home">
+          <Link href="/" className="flex items-center" aria-label="INX — Home">
             <img
               src="/logo-mark.png"
               alt="INX"
-              width={1468}
-              height={991}
-              className="h-8 w-auto shrink-0 object-contain group-hover:opacity-80 transition-opacity duration-200"
+              className="h-6 sm:h-7 lg:h-8 w-auto object-contain"
             />
           </Link>
 
