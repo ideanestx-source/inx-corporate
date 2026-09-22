@@ -239,6 +239,38 @@ export function productSchema(opts: {
 }
 
 /**
+ * Structured data for a game detail page. Unlike products, schema.org's
+ * VideoGame type is used directly rather than falling back to
+ * CreativeWork — genre and platform are real, structured fields the data
+ * model actually has, and VideoGame doesn't carry the same implicit
+ * pricing/rating expectation that Product/SoftwareApplication do. No
+ * aggregateRating, offers, or playMode is ever populated — only fields
+ * the data genuinely supports.
+ */
+export function gameSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  genre: string;
+  platform: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    genre: opts.genre,
+    gamePlatform: opts.platform,
+    publisher: {
+      "@type": "Organization",
+      name: ORG_NAME,
+      url: BASE_URL,
+    },
+  };
+}
+
+/**
  * Structured data for a case-study detail page. Callers must only pass
  * anonymous descriptors (clientDescriptor, industry, projectType) — never
  * a client/company name. Schema.org has no dedicated "CaseStudy" type;

@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import GameDetailHero from "@/components/games/GameDetailHero";
+import GameOverview from "@/components/games/GameOverview";
+import GameFeatures from "@/components/games/GameFeatures";
+import GameMedia from "@/components/games/GameMedia";
+import GameTrailer from "@/components/games/GameTrailer";
+import GamePlatforms from "@/components/games/GamePlatforms";
+import GameTechnology from "@/components/games/GameTechnology";
+import GameRelated from "@/components/games/GameRelated";
+import GameCTA from "@/components/games/GameCTA";
 import { getGame, getPublishedGames } from "@/lib/games-data";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, gameSchema } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -58,26 +66,26 @@ export default async function Page({ params }: Props) {
           { name: game.title, item: url },
         ])}
       />
+      <JsonLd
+        data={gameSchema({
+          name: game.title,
+          description: game.description,
+          url,
+          genre: game.genre,
+          platform: game.platform,
+        })}
+      />
       <Navbar />
 
-      <div className="pt-32 pb-24 mx-auto max-w-4xl px-6 lg:px-8">
-        <p className="text-[11px] font-medium text-blue-400/65 tracking-[0.16em] uppercase mb-4">
-          {game.genre} · {game.status}
-        </p>
-        <h1 className="text-4xl sm:text-5xl font-semibold text-white leading-tight mb-6">
-          {game.title}
-        </h1>
-        <p className="text-sm text-white/60 leading-relaxed mb-12 max-w-2xl">
-          {game.description}
-        </p>
-
-        <Link
-          href={game.cta.href}
-          className="inline-flex items-center gap-2 rounded-[3px] bg-blue-500/12 border border-blue-500/22 px-6 py-3 text-sm font-medium text-blue-300/90 hover:bg-blue-500/22 hover:border-blue-400/35 hover:text-blue-200 transition-all duration-200"
-        >
-          {game.cta.label}
-        </Link>
-      </div>
+      <GameDetailHero game={game} />
+      <GameOverview description={game.description} />
+      <GameFeatures gameplayFeatures={game.gameplayFeatures} />
+      <GameMedia screenshots={game.screenshots} />
+      <GameTrailer trailer={game.trailer} />
+      <GamePlatforms platform={game.platform} storeLinks={game.storeLinks} />
+      <GameTechnology technologies={game.technologies} />
+      <GameRelated currentSlug={game.slug} genre={game.genre} />
+      <GameCTA cta={game.cta} heading={`Interested in ${game.title}?`} />
 
       <Footer />
     </main>
