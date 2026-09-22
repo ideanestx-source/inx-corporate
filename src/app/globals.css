@@ -186,3 +186,21 @@ select:-webkit-autofill {
 .glow-card:hover {
   box-shadow: 0 0 0 1px rgba(59,130,246,0.18), 0 12px 48px rgba(0,0,0,0.5), 0 0 40px rgba(59,130,246,0.08);
 }
+
+/* ============================================================
+   Reduced motion — global fallback
+   Framer Motion components are handled centrally via <MotionConfig
+   reducedMotion="user"> in the root layout. This block covers the
+   hand-written CSS @keyframes animations (SVG diagrams, scan lines,
+   flow effects) that MotionConfig cannot reach.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

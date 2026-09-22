@@ -203,7 +203,7 @@ export default function HeroSection() {
               transition={{ duration: 0.55, ease: "easeOut" }}
               className="text-[10px] font-mono tracking-[0.32em] uppercase text-white/25 mb-8 select-none"
             >
-              MAKE IT PERFORM
+              IDEANEST X
             </motion.p>
 
             {/* Headline - with very subtle glow behind it */}

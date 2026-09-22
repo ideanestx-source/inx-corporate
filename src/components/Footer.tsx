@@ -103,7 +103,7 @@ export default function Footer() {
             © {year} IDEANEST X PRIVATE LIMITED. All rights reserved.
           </p>
           <p className="text-xs text-white/22 font-mono tracking-wider">
-            INX - MAKE IT PERFORM
+            INX — Build Systems That Perform.
           </p>
         </div>
       </div>

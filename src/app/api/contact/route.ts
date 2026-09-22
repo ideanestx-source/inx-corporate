@@ -183,7 +183,7 @@ function confirmationHtml(name: string): string {
         <tr>
           <td style="padding:28px 0 0 0">
             <p style="margin:0 0 4px 0;font-size:12px;font-family:monospace;color:#4b6fff;letter-spacing:0.18em;text-transform:uppercase">
-              MAKE IT PERFORM
+              BUILD SYSTEMS THAT PERFORM
             </p>
             <p style="margin:0 0 14px 0;font-size:11px;color:#3a3f56;font-family:monospace;letter-spacing:0.1em;text-transform:uppercase">
               IDEANEST X PRIVATE LIMITED

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { MotionConfig } from "framer-motion";
 import "./globals.css";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
@@ -58,7 +59,10 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#05070e]">
         <GoogleAnalytics />
         <MicrosoftClarity />
-        {children}
+        {/* Central reduced-motion gate: when the visitor's OS requests reduced
+            motion, Framer Motion automatically simplifies every motion.*
+            animation site-wide — no per-component logic needed. */}
+        <MotionConfig reducedMotion="user">{children}</MotionConfig>
       </body>
     </html>
   );
