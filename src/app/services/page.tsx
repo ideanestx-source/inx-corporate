@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicesHero from "@/components/services/ServicesHero";
-import CoreServices from "@/components/services/CoreServices";
+import ServicesOverview from "@/components/services/ServicesOverview";
+import ServiceGrid from "@/components/services/ServiceGrid";
 import DeliveryApproach from "@/components/services/DeliveryApproach";
 import EngagementModels from "@/components/services/EngagementModels";
 import ServicesTech from "@/components/services/ServicesTech";
@@ -12,7 +13,8 @@ import Link from "next/link";
 import OutcomeStrip from "@/components/trust/OutcomeStrip";
 import JsonLd from "@/components/JsonLd";
 import ExpertiseBlock from "@/components/geo/ExpertiseBlock";
-import { BASE_URL, SITE_NAME, breadcrumbSchema, faqSchema, servicePageSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, faqSchema, serviceCatalogSchema } from "@/lib/seo";
+import { getPublishedServices } from "@/lib/services-data";
 
 const servicesFaqItems = [
   {
@@ -60,14 +62,14 @@ const servicesFaqItems = [
 export const metadata: Metadata = {
   title: "Software Development Services",
   description:
-    "Enterprise software development, SaaS platforms, mobile applications, AI systems, staff augmentation, and cloud infrastructure for global clients.",
+    "Web, mobile, SaaS, AI and automation, game development, UI/UX, system integrations, and dedicated engineering teams — ten service lines, one engineering standard.",
   alternates: {
     canonical: `${BASE_URL}/services`,
   },
   openGraph: {
     title: "Software Development Services | INX",
     description:
-      "Enterprise software development, SaaS platforms, mobile applications, AI systems, staff augmentation, and cloud infrastructure for global clients.",
+      "Web, mobile, SaaS, AI and automation, game development, UI/UX, system integrations, and dedicated engineering teams — ten service lines, one engineering standard.",
     url: `${BASE_URL}/services`,
     siteName: SITE_NAME,
     locale: "en_US",
@@ -77,11 +79,17 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Software Development Services | INX",
     description:
-      "Enterprise software development, SaaS platforms, mobile applications, AI systems, staff augmentation, and cloud infrastructure for global clients.",
+      "Web, mobile, SaaS, AI and automation, game development, UI/UX, system integrations, and dedicated engineering teams — ten service lines, one engineering standard.",
   },
 };
 
 export default function ServicesPage() {
+  const serviceCatalogItems = getPublishedServices().map((s) => ({
+    name: s.title,
+    description: s.summary,
+    url: `${BASE_URL}/services/${s.slug}`,
+  }));
+
   return (
     <main className="min-h-screen bg-[#05070e]">
       <JsonLd
@@ -91,10 +99,11 @@ export default function ServicesPage() {
         ])}
       />
       <JsonLd data={faqSchema(servicesFaqItems)} />
-      <JsonLd data={servicePageSchema()} />
+      <JsonLd data={serviceCatalogSchema(serviceCatalogItems)} />
       <Navbar />
       <ServicesHero />
-      <CoreServices />
+      <ServicesOverview />
+      <ServiceGrid />
       <DeliveryApproach />
       <OutcomeStrip />
       <EngagementModels />

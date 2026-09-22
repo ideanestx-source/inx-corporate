@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Reveal from "@/components/motion/Reveal";
 
 export default function ServicesHero() {
   return (
@@ -26,72 +24,56 @@ export default function ServicesHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
           {/* Left: label + headline */}
           <div className="lg:col-span-7">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
-              className="text-[11px] font-medium text-blue-400/65 tracking-[0.16em] uppercase mb-6"
-            >
-              Services
-            </motion.p>
+            <Reveal y={10} duration={0.45}>
+              <p className="text-[11px] font-medium text-blue-400/65 tracking-[0.16em] uppercase mb-6">
+                Services
+              </p>
+            </Reveal>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.07 }}
-              className="text-5xl sm:text-6xl lg:text-[66px] font-semibold leading-[1.04] tracking-tight text-white"
-            >
-              Full-Spectrum Engineering{" "}
-              <span className="text-white/32">for Enterprise Scale</span>
-            </motion.h1>
+            <Reveal delay={0.07} duration={0.6}>
+              <h1 className="text-5xl sm:text-6xl lg:text-[66px] font-semibold leading-[1.04] tracking-tight text-white">
+                Software Built{" "}
+                <span className="text-white/32">Around the Work.</span>
+              </h1>
+            </Reveal>
           </div>
 
           {/* Right: supporting copy + data points */}
           <div className="lg:col-span-5 flex flex-col justify-end pb-1">
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.18 }}
-              className="text-base text-white/68 leading-relaxed mb-8"
-            >
-              INX delivers across the full engineering surface - from web
-              platforms and AI systems to cloud infrastructure and embedded
-              team delivery. Each service is built on the same foundation:
-              senior engineers, defined process, and accountability for
-              outcomes.
-            </motion.p>
+            <Reveal delay={0.18} duration={0.55}>
+              <p className="text-base text-white/68 leading-relaxed mb-8">
+                INX delivers across the full engineering surface — from web
+                and mobile platforms to SaaS, AI systems, game backends, and
+                embedded team delivery. Each service is built on the same
+                foundation: senior engineers, defined process, and
+                accountability for outcomes.
+              </p>
+            </Reveal>
 
             {/* Inline data strip */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center gap-6 border-t border-white/[0.09] pt-6"
-            >
-              {[
-                { value: "7", label: "Service Lines" },
-                { value: "5", label: "Engagement Types" },
-                { value: "Senior", label: "Engineers Only" },
-              ].map((item) => (
-                <div key={item.label}>
-                  <p className="text-base font-semibold text-white">{item.value}</p>
-                  <p className="text-[10px] text-white/30 uppercase tracking-[0.12em] mt-0.5">
-                    {item.label}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
+            <Reveal delay={0.3} y={0}>
+              <div className="flex items-center gap-6 border-t border-white/[0.09] pt-6">
+                {[
+                  { value: "10", label: "Service Lines" },
+                  { value: "5", label: "Engagement Types" },
+                  { value: "Senior", label: "Engineers Only" },
+                ].map((item) => (
+                  <div key={item.label}>
+                    <p className="text-base font-semibold text-white">{item.value}</p>
+                    <p className="text-[10px] text-white/30 uppercase tracking-[0.12em] mt-0.5">
+                      {item.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
 
         {/* Bottom rule */}
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.65, delay: 0.38 }}
-          style={{ originX: 0 }}
-          className="mt-14 h-px bg-gradient-to-r from-white/[0.10] via-white/[0.05] to-transparent"
-        />
+        <Reveal delay={0.38} duration={0.65} y={0}>
+          <div className="mt-14 h-px bg-gradient-to-r from-white/[0.10] via-white/[0.05] to-transparent origin-left scale-x-100" />
+        </Reveal>
       </div>
     </section>
   );

@@ -171,12 +171,62 @@ export function servicePageSchema() {
   };
 }
 
+/**
+ * Narrowly scoped to the /services listing page: builds structured data
+ * from the real, current service catalog (services-data.ts) rather than
+ * the legacy ENTITY.services list, which still contains the retired
+ * standalone "Cloud Infrastructure Engineering" / "DevOps and CI/CD"
+ * entries. ENTITY.services and servicePageSchema() are left untouched here
+ * — reconciling them sitewide (organizationSchema, /expertise, etc.) is
+ * deferred to the dedicated SEO phase.
+ */
+export function serviceCatalogSchema(
+  items: Array<{ name: string; description: string; url: string }>
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "INX Service Lines",
+    itemListElement: items.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Service",
+        name: s.name,
+        description: s.description,
+        url: s.url,
+        provider: { "@type": "Organization", name: ORG_NAME },
+      },
+    })),
+  };
+}
+
 export function webSiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE_NAME,
     url: BASE_URL,
+  };
+}
+
+export function serviceSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    provider: {
+      "@type": "Organization",
+      name: ORG_NAME,
+      url: BASE_URL,
+    },
+    areaServed: "Worldwide",
   };
 }
 

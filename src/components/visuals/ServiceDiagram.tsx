@@ -280,3 +280,117 @@ export function UIUXDiagram() {
     </svg>
   );
 }
+
+/** Game backend engineering — a stylised HUD/viewport, not an architecture diagram. */
+export function GameDiagram() {
+  return (
+    <svg viewBox="0 0 120 80" width="100%" height="100%" aria-hidden="true" style={{ display: "block" }}>
+      {/* Viewport frame */}
+      <rect x="2" y="2" width="116" height="76" rx="3" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+      {/* HUD top bar */}
+      <rect x="8" y="8" width="34" height="8" rx="1.5" fill="rgba(59,130,246,0.14)" />
+      <text x="12" y="13.5" fontSize="5" fontFamily="monospace" fill="rgba(96,165,250,0.7)">SCORE 12,480</text>
+      <rect x="78" y="8" width="34" height="8" rx="1.5" fill="rgba(255,255,255,0.04)" />
+      <text x="82" y="13.5" fontSize="5" fontFamily="monospace" fill="rgba(255,255,255,0.35)">SESSION 03:41</text>
+      {/* Play field grid */}
+      {[0, 1, 2, 3, 4].map((col) =>
+        [0, 1, 2].map((row) => (
+          <rect
+            key={`${col}-${row}`}
+            x={8 + col * 21}
+            y={24 + row * 12}
+            width="19"
+            height="10"
+            rx="1"
+            fill="rgba(255,255,255,0.025)"
+            stroke="rgba(255,255,255,0.05)"
+            strokeWidth="0.6"
+          />
+        ))
+      )}
+      {/* Player node with breathing glow */}
+      <circle cx="60" cy="41" r="8" fill="rgba(59,130,246,0.06)" />
+      <circle
+        cx="60"
+        cy="41"
+        r="4"
+        fill="rgba(96,165,250,0.55)"
+        stroke="rgba(96,165,250,0.35)"
+        strokeWidth="1"
+        style={{ animation: "node-breathe 2.4s ease-in-out infinite" }}
+      />
+      {/* Leaderboard strip */}
+      <rect x="8" y="64" width="104" height="10" rx="1.5" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="0.6" />
+      <circle cx="14" cy="69" r="1.6" fill="rgba(251,191,36,0.6)" />
+      <circle cx="22" cy="69" r="1.6" fill="rgba(255,255,255,0.25)" />
+      <circle cx="30" cy="69" r="1.6" fill="rgba(255,255,255,0.16)" />
+      <text x="38" y="71" fontSize="5" fontFamily="monospace" fill="rgba(255,255,255,0.3)">LEADERBOARD — LIVE</text>
+      <CornerMarks />
+    </svg>
+  );
+}
+
+/** Recruitment & talent — a candidate pipeline, deliberately not a systems diagram. */
+export function RecruitmentDiagram() {
+  const stages = [
+    { x: 6, label: "APPLIED", count: "" },
+    { x: 34, label: "REVIEW", count: "" },
+    { x: 62, label: "INTERVIEW", count: "" },
+    { x: 90, label: "OFFER", count: "" },
+  ];
+  return (
+    <svg viewBox="0 0 120 80" width="100%" height="100%" aria-hidden="true" style={{ display: "block" }}>
+      {/* Pipeline connector line */}
+      <line x1="14" y1="40" x2="106" y2="40" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="3 3" />
+      {stages.map((s, i) => (
+        <g key={s.label}>
+          {/* Candidate card stack */}
+          <rect x={s.x} y="20" width="20" height="26" rx="2" fill={i === 2 ? "rgba(59,130,246,0.14)" : "rgba(255,255,255,0.04)"} stroke={i === 2 ? "rgba(96,165,250,0.3)" : "rgba(255,255,255,0.09)"} strokeWidth="1" />
+          <circle cx={s.x + 10} cy="28" r="3.5" fill={i === 2 ? "rgba(96,165,250,0.5)" : "rgba(255,255,255,0.16)"} />
+          <rect x={s.x + 5} y="34" width="10" height="2" rx="1" fill="rgba(255,255,255,0.12)" />
+          <rect x={s.x + 6.5} y="38" width="7" height="2" rx="1" fill="rgba(255,255,255,0.08)" />
+          {/* Node on the pipeline */}
+          <circle cx={s.x + 10} cy="40" r="2.5" fill={i === 2 ? "rgba(96,165,250,0.7)" : "rgba(255,255,255,0.2)"} />
+          <text x={s.x + 10} y="58" textAnchor="middle" fontSize="5" fontFamily="monospace" fill="rgba(255,255,255,0.3)">
+            {s.label}
+          </text>
+        </g>
+      ))}
+      <CornerMarks />
+    </svg>
+  );
+}
+
+/** Training & technical enablement — a knowledge-transfer checklist, not a network diagram. */
+export function TrainingDiagram() {
+  const rows = [
+    { w: 82, done: true },
+    { w: 64, done: true },
+    { w: 90, done: true },
+    { w: 48, done: false },
+    { w: 70, done: false },
+  ];
+  return (
+    <svg viewBox="0 0 120 80" width="100%" height="100%" aria-hidden="true" style={{ display: "block" }}>
+      <text x="8" y="12" fontSize="6" fontFamily="monospace" fill="rgba(255,255,255,0.25)" letterSpacing="0.06em">
+        ENABLEMENT TRACK
+      </text>
+      {rows.map((row, i) => (
+        <g key={i} transform={`translate(8, ${20 + i * 11})`}>
+          {/* Checkbox */}
+          <rect x="0" y="0" width="8" height="8" rx="1.5" fill={row.done ? "rgba(59,130,246,0.18)" : "rgba(255,255,255,0.03)"} stroke={row.done ? "rgba(96,165,250,0.4)" : "rgba(255,255,255,0.1)"} strokeWidth="1" />
+          {row.done && (
+            <path d="M 1.8 4.2 L 3.4 5.8 L 6.2 2.4" stroke="rgba(96,165,250,0.8)" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          )}
+          {/* Row bar (represents a topic/module) */}
+          <rect x="14" y="1.5" width={row.w} height="5" rx="1" fill={row.done ? "rgba(255,255,255,0.07)" : "rgba(255,255,255,0.035)"} />
+        </g>
+      ))}
+      {/* Progress footer */}
+      <text x="8" y="76" fontSize="5" fontFamily="monospace" fill="rgba(255,255,255,0.2)">
+        3 / 5 MODULES COMPLETE
+      </text>
+      <CornerMarks />
+    </svg>
+  );
+}
