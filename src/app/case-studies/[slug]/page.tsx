@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import CaseStudyHero from "@/components/case-studies/CaseStudyHero";
+import CaseStudyChallenge from "@/components/case-studies/CaseStudyChallenge";
+import CaseStudySolution from "@/components/case-studies/CaseStudySolution";
+import CaseStudyTimeline from "@/components/case-studies/CaseStudyTimeline";
+import CaseStudyOutcomes from "@/components/case-studies/CaseStudyOutcomes";
+import CaseStudyTechnology from "@/components/case-studies/CaseStudyTechnology";
+import CaseStudyRelatedWork from "@/components/case-studies/CaseStudyRelatedWork";
+import CaseStudyCTA from "@/components/case-studies/CaseStudyCTA";
 import { getCaseStudy, getPublishedCaseStudies } from "@/lib/case-studies-data";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, caseStudySchema } from "@/lib/seo";
 
-// PHASE 2 NOTE: minimal functional rendering to prove the routing and data
-// architecture — final editorial layout lands in a later phase. The
-// existing /case-studies listing (FeaturedCaseStudies.tsx) is untouched and
-// does not yet link here; this route is reachable directly by slug for
-// verification purposes only.
-//
-// CONFIDENTIALITY: this page must never render a client/company name.
-// Render only `clientDescriptor`, never anything else that could identify
-// the client.
+// CONFIDENTIALITY: this route tree must never render a client/company name.
+// Only clientDescriptor, industry, and projectType are ever surfaced — in
+// visible content, metadata, JSON-LD, and breadcrumbs alike.
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -70,111 +71,24 @@ export default async function Page({ params }: Props) {
           { name: caseStudy.title, item: url },
         ])}
       />
+      <JsonLd
+        data={caseStudySchema({
+          title: caseStudy.title,
+          description: caseStudy.summary,
+          url,
+          industry: caseStudy.industry,
+        })}
+      />
       <Navbar />
 
-      <div className="pt-32 pb-24 mx-auto max-w-4xl px-6 lg:px-8">
-        <div className="flex items-center gap-3 mb-5 text-[11px] font-medium text-white/35 tracking-[0.14em] uppercase">
-          <span>{caseStudy.clientDescriptor}</span>
-          <span className="h-px w-3 bg-white/[0.14]" />
-          <span>{caseStudy.industry}</span>
-          <span className="h-px w-3 bg-white/[0.14]" />
-          <span>{caseStudy.projectType}</span>
-        </div>
-        <h1 className="text-3xl sm:text-4xl font-semibold text-white leading-tight mb-6">
-          {caseStudy.title}
-        </h1>
-        <p className="text-base text-white/60 leading-relaxed mb-12 max-w-2xl">
-          {caseStudy.summary}
-        </p>
-
-        <section className="mb-10">
-          <h2 className="text-xs font-medium text-white/30 tracking-[0.16em] uppercase mb-3">
-            The Challenge
-          </h2>
-          <p className="text-sm text-white/65 leading-relaxed">{caseStudy.challenge}</p>
-        </section>
-
-        <section className="mb-10">
-          <h2 className="text-xs font-medium text-white/30 tracking-[0.16em] uppercase mb-3">
-            The Solution
-          </h2>
-          <p className="text-sm text-white/65 leading-relaxed">{caseStudy.solution}</p>
-        </section>
-
-        {caseStudy.features.length > 0 && (
-          <section className="mb-10">
-            <h2 className="text-xs font-medium text-white/30 tracking-[0.16em] uppercase mb-3">
-              Features
-            </h2>
-            <ul className="space-y-2 list-disc list-inside">
-              {caseStudy.features.map((f) => (
-                <li key={f} className="text-sm text-white/55 leading-relaxed">
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {caseStudy.technologies.length > 0 && (
-          <section className="mb-10">
-            <h2 className="text-xs font-medium text-white/30 tracking-[0.16em] uppercase mb-3">
-              Technologies
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {caseStudy.technologies.map((t) => (
-                <span
-                  key={t}
-                  className="text-[12px] text-white/55 border border-white/[0.09] rounded-[2px] px-3 py-1"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {caseStudy.outcomes.length > 0 && (
-          <section className="mb-12 rounded-[3px] border border-white/[0.09] bg-[#0d1222] px-6 py-5">
-            <h2 className="text-xs font-medium text-white/30 tracking-[0.16em] uppercase mb-3">
-              Outcomes
-            </h2>
-            <ul className="space-y-2">
-              {caseStudy.outcomes.map((o) => (
-                <li key={o} className="text-sm text-white/60 leading-relaxed">
-                  {o}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {caseStudy.relatedServiceSlugs.length > 0 && (
-          <section className="mb-12">
-            <h2 className="text-xs font-medium text-white/30 tracking-[0.16em] uppercase mb-4">
-              Related Services
-            </h2>
-            <div className="flex flex-wrap gap-3">
-              {caseStudy.relatedServiceSlugs.map((slug) => (
-                <Link
-                  key={slug}
-                  href={`/services/${slug}`}
-                  className="text-sm text-blue-400/70 hover:text-blue-300 transition-colors"
-                >
-                  /services/{slug}
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
-
-        <Link
-          href={caseStudy.cta.href}
-          className="inline-flex items-center gap-2 rounded-[3px] bg-blue-500/12 border border-blue-500/22 px-6 py-3 text-sm font-medium text-blue-300/90 hover:bg-blue-500/22 hover:border-blue-400/35 hover:text-blue-200 transition-all duration-200"
-        >
-          {caseStudy.cta.label}
-        </Link>
-      </div>
+      <CaseStudyHero caseStudy={caseStudy} />
+      <CaseStudyChallenge challenge={caseStudy.challenge} />
+      <CaseStudySolution solution={caseStudy.solution} features={caseStudy.features} />
+      <CaseStudyTimeline timeline={caseStudy.timeline} />
+      <CaseStudyOutcomes outcomes={caseStudy.outcomes} />
+      <CaseStudyTechnology technologies={caseStudy.technologies} />
+      <CaseStudyRelatedWork caseStudy={caseStudy} />
+      <CaseStudyCTA cta={caseStudy.cta} />
 
       <Footer />
     </main>

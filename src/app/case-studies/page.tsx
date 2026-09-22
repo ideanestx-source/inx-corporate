@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CaseStudiesHero from "@/components/case-studies/CaseStudiesHero";
-import FeaturedCaseStudies from "@/components/case-studies/FeaturedCaseStudies";
+import CaseStudyGrid from "@/components/case-studies/CaseStudyGrid";
+import CaseStudiesOverview from "@/components/case-studies/CaseStudiesOverview";
 import EngineeringPrinciples from "@/components/case-studies/EngineeringPrinciples";
-import DeliveryMetrics from "@/components/case-studies/DeliveryMetrics";
 import EngagementPhilosophy from "@/components/case-studies/EngagementPhilosophy";
 import CaseStudiesCta from "@/components/case-studies/CaseStudiesCta";
 import JsonLd from "@/components/JsonLd";
@@ -45,9 +45,9 @@ export default function CaseStudiesPage() {
       />
       <Navbar />
       <CaseStudiesHero />
-      <FeaturedCaseStudies />
+      <CaseStudyGrid />
+      <CaseStudiesOverview />
       <EngineeringPrinciples />
-      <DeliveryMetrics />
       <EngagementPhilosophy />
       <CaseStudiesCta />
       <Footer />

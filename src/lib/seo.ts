@@ -150,35 +150,14 @@ export function organizationSchema() {
   };
 }
 
-export function servicePageSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: ORG_NAME,
-    alternateName: SITE_NAME,
-    url: BASE_URL,
-    description: ENTITY.description,
-    areaServed: "Worldwide",
-    knowsAbout: ENTITY.services,
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "INX Engineering Services",
-      itemListElement: ENTITY.services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s },
-      })),
-    },
-  };
-}
-
 /**
  * Narrowly scoped to the /services listing page: builds structured data
  * from the real, current service catalog (services-data.ts) rather than
  * the legacy ENTITY.services list, which still contains the retired
  * standalone "Cloud Infrastructure Engineering" / "DevOps and CI/CD"
- * entries. ENTITY.services and servicePageSchema() are left untouched here
- * — reconciling them sitewide (organizationSchema, /expertise, etc.) is
- * deferred to the dedicated SEO phase.
+ * entries. ENTITY.services is left untouched here — reconciling it
+ * sitewide (organizationSchema, /expertise, etc.) is deferred to the
+ * dedicated SEO phase.
  */
 export function serviceCatalogSchema(
   items: Array<{ name: string; description: string; url: string }>
@@ -227,6 +206,33 @@ export function serviceSchema(opts: {
       url: BASE_URL,
     },
     areaServed: "Worldwide",
+  };
+}
+
+/**
+ * Structured data for a case-study detail page. Callers must only pass
+ * anonymous descriptors (clientDescriptor, industry, projectType) — never
+ * a client/company name. Schema.org has no dedicated "CaseStudy" type;
+ * CreativeWork is the closest accurate fit for a documented engagement.
+ */
+export function caseStudySchema(opts: {
+  title: string;
+  description: string;
+  url: string;
+  industry: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: opts.title,
+    description: opts.description,
+    url: opts.url,
+    about: opts.industry,
+    creator: {
+      "@type": "Organization",
+      name: ORG_NAME,
+      url: BASE_URL,
+    },
   };
 }
 
