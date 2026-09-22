@@ -47,3 +47,15 @@ export type PublishState = {
   draft: boolean;
   needsContent?: boolean;
 };
+
+/**
+ * The single, shared gate for "must never appear publicly." Every domain's
+ * getPublishedX()/getX(slug) helper should filter through this rather than
+ * re-implementing the `!item.draft` check inline, so the draft rule is
+ * enforced identically everywhere: listings, generateStaticParams, related-
+ * content lookups, and direct getX(slug) access all end up excluding drafts
+ * through this one function.
+ */
+export function filterPublished<T extends PublishState>(items: T[]): T[] {
+  return items.filter((item) => !item.draft);
+}
