@@ -210,6 +210,35 @@ export function serviceSchema(opts: {
 }
 
 /**
+ * Structured data for a product detail page. Deliberately CreativeWork
+ * rather than Product/SoftwareApplication: those types carry an implicit
+ * expectation of offers/pricing or an aggregateRating, and INX products
+ * currently have neither. Using them without that data would misrepresent
+ * what's actually known — CreativeWork makes no such claim. Revisit if a
+ * published product ever has real pricing/rating data to report.
+ */
+export function productSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  category: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    about: opts.category,
+    creator: {
+      "@type": "Organization",
+      name: ORG_NAME,
+      url: BASE_URL,
+    },
+  };
+}
+
+/**
  * Structured data for a case-study detail page. Callers must only pass
  * anonymous descriptors (clientDescriptor, industry, projectType) — never
  * a client/company name. Schema.org has no dedicated "CaseStudy" type;

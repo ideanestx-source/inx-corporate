@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import ProductDetailHero from "@/components/products/ProductDetailHero";
+import ProductOverview from "@/components/products/ProductOverview";
+import ProductCapabilities from "@/components/products/ProductCapabilities";
+import ProductVisual from "@/components/products/ProductVisual";
+import ProductTechnology from "@/components/products/ProductTechnology";
+import ProductRelated from "@/components/products/ProductRelated";
+import ProductCTA from "@/components/products/ProductCTA";
 import { getProduct, getPublishedProducts } from "@/lib/products-data";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, productSchema } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -49,6 +55,12 @@ export default async function Page({ params }: Props) {
 
   const url = `${BASE_URL}/products/${product.slug}`;
 
+  // If the product links externally, the primary CTA should point there
+  // instead of the generic contact form.
+  const primaryCta = product.externalUrl
+    ? { label: product.cta.label, href: product.externalUrl, external: true }
+    : product.cta;
+
   return (
     <main className="min-h-screen bg-[#05070e]">
       <JsonLd
@@ -58,27 +70,23 @@ export default async function Page({ params }: Props) {
           { name: product.name, item: url },
         ])}
       />
+      <JsonLd
+        data={productSchema({
+          name: product.name,
+          description: product.description,
+          url,
+          category: product.category,
+        })}
+      />
       <Navbar />
 
-      <div className="pt-32 pb-24 mx-auto max-w-4xl px-6 lg:px-8">
-        <p className="text-[11px] font-medium text-blue-400/65 tracking-[0.16em] uppercase mb-4">
-          {product.category} · {product.status}
-        </p>
-        <h1 className="text-4xl sm:text-5xl font-semibold text-white leading-tight mb-4">
-          {product.name}
-        </h1>
-        <p className="text-lg text-white/55 mb-8">{product.tagline}</p>
-        <p className="text-sm text-white/60 leading-relaxed mb-12 max-w-2xl">
-          {product.description}
-        </p>
-
-        <Link
-          href={product.cta.href}
-          className="inline-flex items-center gap-2 rounded-[3px] bg-blue-500/12 border border-blue-500/22 px-6 py-3 text-sm font-medium text-blue-300/90 hover:bg-blue-500/22 hover:border-blue-400/35 hover:text-blue-200 transition-all duration-200"
-        >
-          {product.cta.label}
-        </Link>
-      </div>
+      <ProductDetailHero product={product} />
+      <ProductOverview description={product.description} />
+      <ProductCapabilities features={product.features} />
+      <ProductVisual media={product.media} />
+      <ProductTechnology technologies={product.technologies} />
+      <ProductRelated currentSlug={product.slug} category={product.category} />
+      <ProductCTA cta={primaryCta} heading={`Interested in ${product.name}?`} />
 
       <Footer />
     </main>
