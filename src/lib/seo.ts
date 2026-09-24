@@ -239,6 +239,34 @@ export function productSchema(opts: {
 }
 
 /**
+ * Structured data for a Labs project page. Deliberately the conservative
+ * CreativeWork: nothing in LabProject supports a research-specific type,
+ * and this never emits researchOrganization/citation/patent-style claims or
+ * any quantitative result. Only name, description, url, and category
+ * (about) are populated.
+ */
+export function labProjectSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  category: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    about: opts.category,
+    creator: {
+      "@type": "Organization",
+      name: ORG_NAME,
+      url: BASE_URL,
+    },
+  };
+}
+
+/**
  * Structured data for a game detail page. Unlike products, schema.org's
  * VideoGame type is used directly rather than falling back to
  * CreativeWork — genre and platform are real, structured fields the data

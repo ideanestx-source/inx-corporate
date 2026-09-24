@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import LabDetailHero from "@/components/labs/LabDetailHero";
+import LabOverview from "@/components/labs/LabOverview";
+import LabMedia from "@/components/labs/LabMedia";
+import LabTechnology from "@/components/labs/LabTechnology";
+import LabRelated from "@/components/labs/LabRelated";
+import LabCTA from "@/components/labs/LabCTA";
 import { getLabProject, getPublishedLabProjects } from "@/lib/labs-data";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, labProjectSchema } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -58,29 +63,29 @@ export default async function Page({ params }: Props) {
           { name: labProject.title, item: url },
         ])}
       />
+      <JsonLd
+        data={labProjectSchema({
+          name: labProject.title,
+          description: labProject.description,
+          url,
+          category: labProject.category,
+        })}
+      />
       <Navbar />
 
-      <div className="pt-32 pb-24 mx-auto max-w-4xl px-6 lg:px-8">
-        <p className="text-[11px] font-medium text-blue-400/65 tracking-[0.16em] uppercase mb-4">
-          {labProject.category} · {labProject.status}
-        </p>
-        <h1 className="text-4xl sm:text-5xl font-semibold text-white leading-tight mb-6">
-          {labProject.title}
-        </h1>
-        <p className="text-sm text-white/60 leading-relaxed mb-8 max-w-2xl">
-          {labProject.description}
-        </p>
-        <p className="text-sm text-white/45 leading-relaxed mb-12 max-w-2xl">
-          {labProject.experimentDetails}
-        </p>
-
-        <Link
-          href={labProject.cta.href}
-          className="inline-flex items-center gap-2 rounded-[3px] bg-blue-500/12 border border-blue-500/22 px-6 py-3 text-sm font-medium text-blue-300/90 hover:bg-blue-500/22 hover:border-blue-400/35 hover:text-blue-200 transition-all duration-200"
-        >
-          {labProject.cta.label}
-        </Link>
-      </div>
+      <LabDetailHero project={labProject} />
+      <LabOverview
+        description={labProject.description}
+        experimentDetails={labProject.experimentDetails}
+      />
+      <LabMedia media={labProject.media} />
+      <LabTechnology technologies={labProject.technologies} />
+      <LabRelated
+        currentSlug={labProject.slug}
+        category={labProject.category}
+        relatedProductSlugs={labProject.relatedProductSlugs}
+      />
+      <LabCTA cta={labProject.cta} heading={`Want to talk about ${labProject.title}?`} />
 
       <Footer />
     </main>
