@@ -7,7 +7,7 @@ import GamesOverview from "@/components/games/GamesOverview";
 import GameGrid from "@/components/games/GameGrid";
 import GamesCapabilities from "@/components/games/GamesCapabilities";
 import GamesEcosystem from "@/components/games/GamesEcosystem";
-import GameCTA from "@/components/games/GameCTA";
+import CTASection from "@/components/shared/CTASection";
 import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -50,7 +50,7 @@ export default function GamesPage() {
       <GameGrid />
       <GamesCapabilities />
       <GamesEcosystem />
-      <GameCTA
+      <CTASection
         cta={{ label: "Explore Game Development", href: "/services/game-development" }}
         secondaryCta={{ label: "Talk to INX", href: "/contact" }}
         heading="Have a game project in mind?"

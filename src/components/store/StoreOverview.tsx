@@ -1,9 +1,8 @@
 import Reveal from "@/components/motion/Reveal";
 
-// Covers "Store overview" and "Why the Store exists". Copy is limited to
-// what the Store site itself shows (name, what it offers, who it is for)
-// plus INX's stated intent for it; no counts, sales, ratings, or
-// commercial-performance claims.
+// Copy is limited to what the Store site itself shows (name, what it offers,
+// who it is for) and how it relates to the rest of INX; no counts, sales,
+// ratings, commercial-performance claims, or statements of intent.
 export default function StoreOverview() {
   return (
     <section className="py-20 border-t border-white/[0.08] bg-[#05070e]">
@@ -16,7 +15,7 @@ export default function StoreOverview() {
             </p>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5">
-            <p className="text-sm text-white/50 leading-relaxed mb-5 max-w-md">
+            <p className="text-sm text-white/50 leading-relaxed max-w-md">
               The INX Store — branded on its own site as INX Assets Store —
               is where INX offers 3D assets and UI kits for creative
               professionals. It is not part of this website, and it is not
@@ -24,15 +23,6 @@ export default function StoreOverview() {
               designs and owns. Store resources are for use inside your own
               projects.
             </p>
-            <div className="border-t border-white/[0.08] pt-5 max-w-md">
-              <p className="font-mono text-[10px] text-blue-400/60 uppercase tracking-[0.16em] mb-3">
-                Why it exists
-              </p>
-              <p className="text-sm text-white/50 leading-relaxed">
-                So digital resources can be packaged once and reused across
-                many projects, rather than rebuilt from scratch each time.
-              </p>
-            </div>
           </Reveal>
         </div>
       </div>

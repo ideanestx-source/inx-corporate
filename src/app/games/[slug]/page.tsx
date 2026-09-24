@@ -11,7 +11,7 @@ import GameTrailer from "@/components/games/GameTrailer";
 import GamePlatforms from "@/components/games/GamePlatforms";
 import GameTechnology from "@/components/games/GameTechnology";
 import GameRelated from "@/components/games/GameRelated";
-import GameCTA from "@/components/games/GameCTA";
+import CTASection from "@/components/shared/CTASection";
 import { getGame, getPublishedGames } from "@/lib/games-data";
 import { BASE_URL, SITE_NAME, breadcrumbSchema, gameSchema } from "@/lib/seo";
 
@@ -85,7 +85,7 @@ export default async function Page({ params }: Props) {
       <GamePlatforms platform={game.platform} storeLinks={game.storeLinks} />
       <GameTechnology technologies={game.technologies} />
       <GameRelated currentSlug={game.slug} genre={game.genre} />
-      <GameCTA cta={game.cta} heading={`Interested in ${game.title}?`} />
+      <CTASection cta={game.cta} heading={`Interested in ${game.title}?`} />
 
       <Footer />
     </main>

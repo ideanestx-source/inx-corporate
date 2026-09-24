@@ -14,8 +14,6 @@ export const ENTITY = {
     "Web Application Development",
     "Mobile Application Development",
     "AI Systems Integration",
-    "Cloud Infrastructure Engineering",
-    "DevOps and CI/CD",
     "MVP Development",
   ],
   industries: [
@@ -152,12 +150,11 @@ export function organizationSchema() {
 
 /**
  * Narrowly scoped to the /services listing page: builds structured data
- * from the real, current service catalog (services-data.ts) rather than
- * the legacy ENTITY.services list, which still contains the retired
- * standalone "Cloud Infrastructure Engineering" / "DevOps and CI/CD"
- * entries. ENTITY.services is left untouched here — reconciling it
- * sitewide (organizationSchema, /expertise, etc.) is deferred to the
- * dedicated SEO phase.
+ * from the real, current service catalog (services-data.ts). ENTITY.services
+ * and organizationSchema() still use the older service names — reconciling
+ * them with the ten current categories is deferred to the dedicated SEO
+ * phase. (The retired standalone cloud/DevOps entries have already been
+ * removed from ENTITY.services.)
  */
 export function serviceCatalogSchema(
   items: Array<{ name: string; description: string; url: string }>

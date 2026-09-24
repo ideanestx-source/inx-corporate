@@ -8,7 +8,7 @@ import LabOverview from "@/components/labs/LabOverview";
 import LabMedia from "@/components/labs/LabMedia";
 import LabTechnology from "@/components/labs/LabTechnology";
 import LabRelated from "@/components/labs/LabRelated";
-import LabCTA from "@/components/labs/LabCTA";
+import CTASection from "@/components/shared/CTASection";
 import { getLabProject, getPublishedLabProjects } from "@/lib/labs-data";
 import { BASE_URL, SITE_NAME, breadcrumbSchema, labProjectSchema } from "@/lib/seo";
 
@@ -85,7 +85,7 @@ export default async function Page({ params }: Props) {
         category={labProject.category}
         relatedProductSlugs={labProject.relatedProductSlugs}
       />
-      <LabCTA cta={labProject.cta} heading={`Want to talk about ${labProject.title}?`} />
+      <CTASection cta={labProject.cta} heading={`Want to talk about ${labProject.title}?`} />
 
       <Footer />
     </main>

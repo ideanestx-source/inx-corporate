@@ -11,7 +11,7 @@ import ServiceTechnology from "@/components/services/ServiceTechnology";
 import ServiceIndustries from "@/components/services/ServiceIndustries";
 import ServiceRelatedWork from "@/components/services/ServiceRelatedWork";
 import ServiceProcess from "@/components/services/ServiceProcess";
-import ServiceCTA from "@/components/services/ServiceCTA";
+import CTASection from "@/components/shared/CTASection";
 import { getService, getPublishedServices, SERVICE_CTA } from "@/lib/services-data";
 import { BASE_URL, SITE_NAME, breadcrumbSchema, serviceSchema } from "@/lib/seo";
 import {
@@ -110,7 +110,10 @@ export default async function Page({ params }: Props) {
       <ServiceIndustries industrySlugs={service.relatedIndustrySlugs} />
       <ServiceRelatedWork serviceSlug={service.slug} />
       <ServiceProcess />
-      <ServiceCTA cta={SERVICE_CTA} serviceTitle={service.title} />
+      <CTASection
+        cta={SERVICE_CTA}
+        heading={`Discuss a ${service.title.toLowerCase()} engagement with INX.`}
+      />
 
       <Footer />
     </main>

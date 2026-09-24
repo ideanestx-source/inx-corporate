@@ -23,7 +23,6 @@ const projectTypes = [
   "AI Systems",
   "Staff Augmentation",
   "Mobile Applications",
-  "Cloud & Infrastructure",
   "UI/UX Systems",
   "General Inquiry",
 ];

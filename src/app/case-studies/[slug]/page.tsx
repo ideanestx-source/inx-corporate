@@ -10,7 +10,7 @@ import CaseStudyTimeline from "@/components/case-studies/CaseStudyTimeline";
 import CaseStudyOutcomes from "@/components/case-studies/CaseStudyOutcomes";
 import CaseStudyTechnology from "@/components/case-studies/CaseStudyTechnology";
 import CaseStudyRelatedWork from "@/components/case-studies/CaseStudyRelatedWork";
-import CaseStudyCTA from "@/components/case-studies/CaseStudyCTA";
+import CTASection from "@/components/shared/CTASection";
 import { getCaseStudy, getPublishedCaseStudies } from "@/lib/case-studies-data";
 import { BASE_URL, SITE_NAME, breadcrumbSchema, caseStudySchema } from "@/lib/seo";
 
@@ -88,7 +88,7 @@ export default async function Page({ params }: Props) {
       <CaseStudyOutcomes outcomes={caseStudy.outcomes} />
       <CaseStudyTechnology technologies={caseStudy.technologies} />
       <CaseStudyRelatedWork caseStudy={caseStudy} />
-      <CaseStudyCTA cta={caseStudy.cta} />
+      <CTASection cta={caseStudy.cta} heading="Have a similar engineering problem?" />
 
       <Footer />
     </main>

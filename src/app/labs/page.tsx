@@ -7,7 +7,7 @@ import LabsOverview from "@/components/labs/LabsOverview";
 import LabsExperimentFlow from "@/components/labs/LabsExperimentFlow";
 import LabGrid from "@/components/labs/LabGrid";
 import LabsConnections from "@/components/labs/LabsConnections";
-import LabCTA from "@/components/labs/LabCTA";
+import CTASection from "@/components/shared/CTASection";
 import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
 
 const DESCRIPTION =
@@ -50,7 +50,7 @@ export default function LabsPage() {
       <LabsExperimentFlow />
       <LabGrid />
       <LabsConnections />
-      <LabCTA
+      <CTASection
         cta={{ label: "Talk to INX", href: "/contact" }}
         heading="Let's talk about what you want to build."
       />

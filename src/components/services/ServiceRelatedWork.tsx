@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
-import { caseStudies } from "@/lib/case-studies-data";
-import { filterPublished } from "@/lib/content-shared";
+import { getPublishedCaseStudies } from "@/lib/case-studies-data";
 
 // Renders only clientDescriptor/industry/projectType — never client names.
 // Omits the section entirely when no published case study is related to
@@ -9,7 +8,7 @@ import { filterPublished } from "@/lib/content-shared";
 type Props = { serviceSlug: string };
 
 export default function ServiceRelatedWork({ serviceSlug }: Props) {
-  const related = filterPublished(caseStudies).filter((c) =>
+  const related = getPublishedCaseStudies().filter((c) =>
     c.relatedServiceSlugs.includes(serviceSlug)
   );
 

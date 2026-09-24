@@ -14,7 +14,7 @@ import { filterPublished } from "./content-shared";
  *
  * The four entries below are migrated, not rewritten, from the previously
  * published anonymized case studies in
- * src/components/case-studies/FeaturedCaseStudies.tsx. Prose fields
+ * the earlier hardcoded FeaturedCaseStudies component (since removed). Prose fields
  * (challenge/solution) are preserved verbatim. The old free-text
  * "architecture" paragraph has been restructured into discrete `features`
  * bullets, and the old `outcome` paragraph split into discrete `outcomes`

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
@@ -49,10 +50,14 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo — tight-cropped mark PNG (1468×991, no transparent padding) */}
           <Link href="/" className="flex items-center" aria-label="INX — Home">
-            <img
+            <Image
               src="/logo-mark.png"
               alt="INX"
-              className="h-6 sm:h-7 lg:h-8 w-auto object-contain"
+              width={1468}
+              height={991}
+              sizes="48px"
+              loading="eager"
+              className="h-6 sm:h-7 lg:h-8 w-auto aspect-[1468/991] object-contain"
             />
           </Link>
 

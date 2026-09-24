@@ -1,4 +1,5 @@
-"use client";
+// Pure SVG with no hooks or event handlers, so intentionally not a client
+// component: it renders on the server and ships no JavaScript.
 
 function CornerMarks() {
   return (

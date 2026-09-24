@@ -9,7 +9,7 @@ import ProductCapabilities from "@/components/products/ProductCapabilities";
 import ProductVisual from "@/components/products/ProductVisual";
 import ProductTechnology from "@/components/products/ProductTechnology";
 import ProductRelated from "@/components/products/ProductRelated";
-import ProductCTA from "@/components/products/ProductCTA";
+import CTASection from "@/components/shared/CTASection";
 import { getProduct, getPublishedProducts } from "@/lib/products-data";
 import { BASE_URL, SITE_NAME, breadcrumbSchema, productSchema } from "@/lib/seo";
 
@@ -86,7 +86,7 @@ export default async function Page({ params }: Props) {
       <ProductVisual media={product.media} />
       <ProductTechnology technologies={product.technologies} />
       <ProductRelated currentSlug={product.slug} category={product.category} />
-      <ProductCTA cta={primaryCta} heading={`Interested in ${product.name}?`} />
+      <CTASection cta={primaryCta} heading={`Interested in ${product.name}?`} />
 
       <Footer />
     </main>

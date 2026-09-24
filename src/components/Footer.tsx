@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 
 const links = {
@@ -41,12 +42,13 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-1 lg:pr-8">
             <div className="mb-4">
-              <img
+              <Image
                 src="/logo-mark.png"
                 alt="INX"
                 width={1468}
                 height={991}
-                className="h-9 w-auto object-contain"
+                sizes="56px"
+                className="h-9 w-auto aspect-[1468/991] object-contain"
               />
             </div>
             <p className="text-[10px] text-white/28 font-mono tracking-[0.2em] uppercase mb-5">

@@ -6,7 +6,7 @@ import ProductsHero from "@/components/products/ProductsHero";
 import ProductsOverview from "@/components/products/ProductsOverview";
 import ProductGrid from "@/components/products/ProductGrid";
 import ProductsEcosystem from "@/components/products/ProductsEcosystem";
-import ProductCTA from "@/components/products/ProductCTA";
+import CTASection from "@/components/shared/CTASection";
 import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -48,7 +48,7 @@ export default function ProductsPage() {
       <ProductsOverview />
       <ProductGrid />
       <ProductsEcosystem />
-      <ProductCTA
+      <CTASection
         cta={{ label: "Start a Project", href: "/contact" }}
         heading="Have an idea worth building properly?"
       />

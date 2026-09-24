@@ -4,12 +4,13 @@ const NODES = [
   { label: "Games", note: "Owned interactive titles" },
   { label: "Products", note: "Owned software products" },
   { label: "Labs", note: "Internal experimentation" },
-  { label: "Store", note: "External asset marketplace" },
+  { label: "Store", note: "INX Assets Store: 3D assets, UI kits" },
 ];
 
 // Concise, visual positioning of Games within the wider INX ecosystem —
-// deliberately plain labels, not links, since Labs/Store nav wiring is
-// out of scope for this phase and Store is a separate external property.
+// deliberately plain labels rather than links, to keep this a positioning
+// strip and not a second navigation. The Store is a separate external
+// site; INX's bridge page for it is /store.
 export default function GamesEcosystem() {
   return (
     <section className="py-20 border-t border-white/[0.08] bg-[#05070e]">
