@@ -9,7 +9,7 @@ import OfficePresence from "@/components/contact/OfficePresence";
 import ContactCta from "@/components/contact/ContactCta";
 import JsonLd from "@/components/JsonLd";
 import AeoAnswerBlock from "@/components/aeo/AeoAnswerBlock";
-import { BASE_URL, SITE_NAME, breadcrumbSchema, contactPageSchema, faqSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, contactPageSchema, faqSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 const contactFaqItems = [
   {
@@ -20,7 +20,7 @@ const contactFaqItems = [
   {
     question: "How quickly can an INX engagement start?",
     answer:
-      "Discovery engagements can begin within one week of initial alignment. Project-based engagements typically mobilise within two to three weeks of agreement on scope and commercial terms. Dedicated team deployments require four to six weeks for appropriate team assembly, onboarding, and context transfer.",
+      "Discovery engagements can begin within one week of initial alignment. Project-based engagements typically mobilize within two to three weeks of agreement on scope and commercial terms. Dedicated team deployments require four to six weeks for appropriate team assembly, onboarding, and context transfer.",
   },
   {
     question: "Does INX sign NDAs before initial conversations?",
@@ -35,7 +35,7 @@ const contactFaqItems = [
   {
     question: "Does INX work with startups or only enterprises?",
     answer:
-      "INX works with growth-stage technology companies and funded startups as well as established enterprises. The common factor is treating engineering quality as a business-critical requirement. INX does not accept engagements where cost is the primary selection criterion over capability and delivery rigour.",
+      "INX works with growth-stage technology companies and funded startups as well as established enterprises. The common factor is treating engineering quality as a business-critical requirement. INX does not accept engagements where cost is the primary selection criterion over capability and delivery rigor.",
   },
   {
     question: "What happens after the initial inquiry is submitted?",
@@ -52,6 +52,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/contact`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Contact | INX",
     description:
       "Begin a conversation with INX. Submit a business inquiry and a member of our leadership team will respond within two business days.",
@@ -61,6 +62,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Contact | INX",
     description:

@@ -12,7 +12,7 @@ const positions = [
   },
   {
     label: "On Selective Collaboration",
-    heading: "A partnership programme optimised for volume is a different product from engineering collaboration.",
+    heading: "A partnership program optimized for volume is a different product from engineering collaboration.",
     body: "INX works with a small number of partners at any time. Selection is based on technical and operational alignment - whether INX's delivery standards are compatible with the partner's working model, whether the engineering contribution INX makes is genuine and specific rather than supplementary and replaceable, and whether the collaboration produces better outcomes for the end client than either party would produce independently.",
   },
   {

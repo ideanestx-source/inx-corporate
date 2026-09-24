@@ -23,7 +23,7 @@ const infrastructure = [
   {
     index: "04",
     name: "QA Philosophy",
-    body: "Testing is applied proportionate to the risk profile of each component. Unit tests for deterministic functions. Integration tests at service and database boundaries. End-to-end tests for critical user journeys. Test coverage is not a metric optimised in isolation - test confidence is.",
+    body: "Testing is applied proportionate to the risk profile of each component. Unit tests for deterministic functions. Integration tests at service and database boundaries. End-to-end tests for critical user journeys. Test coverage is not a metric optimized in isolation - test confidence is.",
   },
   {
     index: "05",

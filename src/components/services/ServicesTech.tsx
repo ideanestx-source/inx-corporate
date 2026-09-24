@@ -26,7 +26,7 @@ const technologies = [
   },
   {
     name: "Cloud Platforms",
-    category: "DevOps & Infrastructure",
+    category: "Cloud Deployment",
     note: "AWS · GCP · Azure · Kubernetes",
   },
   {

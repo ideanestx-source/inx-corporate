@@ -37,7 +37,7 @@ const values = [
   {
     index: "06",
     name: "Operational Awareness",
-    body: "Understanding that a system is not done when it is delivered - it is done when it has been operating in production without unexpected behaviour. Interest in how the systems you build perform under real load, how they fail, and whether the failure modes are observable and recoverable.",
+    body: "Understanding that a system is not done when it is delivered - it is done when it has been operating in production without unexpected behavior. Interest in how the systems you build perform under real load, how they fail, and whether the failure modes are observable and recoverable.",
     note: "Applied to: monitoring design, deployment planning, post-launch review",
   },
 ];

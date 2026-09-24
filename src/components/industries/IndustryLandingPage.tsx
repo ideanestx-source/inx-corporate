@@ -8,7 +8,7 @@ import type { IndustryPage } from "@/lib/industries-data";
 import type { Article } from "@/lib/insights";
 
 const ctaHeadlines: Record<string, string> = {
-  "saas-development": "Planning a SaaS platform or product modernisation initiative?",
+  "saas-development": "Planning a SaaS platform or product modernization initiative?",
   "healthcare-software-development": "Ready to discuss healthcare software requirements?",
   "fintech-software-development": "Need engineering support for a fintech or financial services platform?",
   "ecommerce-development": "Ready to scope an eCommerce platform or retail systems engagement?",

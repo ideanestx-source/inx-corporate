@@ -282,7 +282,7 @@ export function UIUXDiagram() {
   );
 }
 
-/** Game backend engineering — a stylised HUD/viewport, not an architecture diagram. */
+/** Game backend engineering — a stylized HUD/viewport, not an architecture diagram. */
 export function GameDiagram() {
   return (
     <svg viewBox="0 0 120 80" width="100%" height="100%" aria-hidden="true" style={{ display: "block" }}>

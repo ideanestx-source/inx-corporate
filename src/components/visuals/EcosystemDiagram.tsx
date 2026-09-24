@@ -46,7 +46,7 @@ export default function EcosystemDiagram() {
         <ellipse cx={CX} cy={CY} rx={RX} ry={RY} fill="none" stroke="rgba(255,255,255,0.05)" strokeDasharray="2 6" />
         <polygon points={RING} fill="none" stroke="rgba(96,165,250,0.16)" strokeWidth="1" />
 
-        {/* Spokes: flowing dashes from the centre out to each area */}
+        {/* Spokes: flowing dashes from the center out to each area */}
         {NODES.map((n, i) => (
           <line
             key={`spoke-${n.label}`}
@@ -61,7 +61,7 @@ export default function EcosystemDiagram() {
           />
         ))}
 
-        {/* Centre */}
+        {/* Center */}
         <circle
           cx={CX}
           cy={CY}

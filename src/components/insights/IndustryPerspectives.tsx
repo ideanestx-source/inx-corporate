@@ -102,7 +102,7 @@ const perspectives: Perspective[] = [
     date: "January 2026",
     title: "AI Systems Require Process Discipline Before Automation",
     summary:
-      "The operational pattern of AI system failure in enterprise contexts is consistent: automation is introduced before the process it automates is understood with sufficient precision to specify what correct automated behaviour looks like. The result is a system that performs to a specification that did not capture the operational reality of the workflow - which means it performs correctly in narrow technical terms while producing outputs that require increasing levels of human correction over time.",
+      "The operational pattern of AI system failure in enterprise contexts is consistent: automation is introduced before the process it automates is understood with sufficient precision to specify what correct automated behavior looks like. The result is a system that performs to a specification that did not capture the operational reality of the workflow - which means it performs correctly in narrow technical terms while producing outputs that require increasing levels of human correction over time.",
     observations: [
       "AI system accuracy is only meaningful relative to a defined acceptance threshold established before deployment. Without that threshold, accuracy degradation is not detectable until it reaches the level of user-visible operational disruption.",
       "Data quality issues invisible at the manual workflow stage become structurally amplified in automated pipelines - errors that a human reviewer would flag are processed at volume before they surface as an identifiable pattern.",

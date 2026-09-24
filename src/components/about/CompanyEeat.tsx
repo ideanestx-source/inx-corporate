@@ -1,10 +1,10 @@
 const technicalDomains = [
-  { domain: "Systems Architecture", detail: "Distributed systems, event-driven design, data modelling, integration architecture" },
-  { domain: "Cloud Infrastructure", detail: "AWS, GCP, Azure — container orchestration, IaC, observability pipelines" },
+  { domain: "Systems Architecture", detail: "Distributed systems, event-driven design, data modeling, integration architecture" },
+  { domain: "Cloud-Native Design", detail: "AWS, GCP, Azure — container orchestration, IaC, observability pipelines" },
   { domain: "API Engineering", detail: "REST, GraphQL, gRPC — gateway design, versioning, rate limiting, contract testing" },
-  { domain: "Database Engineering", detail: "Relational, document, and time-series stores; migration strategy; query optimisation" },
+  { domain: "Database Engineering", detail: "Relational, document, and time-series stores; migration strategy; query optimization" },
   { domain: "AI & ML Systems", detail: "LLM integration, RAG pipelines, model serving, AI-native product architecture" },
-  { domain: "Security Engineering", detail: "Threat modelling, authentication, compliance-aligned system design (SOC 2, HIPAA, PCI)" },
+  { domain: "Security Engineering", detail: "Threat modeling, authentication, compliance-aligned system design (SOC 2, HIPAA, PCI)" },
 ];
 
 const engineeringStandards = [

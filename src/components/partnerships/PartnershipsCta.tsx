@@ -30,7 +30,7 @@ export default function PartnershipsCta() {
               INX does not begin partnership conversations with proposals. If
               one of the five models on this page describes a collaboration
               that is technically and operationally relevant to your
-              organisation, the starting point is a structured technical
+              organization, the starting point is a structured technical
               conversation about alignment - not a commercial discussion about
               terms.
             </p>

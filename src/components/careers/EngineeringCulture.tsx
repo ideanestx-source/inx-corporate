@@ -18,7 +18,7 @@ const aspects = [
   {
     index: "03",
     name: "Responsibility Over Process",
-    body: "Process at INX exists in service of outcomes - not as a system of accountability theatre. Code review exists because it produces better code. Specifications are written because they produce better systems. Where a process no longer produces the outcome it was designed for, the process changes. Where responsibility is clear, extensive process is usually redundant.",
+    body: "Process at INX exists in service of outcomes - not as a system of accountability theater. Code review exists because it produces better code. Specifications are written because they produce better systems. Where a process no longer produces the outcome it was designed for, the process changes. Where responsibility is clear, extensive process is usually redundant.",
   },
   {
     index: "04",
@@ -28,7 +28,7 @@ const aspects = [
   {
     index: "05",
     name: "Technical Depth Over Title",
-    body: "INX does not have an elaborate hierarchy. Technical decisions are made by the people with the most relevant expertise, not by the people with the most senior title. Disagreements about technical direction are resolved by reasoning about the problem - not by reference to organisational authority. The person with the best argument wins the argument, regardless of their role.",
+    body: "INX does not have an elaborate hierarchy. Technical decisions are made by the people with the most relevant expertise, not by the people with the most senior title. Disagreements about technical direction are resolved by reasoning about the problem - not by reference to organizational authority. The person with the best argument wins the argument, regardless of their role.",
   },
 ];
 

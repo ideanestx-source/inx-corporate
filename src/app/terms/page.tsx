@@ -86,7 +86,7 @@ const data: LegalPageData = {
         {
           heading: "Third-Party Components",
           paragraphs: [
-            "Third-party open-source components incorporated into client systems are governed by their respective licences. INX documents third-party dependencies in the delivery handover materials. The client is responsible for ongoing licence compliance after handover.",
+            "Third-party open-source components incorporated into client systems are governed by their respective licenses. INX documents third-party dependencies in the delivery handover materials. The client is responsible for ongoing license compliance after handover.",
           ],
         },
       ],
@@ -117,7 +117,7 @@ const data: LegalPageData = {
       heading: "Limitation of Liability",
       paragraphs: [
         "INX's aggregate liability for any engagement is limited to the total fees paid by the client under that engagement in the 12 months preceding the event giving rise to the claim.",
-        "INX is not liable for indirect, consequential, incidental, or loss-of-profit claims arising from the delivery, use, or failure of the systems it builds, except where arising from gross negligence or wilful misconduct.",
+        "INX is not liable for indirect, consequential, incidental, or loss-of-profit claims arising from the delivery, use, or failure of the systems it builds, except where arising from gross negligence or willful misconduct.",
         "This limitation does not restrict liability arising from breach of confidentiality obligations, fraud, personal injury, or any liability that cannot be limited under applicable law.",
         "INX delivers systems to the specification agreed during discovery. Responsibility for the operational fitness of requirements - i.e., whether the agreed specification solves the underlying business problem - lies with the client.",
       ],

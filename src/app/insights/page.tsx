@@ -9,7 +9,7 @@ import ResearchAreas from "@/components/insights/ResearchAreas";
 import WritingPhilosophy from "@/components/insights/WritingPhilosophy";
 import InsightsCta from "@/components/insights/InsightsCta";
 import JsonLd from "@/components/JsonLd";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Engineering Insights",
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/insights`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Engineering Insights | INX",
     description:
       "Engineering editorials, operational perspectives, and research areas from INX. Written from delivery experience, not trend commentary.",
@@ -28,6 +29,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Engineering Insights | INX",
     description:

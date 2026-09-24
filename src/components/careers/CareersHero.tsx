@@ -55,7 +55,7 @@ export default function CareersHero() {
             className="lg:col-span-5 flex flex-col justify-end"
           >
             <p className="text-base text-white/68 leading-relaxed mb-8">
-              INX is a small, senior engineering organisation. We are not
+              INX is a small, senior engineering organization. We are not
               building a large team. We are building the right one - people who
               take technical ownership seriously, communicate precisely, and
               prefer depth of work over breadth of title.

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { BASE_URL, SITE_NAME, breadcrumbSchema, faqSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, faqSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Why INX",
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/why-inx`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Why INX | INX",
     description:
       "Why organizations choose INX: senior-only delivery, discovery-first process, architecture before code, full IP ownership, and engineering accountability at every phase.",
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Why INX | INX",
     description:
@@ -72,14 +74,14 @@ const comparisons = [
     points: [
       "Consultancies scale process. INX scales expertise.",
       "Consultancy delivery is often managed by non-engineers. INX is managed by engineers.",
-      "Consultancies introduce methodology overhead. INX introduces engineering rigour.",
+      "Consultancies introduce methodology overhead. INX introduces engineering rigor.",
       "Consultancy pricing reflects brand premium. INX pricing reflects delivery scope.",
     ],
   },
   {
     category: "vs. Staff Augmentation Firms",
     points: [
-      "Augmentation firms optimise for headcount placement. INX optimises for delivery outcomes.",
+      "Augmentation firms optimize for headcount placement. INX optimizes for delivery outcomes.",
       "Augmentation firms supply engineers without vetting delivery quality. INX maintains engineering standards across all placements.",
       "Augmentation is appropriate when the constraint is capacity. INX offers augmentation, project delivery, and dedicated teams — matched to the actual constraint.",
     ],
@@ -103,7 +105,7 @@ const faqs = [
   {
     question: "How does INX handle scope changes during a project?",
     answer:
-      "Scope changes are handled through a documented amendment process against the Technical Specification. No scope change proceeds without explicit client approval and a documented impact assessment covering timeline and cost. This protects the client from unauthorised scope expansion and protects the delivery team from undocumented requirement drift.",
+      "Scope changes are handled through a documented amendment process against the Technical Specification. No scope change proceeds without explicit client approval and a documented impact assessment covering timeline and cost. This protects the client from unauthorized scope expansion and protects the delivery team from undocumented requirement drift.",
   },
   {
     question: "What happens if the delivered system does not meet requirements?",
@@ -113,12 +115,12 @@ const faqs = [
   {
     question: "Does INX work with early-stage startups?",
     answer:
-      "INX works with growth-stage technology companies and established enterprises. Early-stage startups without defined product requirements or operational context are not well-served by INX's process — which requires a level of definitional clarity that early-stage product exploration does not yet have. INX is the right partner for organisations ready to build, not organisations still discovering what to build.",
+      "INX works with growth-stage technology companies and established enterprises. Early-stage startups without defined product requirements or operational context are not well-served by INX's process — which requires a level of definitional clarity that early-stage product exploration does not yet have. INX is the right partner for organizations ready to build, not organizations still discovering what to build.",
   },
   {
-    question: "How quickly can an INX engagement mobilise?",
+    question: "How quickly can an INX engagement mobilize?",
     answer:
-      "Discovery engagements can begin within one week of initial alignment and NDA execution. Project-based and dedicated team engagements require a two to four week mobilisation period for team assembly, environment setup, and context transfer. Staff augmentation can mobilise within two to three weeks.",
+      "Discovery engagements can begin within one week of initial alignment and NDA execution. Project-based and dedicated team engagements require a two to four week mobilization period for team assembly, environment setup, and context transfer. Staff augmentation can mobilize within two to three weeks.",
   },
   {
     question: "Does INX provide post-delivery support?",
@@ -128,7 +130,7 @@ const faqs = [
   {
     question: "How does INX integrate with an existing internal engineering team?",
     answer:
-      "INX operates as a genuine extension of the client's engineering organisation — participating in ceremonies, adopting client toolchains, and maintaining the same accountability standards as internal engineers. The integration model is defined during discovery and documented in the engagement specification. INX does not impose its own tooling on client teams.",
+      "INX operates as a genuine extension of the client's engineering organization — participating in ceremonies, adopting client toolchains, and maintaining the same accountability standards as internal engineers. The integration model is defined during discovery and documented in the engagement specification. INX does not impose its own tooling on client teams.",
   },
 ];
 
@@ -188,7 +190,7 @@ export default function WhyINXPage() {
                   "Junior engineers make architectural decisions under time pressure that compound into structural debt over months and years.",
                   "Delivery accountability ends at the handover — leaving the client with code that works in demonstration conditions and fails in production.",
                   "Scope is not formally controlled, producing cost overruns that are invisible until well into delivery.",
-                  "IP ownership is ambiguous, leaving organisations dependent on the original development team for ongoing changes.",
+                  "IP ownership is ambiguous, leaving organizations dependent on the original development team for ongoing changes.",
                 ].map((point, i) => (
                   <div key={i} className="flex gap-4">
                     <span className="font-mono text-[11px] text-white/18 tracking-widest mt-0.5 shrink-0">

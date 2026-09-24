@@ -26,8 +26,8 @@ const phases = [
   },
   {
     index: "05",
-    name: "Post-Launch Optimisation",
-    body: "Performance measurement under real production load, bottleneck identification, and iterative resolution. Optimisation is conducted against the original acceptance criteria, not against perceived impressions of performance.",
+    name: "Post-Launch Optimization",
+    body: "Performance measurement under real production load, bottleneck identification, and iterative resolution. Optimization is conducted against the original acceptance criteria, not against perceived impressions of performance.",
   },
 ];
 

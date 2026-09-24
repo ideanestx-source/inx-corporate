@@ -19,7 +19,7 @@ const models: PartnershipModel[] = [
     category: "Platform & Infrastructure",
     title: "Technology Partnerships",
     structure:
-      "INX works with technology vendors, cloud providers, and platform companies where there is a defined technical integration requirement - not a co-marketing arrangement. The partnership produces a specific engineering output: an integration, a reference implementation, or a documented deployment pattern that is of direct operational value to clients of both organisations. The basis for evaluation is whether the technology improves the quality or delivery speed of the systems INX builds.",
+      "INX works with technology vendors, cloud providers, and platform companies where there is a defined technical integration requirement - not a co-marketing arrangement. The partnership produces a specific engineering output: an integration, a reference implementation, or a documented deployment pattern that is of direct operational value to clients of both organizations. The basis for evaluation is whether the technology improves the quality or delivery speed of the systems INX builds.",
     model:
       "INX's role in a technology partnership is engineering, not business development. We do not operate referral arrangements, co-marketing relationships, or logo exchanges under the label of partnership. Where a technology vendor's platform is integrated into a client engagement, that integration is evaluated for its technical merit, documented to INX's standard, and delivered with the same quality commitment as any other component of the system.",
     ownership:
@@ -32,11 +32,11 @@ const models: PartnershipModel[] = [
     category: "Joint Product Development",
     title: "Product Collaboration",
     structure:
-      "Product collaboration with INX is a structured engineering engagement, not an informal arrangement. The product's technical requirements are defined in a discovery phase that produces a written specification. Architecture decisions are documented before development begins. Delivery is conducted in defined phases against that specification. The collaborating organisation owns the product; INX is the engineering delivery partner responsible for the technical output.",
+      "Product collaboration with INX is a structured engineering engagement, not an informal arrangement. The product's technical requirements are defined in a discovery phase that produces a written specification. Architecture decisions are documented before development begins. Delivery is conducted in defined phases against that specification. The collaborating organization owns the product; INX is the engineering delivery partner responsible for the technical output.",
     model:
-      "Product collaboration operates on the same five-phase model as a standard INX engagement: discovery, architecture, engineering, deployment, and optimisation. The collaborating organisation's team participates at each stage with defined review and approval responsibilities. Joint architecture decisions are documented with the rationale for each. Divergences from the agreed specification are proposed in writing with technical impact assessments before any related engineering work proceeds.",
+      "Product collaboration operates on the same five-phase model as a standard INX engagement: discovery, architecture, engineering, deployment, and optimization. The collaborating organization's team participates at each stage with defined review and approval responsibilities. Joint architecture decisions are documented with the rationale for each. Divergences from the agreed specification are proposed in writing with technical impact assessments before any related engineering work proceeds.",
     ownership:
-      "The product is wholly owned by the collaborating organisation from inception. INX does not retain intellectual property in the systems it delivers under a product collaboration arrangement. The codebase, architecture documentation, operational runbooks, and deployment infrastructure are owned by and fully operable by the collaborating organisation's team upon handover.",
+      "The product is wholly owned by the collaborating organization from inception. INX does not retain intellectual property in the systems it delivers under a product collaboration arrangement. The codebase, architecture documentation, operational runbooks, and deployment infrastructure are owned by and fully operable by the collaborating organization's team upon handover.",
     principle:
       "Product collaboration is not a shortcut to delivery capacity. It is a structured engineering engagement that requires the same discipline as a direct client relationship - from both parties.",
   },

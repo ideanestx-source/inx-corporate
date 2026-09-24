@@ -27,7 +27,7 @@ export default function TechnologiesCta() {
               If the Technical Problem Is Defined, the Conversation Can Begin.
             </h2>
             <p className="text-sm text-white/65 leading-relaxed max-w-xl">
-              INX engages with organisations that have a clear technical problem
+              INX engages with organizations that have a clear technical problem
               and require an engineering partner that applies technology with
               operational discipline. The first step is a structured discovery
               conversation - not a proposal, not a demonstration, not a sales

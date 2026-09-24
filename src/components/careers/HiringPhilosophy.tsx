@@ -17,7 +17,7 @@ const positions = [
   {
     label: "On Long-Term Fit",
     statement: "We are not looking for someone to fill a role. We are looking for someone who wants to do this work.",
-    body: "The distinction matters. Someone filling a role is optimising for employment. Someone who wants to do the work is optimising for the quality of the output. INX is structured for the latter. If the work described on this page is not genuinely interesting to you - the operational problems, the system architecture, the discipline around documentation and deployment - then the fit is probably not right, regardless of the technical match.",
+    body: "The distinction matters. Someone filling a role is optimizing for employment. Someone who wants to do the work is optimizing for the quality of the output. INX is structured for the latter. If the work described on this page is not genuinely interesting to you - the operational problems, the system architecture, the discipline around documentation and deployment - then the fit is probably not right, regardless of the technical match.",
   },
 ];
 

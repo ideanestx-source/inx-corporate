@@ -7,25 +7,25 @@ const characteristics = [
   {
     index: "01",
     name: "SaaS Companies at Scale",
-    body: "Organisations building multi-tenant SaaS products where the architectural decisions made today compound over years - and where the cost of getting those decisions wrong is measured in migration complexity, not just refactoring effort. Companies at this stage typically have a technical team that can participate meaningfully in architecture decisions and operate the system after handover without ongoing INX dependency.",
+    body: "Organizations building multi-tenant SaaS products where the architectural decisions made today compound over years - and where the cost of getting those decisions wrong is measured in migration complexity, not just refactoring effort. Companies at this stage typically have a technical team that can participate meaningfully in architecture decisions and operate the system after handover without ongoing INX dependency.",
     note: "Relevant models: Product Collaboration, Long-Term Product Engineering",
   },
   {
     index: "02",
     name: "Operationally Complex Businesses",
-    body: "Organisations whose software requirements are shaped by operational realities that are not obvious from the outside: logistics operations with connectivity constraints, hospitality groups with multi-location data models, professional services firms with regulatory auditability requirements. These businesses benefit most from an engineering partner that treats operational context as an input to technical decisions, not a background consideration.",
+    body: "Organizations whose software requirements are shaped by operational realities that are not obvious from the outside: logistics operations with connectivity constraints, hospitality groups with multi-location data models, professional services firms with regulatory auditability requirements. These businesses benefit most from an engineering partner that treats operational context as an input to technical decisions, not a background consideration.",
     note: "Relevant models: Delivery Partnerships, Technology Partnerships",
   },
   {
     index: "03",
-    name: "Engineering-Led Organisations",
-    body: "Organisations where the internal team has sufficient technical depth to review delivery output critically, participate in architecture decisions with genuine understanding, and operate systems independently after handover. INX does not perform well as a partner to organisations that expect to receive technical output without the capacity to evaluate it - not because we are unwilling, but because the collaboration model that produces the best results requires a technically capable counterpart.",
+    name: "Engineering-Led Organizations",
+    body: "Organizations where the internal team has sufficient technical depth to review delivery output critically, participate in architecture decisions with genuine understanding, and operate systems independently after handover. INX does not perform well as a partner to organizations that expect to receive technical output without the capacity to evaluate it - not because we are unwilling, but because the collaboration model that produces the best results requires a technically capable counterpart.",
     note: "Relevant models: Product Collaboration, White-Label Engineering",
   },
   {
     index: "04",
-    name: "Long-Term Product Organisations",
-    body: "Organisations building systems they intend to operate for years - where the time horizon is long enough that architecture decisions about maintainability, scalability, and documentation discipline produce measurable returns. The collaboration model that INX operates requires both parties to think beyond the current engagement. Organisations optimising exclusively for short-term delivery speed are better served by a different model than the one INX provides.",
+    name: "Long-Term Product Organizations",
+    body: "Organizations building systems they intend to operate for years - where the time horizon is long enough that architecture decisions about maintainability, scalability, and documentation discipline produce measurable returns. The collaboration model that INX operates requires both parties to think beyond the current engagement. Organizations optimizing exclusively for short-term delivery speed are better served by a different model than the one INX provides.",
     note: "Relevant models: Long-Term Product Engineering, Delivery Partnerships",
   },
 ];
@@ -49,14 +49,14 @@ export default function IdealPartners() {
               Ideal Partnership Characteristics
             </p>
             <h2 className="text-3xl sm:text-4xl font-semibold text-white leading-tight">
-              The Organisations INX Collaborates Best With.
+              The Organizations INX Collaborates Best With.
             </h2>
           </div>
           <div className="lg:col-span-5 lg:col-start-8 flex lg:items-end">
             <p className="text-sm text-white/32 leading-relaxed">
               This is not a description of who INX will work with exclusively.
               It is an honest account of the collaboration conditions that
-              produce the best outcomes for the organisations involved.
+              produce the best outcomes for the organizations involved.
             </p>
           </div>
         </motion.div>

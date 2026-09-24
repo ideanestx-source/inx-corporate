@@ -8,7 +8,7 @@ const positions = [
   {
     label: "On Technology Selection",
     statement: "We are not technology-agnostic.",
-    body: "INX has considered opinions on technology, and we apply them. Where a client has established infrastructure that is operationally sound, we work within it. Where it is not, we document our assessment in writing before proposing any change. An engineering organisation without technical positions is a labour supplier, not a partner.",
+    body: "INX has considered opinions on technology, and we apply them. Where a client has established infrastructure that is operationally sound, we work within it. Where it is not, we document our assessment in writing before proposing any change. An engineering organization without technical positions is a labor supplier, not a partner.",
   },
   {
     label: "On Client Dependency",
@@ -18,7 +18,7 @@ const positions = [
   {
     label: "On Operational Outcomes",
     statement: "Technology is a means. Outcomes are the measure.",
-    body: "The engineering community tends to evaluate technology choices as ends in themselves - as signals of technical sophistication or organisational modernity. INX evaluates them against the operational results they produce in production: latency reduced, throughput increased, onboarding time halved, audit findings eliminated. A system that works is preferable to a system that is architecturally interesting.",
+    body: "The engineering community tends to evaluate technology choices as ends in themselves - as signals of technical sophistication or organizational modernity. INX evaluates them against the operational results they produce in production: latency reduced, throughput increased, onboarding time halved, audit findings eliminated. A system that works is preferable to a system that is architecturally interesting.",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function TechnologyPhilosophy() {
             Technology Philosophy
           </p>
           <h2 className="text-3xl sm:text-4xl font-semibold text-white leading-tight max-w-2xl">
-            An engineering organisation&apos;s technology choices reveal its values.
+            An engineering organization&apos;s technology choices reveal its values.
           </h2>
         </motion.div>
 

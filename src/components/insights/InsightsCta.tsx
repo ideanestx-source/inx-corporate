@@ -29,7 +29,7 @@ export default function InsightsCta() {
             <p className="text-sm text-white/65 leading-relaxed max-w-xl">
               INX publishes positions, not summaries. A position that cannot be
               challenged has not been argued rigorously enough. If your
-              organisation has encountered a different operational reality for a
+              organization has encountered a different operational reality for a
               problem discussed here - or if you are working through a systems
               question that this work raises - the conversation is worth having.
             </p>

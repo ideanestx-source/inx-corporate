@@ -12,7 +12,7 @@ import CaseStudyTechnology from "@/components/case-studies/CaseStudyTechnology";
 import CaseStudyRelatedWork from "@/components/case-studies/CaseStudyRelatedWork";
 import CTASection from "@/components/shared/CTASection";
 import { getCaseStudy, getPublishedCaseStudies } from "@/lib/case-studies-data";
-import { BASE_URL, SITE_NAME, breadcrumbSchema, caseStudySchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, caseStudySchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 // CONFIDENTIALITY: this route tree must never render a client/company name.
 // Only clientDescriptor, industry, and projectType are ever surfaced — in
@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: url,
     },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: `${caseStudy.seo.title} | INX`,
       description: caseStudy.seo.description,
       url,
@@ -48,6 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
     },
     twitter: {
+      images: [DEFAULT_OG_IMAGE.url],
       card: "summary_large_image",
       title: `${caseStudy.seo.title} | INX`,
       description: caseStudy.seo.description,

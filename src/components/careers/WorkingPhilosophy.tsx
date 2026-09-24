@@ -22,7 +22,7 @@ const principles = [
   {
     index: "04",
     title: "Long-Term Thinking",
-    body: "The decisions made in the first two weeks of an engagement shape the system for the years that follow. INX optimises for those years - not for the impressiveness of the first delivery or the comfort of avoiding a difficult conversation about scope. We expect the same time horizon from the people who work here. A decision that saves time this week but costs significantly more next year is not a good decision, even when the person making it will not be around to see the cost.",
+    body: "The decisions made in the first two weeks of an engagement shape the system for the years that follow. INX optimizes for those years - not for the impressiveness of the first delivery or the comfort of avoiding a difficult conversation about scope. We expect the same time horizon from the people who work here. A decision that saves time this week but costs significantly more next year is not a good decision, even when the person making it will not be around to see the cost.",
   },
 ];
 

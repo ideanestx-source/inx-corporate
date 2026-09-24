@@ -16,7 +16,7 @@ export default function ServicesOverview() {
           <Reveal delay={0.1} className="lg:col-span-5">
             <p className="text-sm text-white/45 leading-relaxed mb-7 max-w-md">
               INX works across the full surface of a modern technology
-              organisation: production software, SaaS and custom platforms,
+              organization: production software, SaaS and custom platforms,
               AI-driven automation, and game backend engineering — each
               delivered by the same senior engineers, under the same
               standard.

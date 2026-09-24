@@ -36,7 +36,7 @@ const data: LegalPageData = {
         {
           heading: "Current Standard",
           paragraphs: [
-            "This website is built to align with WCAG 2.1 Level AA where practicable. The site uses semantic HTML, ARIA labels where needed, sufficient colour contrast ratios for body text and interactive elements, and keyboard navigability for all interactive components.",
+            "This website is built to align with WCAG 2.1 Level AA where practicable. The site uses semantic HTML, ARIA labels where needed, sufficient color contrast ratios for body text and interactive elements, and keyboard navigability for all interactive components.",
             "Animations on this site use the `prefers-reduced-motion` media query to reduce or eliminate motion for users who have enabled this preference in their operating system.",
           ],
         },
@@ -64,7 +64,7 @@ const data: LegalPageData = {
       category: "Technical Standards",
       heading: "How We Build Accessible Interfaces",
       paragraphs: [
-        "INX's frontend engineering practice includes: semantic HTML elements used according to their intended purpose; ARIA attributes applied where semantic HTML is insufficient; focus management in dynamic and modal interactions; sufficient colour contrast tested against WCAG 2.1 criteria; and text that scales correctly without horizontal scroll at up to 200% zoom.",
+        "INX's frontend engineering practice includes: semantic HTML elements used according to their intended purpose; ARIA attributes applied where semantic HTML is insufficient; focus management in dynamic and modal interactions; sufficient color contrast tested against WCAG 2.1 criteria; and text that scales correctly without horizontal scroll at up to 200% zoom.",
         "We test with keyboard navigation, browser accessibility tree inspection, and where relevant, screen reader testing using NVDA and VoiceOver. Automated accessibility linting is applied in development pipelines as a baseline - automated checks are not a substitute for manual review on complex interactions.",
       ],
     },

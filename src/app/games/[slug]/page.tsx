@@ -13,7 +13,7 @@ import GameTechnology from "@/components/games/GameTechnology";
 import GameRelated from "@/components/games/GameRelated";
 import CTASection from "@/components/shared/CTASection";
 import { getGame, getPublishedGames } from "@/lib/games-data";
-import { BASE_URL, SITE_NAME, breadcrumbSchema, gameSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, gameSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: game.seo.description,
     alternates: { canonical: url },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: `${game.seo.title} | INX`,
       description: game.seo.description,
       url,
@@ -43,6 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
     },
     twitter: {
+      images: [DEFAULT_OG_IMAGE.url],
       card: "summary_large_image",
       title: `${game.seo.title} | INX`,
       description: game.seo.description,

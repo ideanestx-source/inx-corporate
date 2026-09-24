@@ -11,6 +11,7 @@ import {
   SITE_NAME,
   breadcrumbSchema,
   faqSchema,
+  DEFAULT_OG_IMAGE,
 } from "@/lib/seo";
 
 type Props = {
@@ -35,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: url,
     },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: `${page.title} | INX`,
       description: page.metaDescription,
       url,
@@ -43,6 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
     },
     twitter: {
+      images: [DEFAULT_OG_IMAGE.url],
       card: "summary_large_image",
       title: `${page.title} | INX`,
       description: page.metaDescription,

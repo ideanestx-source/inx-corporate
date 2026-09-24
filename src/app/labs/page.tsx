@@ -8,7 +8,7 @@ import LabsExperimentFlow from "@/components/labs/LabsExperimentFlow";
 import LabGrid from "@/components/labs/LabGrid";
 import LabsConnections from "@/components/labs/LabsConnections";
 import CTASection from "@/components/shared/CTASection";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 const DESCRIPTION =
   "INX Labs is the experimental layer of INX — how ideas move from experiment to prototype to product, and where exploratory work is documented.";
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/labs`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Labs | INX",
     description: DESCRIPTION,
     url: `${BASE_URL}/labs`,
@@ -28,6 +29,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Labs | INX",
     description: DESCRIPTION,

@@ -4,10 +4,20 @@ export const BASE_URL = "https://ideanestx.com";
 export const SITE_NAME = "INX";
 export const ORG_NAME = "IDEANEST X PRIVATE LIMITED";
 
+// Shared social image. A page that declares its own `openGraph` block replaces
+// the one Next.js derives from app/opengraph-image.tsx, so pages reference the
+// same generated image explicitly (see app/opengraph-image.tsx).
+export const DEFAULT_OG_IMAGE = {
+  url: `${BASE_URL}/opengraph-image`,
+  width: 1200,
+  height: 630,
+  alt: "INX | Build Systems That Perform",
+};
+
 // Entity definitions — consistent strings used across schema and visible content
 export const ENTITY = {
   description:
-    "INX (IDEANEST X PRIVATE LIMITED) is a technology and product engineering company headquartered in India. INX builds software, digital products, AI and automation systems, and games for global organisations — taking ideas from concept to a working product.",
+    "INX (IDEANEST X PRIVATE LIMITED) is a technology and product engineering company headquartered in India. INX builds software, digital products, AI and automation systems, and games for global organizations — taking ideas from concept to a working product.",
   // Derived from services-data.ts so structured data can never drift from the
   // real, current service categories.
   services: getPublishedServices().map((s) => s.title),
@@ -47,6 +57,23 @@ export function parseArticleDateISO(dateStr: string): string {
   return new Date(`${dateStr} 1`).toISOString();
 }
 
+// The one catalog of INX services in structured data, derived from
+// services-data.ts. Entries are plain Service descriptions — no prices, ratings
+// or availability are asserted, because none are published.
+export function serviceCatalog() {
+  return {
+    "@type": "OfferCatalog",
+    name: "INX Services",
+    itemListElement: getPublishedServices().map((service) => ({
+      "@type": "Service",
+      name: service.title,
+      description: service.summary,
+      url: `${BASE_URL}/services/${service.slug}`,
+      provider: { "@type": "Organization", name: ORG_NAME },
+    })),
+  };
+}
+
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -59,20 +86,7 @@ export function organizationSchema() {
     foundingLocation: { "@type": "Country", name: "India" },
     areaServed: "Worldwide",
     knowsAbout: ENTITY.services,
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "INX Services",
-      itemListElement: getPublishedServices().map((service) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: service.title,
-          description: service.summary,
-          url: `${BASE_URL}/services/${service.slug}`,
-          provider: { "@type": "Organization", name: ORG_NAME },
-        },
-      })),
-    },
+    hasOfferCatalog: serviceCatalog(),
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+91-99403-32502",

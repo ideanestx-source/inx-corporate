@@ -12,7 +12,7 @@ const standards = [
   {
     index: "02",
     title: "Technical Accountability",
-    body: "INX owns the technical decisions it makes. When an architectural decision proves incorrect under production conditions, the impact is documented, a corrective path is assessed, and the situation is communicated clearly to the partner - without repositioning the decision as the partner's or end client's responsibility. Technical accountability is not a posture adopted for commercial reasons. It is the mechanism by which trust between engineering organisations is built over time and the basis on which long-term collaboration is possible.",
+    body: "INX owns the technical decisions it makes. When an architectural decision proves incorrect under production conditions, the impact is documented, a corrective path is assessed, and the situation is communicated clearly to the partner - without repositioning the decision as the partner's or end client's responsibility. Technical accountability is not a posture adopted for commercial reasons. It is the mechanism by which trust between engineering organizations is built over time and the basis on which long-term collaboration is possible.",
   },
   {
     index: "03",

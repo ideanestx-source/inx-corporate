@@ -14,7 +14,7 @@ import type { CTA } from "@/lib/content-shared";
 //
 // Alignment note: a lone button keeps its label left-aligned when the panel
 // stacks on mobile (as Services/Case Studies/Products/Labs always did); when a
-// secondary action is present the pair is stacked and both labels are centred
+// secondary action is present the pair is stacked and both labels are centered
 // (as the Games listing always did). That existing difference is preserved.
 
 type Props = {

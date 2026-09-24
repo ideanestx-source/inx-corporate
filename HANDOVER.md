@@ -1,9 +1,9 @@
-# INX Corporate Website — Professional Handover Document
+# INX Corporate Website — Handover Document
 
-**Company:** IDEANEST X PRIVATE LIMITED (INX)  
-**Website:** https://www.ideanestx.com  
-**Document Date:** May 2026  
-**Document Status:** Final — Production Ready  
+**Company:** IDEANEST X PRIVATE LIMITED (INX)
+**Website:** https://ideanestx.com
+**Brand line:** Build Systems That Perform.
+**Document Status:** Aligned with the repository as of V2 Phase 10
 **Prepared For:** Founders · Future Developers · Technical Auditors · Operations Teams
 
 ---
@@ -34,32 +34,52 @@
 
 ### Purpose of Website
 
-The INX corporate website (`ideanestx.com`) is the primary digital presence for IDEANEST X PRIVATE LIMITED — a premium custom software development and product engineering firm headquartered in India serving global clients. The website functions simultaneously as a lead generation engine, an SEO authority hub, and a brand credibility platform.
+The INX corporate website (`ideanestx.com`) is the public presence of IDEANEST X PRIVATE LIMITED (INX), a technology and product engineering company headquartered in India that works with global organizations. INX builds software, digital products, AI and automation systems, and games, and takes ideas from concept to a working product. The site presents that story and routes qualified visitors to the contact form.
+
+**Brand line:** "Build Systems That Perform." The retired lines "MAKE IT PERFORM" and "Perform.Delivered." must not be reintroduced.
+
+### Information Architecture
+
+| Area | Route | Purpose |
+|---|---|---|
+| Work | `/case-studies` (+ 4 detail pages) | Anonymized case studies (never client-identifying) |
+| Services | `/services` (+ 10 detail pages) | The ten service categories (see §9) |
+| Products | `/products` | INX-owned products. Zero published today (premium empty state) |
+| Games | `/games` | INX games. Zero published today (premium empty state) |
+| Labs | `/labs` | Experiments / R&D. Zero published today (premium empty state) |
+| Store | `/store` | Internal bridge page to the separate INX Assets Store website |
+| Insights | `/insights` (+ 15 articles) | Engineering articles |
+| About | `/about` | Company entity, expertise, EEAT |
+| Supporting | `/industries` (+5), `/technologies`, `/partnerships`, `/careers`, `/contact`, `/expertise`, `/our-process`, `/engagement-models`, `/why-inx` | Depth and conversion pages |
+| Legal | `/privacy`, `/terms`, `/cookies`, `/security`, `/confidentiality`, `/accessibility` | `noindex`, not in the sitemap |
 
 ### Business Objectives
 
 | Objective | Implementation |
 |---|---|
-| Generate qualified business inquiries | Contact form with project type qualification |
-| Establish technical authority | 15 engineering insight articles + 4 GEO authority pages |
-| Rank for high-intent service keywords | 5 industry landing pages + structured content hub |
-| Communicate premium positioning | Architecture-first design with enterprise tone |
-| Support global business development | UK, US, Europe, Middle East audience targeting |
+| Generate qualified business inquiries | Contact form whose project types mirror the service catalog |
+| Establish technical authority | Insights articles, expertise/process/why-INX pages, industry pages |
+| Communicate the whole INX ecosystem | Homepage story: services, work, products, games, labs, store |
+| Support global business development | UK, US, Europe, Middle East, India audience |
 
 ### Target Audience
 
-**Primary:** CTOs, Engineering Directors, and VPs of Engineering at enterprise and growth-stage companies (50–5,000 employees) evaluating a senior engineering partner for custom software, SaaS, or AI projects.
-
-**Secondary:** Founders of funded startups requiring technical co-founders or product engineering capability.
-
-**Geography:** United Kingdom, United States, European Union, Middle East, India.
+**Primary:** CTOs, engineering leaders and product owners at growth-stage and enterprise companies evaluating an engineering partner.
+**Secondary:** Founders of funded startups needing product engineering capability.
 
 ### Key Conversion Goals
 
-1. **Primary:** Contact form submission (`contact_form_submit` GA4 event)
-2. **Secondary:** Organic search traffic to industry landing pages
-3. **Tertiary:** Insights article readership — establishing recurring authority visits
-4. **Tracked:** Project type distribution, budget range distribution, source attribution
+1. **Primary:** contact form submission (`contact_form_submit` GA4 event)
+2. **Secondary:** organic entry to service, industry and insight pages
+3. **Tracked:** project type, budget range
+
+### Non-negotiable content rules
+
+- **No client-identifying information anywhere** (names, logos, domains, testimonials, alt text, JSON-LD, comments, draft records).
+- **No invented** metrics, clients, testimonials, products, games, labs, counts, ratings or awards.
+- **Cloud infrastructure / DevOps is not a standalone service.** Cloud and delivery topics may appear only as implementation knowledge inside the ten services.
+- **The Store is never duplicated**: no catalog data, and the homepage never links to the external Store domain directly.
+- American English spelling is the site standard.
 
 ---
 
@@ -67,70 +87,58 @@ The INX corporate website (`ideanestx.com`) is the primary digital presence for 
 
 ### Frontend Architecture
 
-The website is a statically pre-rendered Next.js 16.2.6 application using the App Router. Pages are rendered at build time (Static Site Generation) and served as static HTML with client-side hydration for interactive components.
+Next.js 16.2.6 (App Router, Turbopack), React 19, TypeScript (strict), Tailwind CSS v4, Framer Motion, lucide-react. Nearly every page is prerendered at build time; the only dynamic route is `POST /api/contact` (plus per-article Open Graph images).
 
-```
-User Browser
-    │
-    ├─ Static HTML (pre-rendered at build time)
-    ├─ CSS (Tailwind v4, inlined via PostCSS)
-    ├─ JavaScript bundle (React 19, Framer Motion, Lucide)
-    └─ Client-side only: Analytics, Turnstile widget, Contact form state
-```
+> **Next.js 16 note:** APIs and conventions differ from older versions. Read the relevant guide in `node_modules/next/dist/docs/` before changing framework-level code (see `AGENTS.md`).
 
-**Component architecture:**
+**Rendering model:** pages and most components are Server Components. Client Components are limited to the Navbar (scroll state, mobile menu), animated sections (Framer Motion), the contact form, industry FAQ accordion and the article table of contents. The homepage hero uses CSS-only entrance animation so it paints before hydration.
 
-- **Server Components:** Page routes, GEO components (`EntitySummary`, `ExpertiseBlock`, `AeoAnswerBlock`, `CompanyEeat`, `TrustBar`, `OutcomeStrip`), all layout-level components
-- **Client Components:** Navbar (scroll state, mobile menu), all animated sections (Framer Motion), contact form (form state, API calls), industry FAQ accordion, article table of contents
-
-**Key directories:**
+**Motion & accessibility:** `<MotionConfig reducedMotion="user">` in the root layout plus a global `prefers-reduced-motion` CSS block gate all animation. The shared `Reveal` component handles scroll-in.
 
 ```
 src/
-├── app/                    # Next.js App Router pages and API routes
-│   ├── page.tsx            # Homepage
-│   ├── api/contact/        # Lead capture API (server-side only)
-│   ├── layout.tsx          # Root layout + metadata + analytics
-│   ├── sitemap.ts          # Dynamic sitemap generation
-│   ├── robots.ts           # Robots.txt generation
-│   └── opengraph-image.tsx # OG image generation (Next.js ImageResponse)
-├── components/             # React components, organized by feature
-│   ├── aeo/                # Answer Engine Optimization blocks
-│   ├── geo/                # Generative Engine Optimization components
-│   ├── industries/         # Industry landing page renderer
-│   ├── insights/           # Article page renderer
-│   ├── trust/              # Trust signals (TrustBar, OutcomeStrip)
-│   └── visuals/            # Abstract SVG diagram components
-├── lib/
-│   ├── seo.ts              # All schema.org generators + ENTITY constant
-│   ├── insights.ts         # All 15 article data objects
-│   ├── industries-data.ts  # All 5 industry page data objects
-│   ├── authors.ts          # 3 author profiles for EEAT
-│   ├── analytics.ts        # GA4 event utility (fireGAEvent)
-│   └── zoho.ts             # Zoho Sheets integration (OAuth + append)
-└── app/globals.css         # Global styles + CSS animations
+├── app/                      # App Router routes, API route, sitemap/robots/OG image
+│   ├── page.tsx              # Homepage (composes components/home/*)
+│   ├── services/ case-studies/ products/ games/ labs/ store/ insights/ industries/ ...
+│   ├── api/contact/          # Lead capture (server only)
+│   ├── layout.tsx            # Root layout, default metadata, analytics
+│   ├── sitemap.ts robots.ts opengraph-image.tsx
+├── components/
+│   ├── home/                 # Homepage sections (Hero, Intro, Capabilities, Work, Ecosystem, Store, Process)
+│   ├── shared/CTASection.tsx # The single shared closing-CTA component
+│   ├── services/ case-studies/ products/ games/ labs/ store/ industries/ insights/ ...
+│   ├── geo/ aeo/             # Entity / answer-engine content blocks (server)
+│   ├── motion/Reveal.tsx     # Scroll-in primitive
+│   ├── visuals/              # Abstract SVG/CSS visuals (no raster assets)
+│   ├── Navbar.tsx Footer.tsx # Global navigation (driven by lib/navigation.ts)
+│   └── analytics/            # GA4 + Clarity (env-configurable)
+└── lib/
+    ├── services-data.ts      # SOURCE OF TRUTH for the 10 services
+    ├── case-studies-data.ts  # 4 anonymized case studies
+    ├── products-data.ts games-data.ts labs-data.ts   # Typed, currently empty
+    ├── content-shared.ts     # PublishState / draft gating / shared types
+    ├── navigation.ts         # Primary, supporting and footer navigation
+    ├── process-data.ts       # The five process phases (homepage + service pages)
+    ├── store-info.ts         # STORE_URL / host / collection names only
+    ├── seo.ts                # Schema.org generators, ENTITY, BASE_URL, DEFAULT_OG_IMAGE
+    ├── insights.ts industries-data.ts authors.ts
+    ├── analytics.ts zoho.ts
 ```
+
+### Content data layer and draft gating
+
+Services, case studies, products, games and labs share `PublishState` (`draft: boolean`). Every public surface (listings, `generateStaticParams`, sitemap, structured data, related links, homepage ecosystem) reads through the `getPublished*()` accessors, so a `draft: true` record is invisible everywhere and nonexistent detail URLs return 404. Because Products, Games and Labs are empty, their listing pages render intentional empty states, their detail routes have no static params, and the sitemap contains only the listing URLs.
 
 ### Deployment Architecture
 
 ```
-GitHub Repository (source of truth)
-    │
+GitHub repository (source of truth)
     └─▶ Vercel (automatic deploy on push to main)
-            │
             ├─ Build: next build (Turbopack)
-            ├─ Output: 49 static pages + 1 dynamic API route
-            ├─ CDN: Vercel Edge Network (global)
-            └─ Domain: ideanestx.com + www.ideanestx.com
+            ├─ Output: prerendered pages + 1 dynamic API route
+            ├─ CDN: Vercel Edge Network
+            └─ Domain: ideanestx.com (canonical, non-www)
 ```
-
-**Build pipeline:**
-1. Push to `main` branch → Vercel webhook fires
-2. Vercel runs `npm run build` (Next.js 16 + Turbopack)
-3. TypeScript checked; 49 pages generated statically
-4. Single dynamic route: `POST /api/contact`
-5. Static assets served from Vercel CDN
-6. Preview deployments generated for non-main branches automatically
 
 ### External Service Integrations
 
@@ -211,92 +219,56 @@ User fills contact form
 
 ### Complete Route Inventory
 
-**49 pages total (at last build)**
+67 prerendered pages at last build (Next.js counts the sitemap, robots and image routes among them).
 
-#### Core Public Pages (Static)
+#### Homepage
 
-| Route | Title | Priority | In Sitemap |
-|---|---|---|---|
-| `/` | INX — Custom Software Development & Product Engineering | 1.0 | ✓ |
-| `/about` | About | 0.9 | ✓ |
-| `/services` | Software Development Services | 0.9 | ✓ |
-| `/industries` | Industry Solutions | 0.9 | ✓ |
-| `/technologies` | Technology Stack | 0.9 | ✓ |
-| `/partnerships` | Partnerships | 0.9 | ✓ |
-| `/case-studies` | Case Studies | 0.9 | ✓ |
-| `/careers` | Engineering Careers | 0.9 | ✓ |
-| `/contact` | Contact | 0.9 | ✓ |
-| `/insights` | Engineering Insights | 0.8 | ✓ |
-
-#### GEO Authority Pages (Static)
-
-| Route | Title | Priority | Purpose |
-|---|---|---|---|
-| `/expertise` | Engineering Expertise | 0.85 | Technical domain definitions |
-| `/our-process` | Our Process | 0.85 | 5-phase methodology (HowTo schema) |
-| `/engagement-models` | Engagement Models | 0.85 | Commercial structure definitions |
-| `/why-inx` | Why INX | 0.85 | Competitive positioning + FAQs |
-
-#### Industry Landing Pages (Dynamic SSG)
-
-| Route | Title | Priority |
-|---|---|---|
-| `/industries/saas-development` | SaaS Development | 0.8 |
-| `/industries/healthcare-software-development` | Healthcare Software Development | 0.8 |
-| `/industries/fintech-software-development` | FinTech Software Development | 0.8 |
-| `/industries/ecommerce-development` | eCommerce Development | 0.8 |
-| `/industries/gaming-software-development` | Gaming Software Development | 0.8 |
-
-#### Insights Articles (Dynamic SSG — 15 articles)
-
-| Route | Category | Author |
-|---|---|---|
-| `/insights/why-operational-context-matters` | Systems Architecture | P Sai Vignesh |
-| `/insights/technical-debt-compounds-faster-than-growth` | Engineering Practice | P Sai Vignesh |
-| `/insights/why-internal-tools-fail-adoption` | Internal Systems | Mohamed Farid |
-| `/insights/engineering-discipline-at-scale` | Engineering Practice | Mohamed Farid |
-| `/insights/deployment-systems-not-release-events` | Delivery Systems | P Sai Vignesh |
-| `/insights/what-to-look-for-custom-software-development-company` | Custom Software | INX Editorial |
-| `/insights/when-to-build-custom-software` | Custom Software | INX Editorial |
-| `/insights/staff-augmentation-vs-outsourcing` | Delivery Models | Mohamed Farid |
-| `/insights/mvp-development-what-it-actually-means` | Product Engineering | INX Editorial |
-| `/insights/product-engineering-what-it-means` | Product Engineering | INX Editorial |
-| `/insights/saas-multi-tenancy-architecture-decisions` | SaaS Engineering | P Sai Vignesh |
-| `/insights/staff-augmentation-when-it-works` | Delivery Models | Mohamed Farid |
-| `/insights/how-to-choose-saas-development-partner` | SaaS Engineering | INX Editorial |
-| `/insights/software-development-outsourcing-what-goes-wrong` | Custom Software | Mohamed Farid |
-| `/insights/mvp-to-production-the-transition-no-one-plans-for` | Product Engineering | INX Editorial |
-
-#### Legal Pages (Static — noindex)
-
-| Route | Robots |
+| Route | Notes |
 |---|---|
-| `/privacy` | noindex, follow |
-| `/terms` | noindex, follow |
-| `/cookies` | noindex, follow |
-| `/security` | noindex, follow |
-| `/confidentiality` | noindex, follow |
-| `/accessibility` | noindex, follow |
+| `/` | Hero → INX Model → Capabilities → Selected Work → Ecosystem (Products/Games/Labs) → Store → Process → CTA. All sections live in `src/components/home/`, driven by the data layer. |
 
-#### System Routes
+#### Primary navigation routes
+
+| Route | Nav label | Detail routes |
+|---|---|---|
+| `/case-studies` | Work | `/case-studies/[slug]`: 4 published |
+| `/services` | Services | `/services/[slug]`: 10 published |
+| `/products` | Products | `/products/[slug]`: none published (404) |
+| `/games` | Games | `/games/[slug]`: none published (404) |
+| `/labs` | Labs | `/labs/[slug]`: none published (404) |
+| `/store` | Store | none. Bridge page linking out to the external Store |
+| `/insights` | Insights | `/insights/[slug]`: 15 articles |
+| `/about` | About | none |
+
+The header CTA is "Start a Project" → `/contact`. Navigation data lives in `src/lib/navigation.ts` (`PRIMARY_NAV`, `SUPPORTING_NAV`, `FOOTER_NAV`) and feeds the desktop header, mobile menu and footer.
+
+#### Supporting pages (static)
+
+`/industries` (+ `/industries/saas-development`, `healthcare-software-development`, `fintech-software-development`, `ecommerce-development`, `gaming-software-development`), `/technologies`, `/partnerships`, `/careers`, `/contact`, `/expertise`, `/our-process`, `/engagement-models`, `/why-inx`.
+
+#### Legal pages (static, `noindex, follow`, excluded from the sitemap)
+
+`/privacy`, `/terms`, `/cookies`, `/security`, `/confidentiality`, `/accessibility`.
+
+#### System routes
 
 | Route | Type | Purpose |
 |---|---|---|
-| `/api/contact` | Dynamic (server) | Lead capture POST endpoint |
+| `/api/contact` | Dynamic (server) | Lead capture POST endpoint. Disallowed in robots.txt |
 | `/robots.txt` | Generated | Crawler directives |
-| `/sitemap.xml` | Generated | Search engine sitemap (34 URLs) |
-| `/opengraph-image` | Generated | Root OG image (1200×630) |
-| `/icon.png` | Static asset | PWA icon (512×512) |
-| `/apple-icon.png` | Static asset | Apple touch icon (180×180) |
+| `/sitemap.xml` | Generated | 52 URLs |
+| `/opengraph-image` | Generated | Shared 1200×630 social image |
+| `/insights/[slug]/opengraph-image` | Dynamic | Per-article social image |
+
+#### Retired routes (must 404)
+
+There are no `/services/cloud-*` or `/services/devops-*` routes. Unpublished product/game/lab slugs also 404.
 
 ### Sitemap Structure
 
-The sitemap is generated dynamically in `src/app/sitemap.ts`. It imports:
-- `articles` from `src/lib/insights.ts` (15 articles)
-- `industryPages` from `src/lib/industries-data.ts` (5 pages)
-- `BASE_URL` from `src/lib/seo.ts`
+`src/app/sitemap.ts` builds the sitemap from the same published-only accessors the routes use for `generateStaticParams` (`getPublishedServices`, `getPublishedCaseStudies`, `getPublishedProducts`, `getPublishedGames`, `getPublishedLabProjects`) plus `articles` and `industryPages`. It de-duplicates URLs, uses the canonical `BASE_URL`, and stamps `lastModified` only on articles (which have real dates). The external Store URL, API routes and legal pages are never included.
 
-Total indexed URLs: **34** (10 static + 4 GEO + 5 industry + 15 articles). Legal pages are intentionally excluded.
+Current total: **52 URLs** = home + 5 top-level listings (services, case studies, products, games, labs) + store + insights + about + 10 services + 4 case studies + 15 articles + industries index + 5 industry pages + technologies, partnerships, careers, contact, expertise, our-process, engagement-models, why-inx.
 
 ---
 
@@ -304,136 +276,55 @@ Total indexed URLs: **34** (10 static + 4 GEO + 5 industry + 15 articles). Legal
 
 ### Metadata Strategy
 
-All metadata is managed through the Next.js 14+ `Metadata` API. The root layout (`src/app/layout.tsx`) defines:
-- `metadataBase: new URL("https://ideanestx.com")` — required for absolute OG image URLs
-- Default title: `"INX | Custom Software Development & Product Engineering"`
-- Title template: `"%s | INX"` — applied to all inner pages
-- Root-level `icons` configuration for all favicon variants
+The root layout defines `metadataBase`, the default title "INX | Build Systems That Perform", the title template `"%s | INX"`, default description, and default Open Graph/Twitter fields. Each page exports `metadata` (or `generateMetadata()` for dynamic routes) with a unique title and description, an absolute canonical, and explicit `openGraph` and `twitter` blocks.
 
-Each `page.tsx` file exports its own `metadata` constant with:
-- `title` (string — template is applied automatically)
-- `description` (unique per page, 130–160 characters)
-- `alternates.canonical` (absolute URL)
-- `openGraph` block (title, description, url, siteName, locale, type)
-- `twitter` block (card, title, description)
-
-For dynamic pages (`/industries/[slug]`, `/insights/[slug]`), metadata is generated via `generateMetadata()` async function reading from the data files.
+**Social image rule:** a page that declares its own `openGraph` replaces the one Next.js derives from `app/opengraph-image.tsx`, so every such page references `DEFAULT_OG_IMAGE` (from `src/lib/seo.ts`) explicitly in both `openGraph.images` and `twitter.images`. Article pages instead use their own per-article image route. New pages must follow this rule.
 
 ### Canonical URLs
 
-Every page has an explicit canonical tag. No pagination, no duplicate content sources. Legal pages have canonical tags pointing to themselves (since they are noindex, canonicals prevent issues with any cached versions).
+Every indexable page has a self-referencing absolute canonical on `https://ideanestx.com` (no www, no localhost). Legal pages canonicalize to themselves and are `noindex, follow`.
 
 ### Sitemap
 
-- **File:** `src/app/sitemap.ts`
-- **Output URL:** `https://www.ideanestx.com/sitemap.xml`
-- **Format:** Next.js `MetadataRoute.Sitemap` (auto-converts to XML)
-- **Update frequency:** Rebuilt on every Vercel deployment
-- **Article dates:** Parsed from `"Month YYYY"` strings to ISO date for `lastModified`
+See §4. Rebuilt on each deploy. Never hand-edit URLs into it: publish content through the data files and it appears automatically.
 
 ### Robots.txt
 
-- **File:** `src/app/robots.ts`
-- **Output URL:** `https://www.ideanestx.com/robots.txt`
-- **Configuration:** Allow all (`/`), disallow nothing, sitemap URL declared
-- **Legal pages:** Not disallowed in robots.txt — noindex is set via metadata (Google requires crawl access to read noindex directives)
+`src/app/robots.ts`: `Allow: /`, `Disallow: /api/`, and the `https://ideanestx.com/sitemap.xml` sitemap. Legal pages are crawlable (so their `noindex` is honored) but excluded from the sitemap.
 
 ### Structured Data (JSON-LD)
 
-All structured data is injected via the `<JsonLd>` component (`src/components/JsonLd.tsx`) which renders a `<script type="application/ld+json">` tag. All generators live in `src/lib/seo.ts`.
+Only types backed by real page data are emitted:
 
-| Schema Type | Pages | Data Source |
-|---|---|---|
-| `Organization` | Homepage, About | `organizationSchema()` — includes `knowsAbout`, `hasOfferCatalog`, `contactPoint`, `alternateName` |
-| `WebSite` | Homepage | `webSiteSchema()` |
-| `ProfessionalService` | /services, /expertise | `servicePageSchema()`, inline in expertise page |
-| `BreadcrumbList` | All pages | `breadcrumbSchema(items[])` |
-| `FAQPage` | Homepage, Services, Contact, Industry pages, /why-inx, /engagement-models | `faqSchema(items[])` |
-| `HowTo` | /our-process | `howToSchema({steps[]})` — 5-phase delivery |
-| `Article` | Each insight | `articleSchema({headline, description, datePublished, url, author})` |
-| `ItemList` | /engagement-models | Inline — 4 engagement models |
-| `ContactPage` | /contact | `contactPageSchema()` |
+| Type | Where |
+|---|---|
+| Organization | `/` (with WebSite), `/about` |
+| ProfessionalService | `/expertise` |
+| WebSite | `/` |
+| BreadcrumbList | Inner pages |
+| Service | Each `/services/[slug]` |
+| ItemList of Service | `/services` |
+| CreativeWork | Each `/case-studies/[slug]` |
+| Article | Each insight article |
+| FAQPage | Only pages that show the same FAQ visibly |
+| HowTo | `/our-process` |
+| ContactPage | `/contact` |
 
-**Organization schema detail:** The `organizationSchema()` includes `alternateName: ["INX", "IdeanestX", "IDEANEST X"]` for entity disambiguation across AI engines and search engines.
+`Product`, `VideoGame` and lab schemas exist in `seo.ts` but only render for published records, so today none are emitted. Nothing asserts ratings, reviews, prices, awards, customer counts or product counts.
 
-### Open Graph
+**One service catalog:** `serviceCatalog()` in `seo.ts` derives the "INX Services" catalog from `services-data.ts`; `ENTITY.services` (used by `knowsAbout`) derives from the same list. Do not maintain another service list. `knowsAbout` on `/expertise` adds technologies and the six technical domains, none of which imply a standalone Cloud/DevOps service.
 
-Every public page has complete OG metadata:
-- `og:type` — `"website"` for standard pages, `"article"` for insights with `publishedTime`
-- `og:image` — Resolved from `metadataBase` + `/opengraph-image` route (auto-generated 1200×630 PNG)
-- The OG image renders the INX wordmark with brand gradient (cyan→blue→purple), entity label, tagline, and sub-tagline
+### Open Graph / Twitter Cards
 
-### Twitter Cards
+All pages use `summary_large_image`, `siteName: INX`, `locale: en_US`. The shared image (`app/opengraph-image.tsx`) reads "Build Systems That Perform." and "Software · Products · AI & Automation · Games".
 
-All pages use `twitter:card: "summary_large_image"`. Twitter card images resolve from the same OG image route.
+### Internal Linking
 
-### Internal Linking Architecture
+Navigation is centralized in `lib/navigation.ts`. Contextual links: Services → related work, Games → Game Development service, Products → `/store`, Store → Services/Contact, homepage → every ecosystem section. Only the `/store` page links to `https://store.ideanestx.com/`.
 
-```
-Homepage
-├─▶ Services, Industries, Technologies, Case Studies, Insights, About, Contact
-│
-Services
-├─▶ /our-process, /engagement-models, /expertise, /why-inx (How We Work strip)
-│
-Industry Pages (×5)
-├─▶ /contact (CTA), /services (secondary CTA)
-├─▶ Related articles (3 per industry, from relatedArticleSlugs array)
-│
-Insights Articles (×15)
-├─▶ 3 related articles (from related[] array)
-├─▶ 2–3 relevant service/industry pages (categoryResourceMap)
-│
-Footer
-├─▶ All main pages (Company column)
-├─▶ /our-process, /engagement-models, /expertise, /why-inx (How We Work column)
-├─▶ All legal pages
-```
+### GEO / AEO / EEAT
 
-No orphan pages. All articles have at least one inbound link from another article's `related[]` array.
-
-### GEO (Generative Engine Optimization)
-
-GEO ensures that AI-powered search engines (ChatGPT, Perplexity, Gemini, Claude) can correctly attribute and cite INX.
-
-**Implementation:**
-
-1. **Entity clarity** — `ENTITY` constant in `seo.ts` defines canonical entity strings used consistently across all schema and visible content: entity name, services, industries, engagement models, technologies, description paragraph
-
-2. **`EntitySummary` component** — Server Component placed on homepage and About page. Renders a 4-pillar grid (Who / What / Who we serve / How) plus service and industry chip links. Always visible HTML — not behind JavaScript.
-
-3. **`ExpertiseBlock` component** — Server Component on /services page. Renders technology expertise (12 tags), industries served (6 linked), and engagement models (5 with descriptions). All text is crawlable.
-
-4. **`AeoAnswerBlock` component** — Server Component rendering always-visible question + answer pairs (not accordion). Used on Homepage (6 Q&As), Contact page (6 Q&As). Direct answers optimized for extraction by AI engines.
-
-5. **Four GEO Authority Pages** — `/expertise`, `/our-process`, `/engagement-models`, `/why-inx` — each is a rich semantic page defining INX's entity in a specific dimension, cross-linked from Services and About pages.
-
-6. **Enhanced Organization schema** — `knowsAbout` array covers all services and technical domains. `hasOfferCatalog` provides service descriptions with URLs. `alternateName` covers all brand variants.
-
-### AEO (Answer Engine Optimization)
-
-FAQSchema JSON-LD is added to pages where common buyer questions arise:
-- Homepage (6 questions about what INX does, pricing, timelines)
-- Services (8 questions about commercial structure, process, IP)
-- Industry pages (5 questions each, domain-specific)
-- Contact (6 questions about next steps, NDAs, fit)
-- /why-inx (7 questions about differentiators)
-- /engagement-models (5 commercial questions)
-
-Visible `AeoAnswerBlock` components mirror the FAQ schema in HTML, providing direct text extraction for AI engines without requiring schema parsing.
-
-### EEAT (Experience, Expertise, Authoritativeness, Trustworthiness)
-
-**Author profiles** (`src/lib/authors.ts`): Three profiles created:
-- **P Sai Vignesh** (Founder & Director) — assigned to 4 technical/architecture articles
-- **Mohamed Farid** (Co-Founder & Director) — assigned to 5 delivery/operations articles
-- **INX Engineering Editorial** — assigned to 6 evergreen buyer-intent articles
-
-Article JSON-LD includes `Person` schema for named authors with `jobTitle` and `worksFor` (Organization).
-
-**`CompanyEeat` component** — Server Component on About page. Renders 6 technical domains with competency lists, 6 delivery standards with descriptions, and legal entity declaration table.
-
-**`TrustBar` component** — Horizontal engineering standards strip on Homepage after hero.
+`EntitySummary`, `ExpertiseBlock`, `AeoAnswerBlock` and `CompanyEeat` are Server Components that state the INX entity consistently. Their service lists derive from `services-data.ts`.
 
 ---
 
@@ -444,6 +335,7 @@ Article JSON-LD includes `Person` schema for named authors with `jobTitle` and `
 **Component:** `src/components/analytics/GoogleAnalytics.tsx`  
 **Loaded:** In root layout, `strategy="afterInteractive"` (client-side only, no SSR)  
 **Measurement ID location:** `NEXT_PUBLIC_GA_MEASUREMENT_ID` environment variable in Vercel dashboard
+**Activation guard:** the component renders nothing unless the value is a well-formed GA4 ID (`G-` + 8–12 alphanumerics) that is not a placeholder. **The real production Measurement ID still has to be supplied**; until then no analytics traffic is sent anywhere.
 
 **Page view tracking:** The component uses `usePathname()` and a `useEffect` to fire `gtag("config", GA_ID, { page_path: pathname })` on every client-side route change. The initial pageview is fired by the inline initialization script.
 
@@ -503,7 +395,7 @@ The contact form is located at `/contact` → `ContactForm` component (`src/comp
 | Budget Range | Select | Optional | 5 options + "Prefer not to disclose" |
 | Message | Textarea | ✓ | Min 20 characters |
 
-**Project type options:** Enterprise Web Development · SaaS Engineering · AI Systems · Staff Augmentation · Mobile Applications · Cloud & Infrastructure · UI/UX Systems · General Inquiry
+**Project type options:** the ten service titles from `services-data.ts` (Web Development, Mobile App Development, SaaS & Custom Software, AI & Automation, Game Development, UI/UX & Product Design, System Integrations, Dedicated Development Teams, Recruitment & Talent Solutions, Training & Technical Enablement) plus General Inquiry. The list is derived from the data file, so it follows the service catalog automatically. The API stores the chosen value as free text.
 
 **Budget range options:** Under $25,000 · $25,000–$75,000 · $75,000–$200,000 · $200,000+ · Prefer not to disclose
 
@@ -542,7 +434,7 @@ The API route (`/api/contact`) re-validates all fields server-side. This is a de
 | Company | Company name | Acme Corp |
 | Email | Submitter email | jane@acme.com |
 | Phone | Not collected | Not collected |
-| Service | project_type field value | SaaS Engineering |
+| Service | project_type field value | SaaS & Custom Software |
 | Budget | budget field value | $75,000 - $200,000 |
 | Message | Full message text | ... |
 | Status | Workflow status | New |
@@ -566,7 +458,7 @@ The API route (`/api/contact`) re-validates all fields server-side. This is a de
 
 ### Content Security Policy
 
-Next.js default headers apply. No custom CSP is currently configured. Recommendation: Add CSP headers in `next.config.ts` for a future security hardening pass (see §15 Future Roadmap).
+`next.config.ts` sets a Content-Security-Policy plus X-Frame-Options, X-Content-Type-Options, Referrer-Policy and Permissions-Policy on every route. Scripts are allowed from self, Cloudflare Turnstile, Google Tag Manager and Clarity; images are limited to self/data/blob (relevant if remote media is ever added). Update the policy when adding a third-party origin.
 
 ### HTTPS
 
@@ -606,69 +498,50 @@ All environment variables are stored exclusively in Vercel dashboard under Proje
 
 ## 9. Content Inventory
 
-### Services (10)
+### Services (10). Source of truth: `src/lib/services-data.ts`
 
-1. Custom Software Development
-2. SaaS Platform Development
-3. Product Engineering
-4. Staff Augmentation
-5. Web Application Development
-6. Mobile Application Development
-7. AI Systems Integration
-8. Cloud Infrastructure Engineering
-9. DevOps and CI/CD
-10. MVP Development
+1. Web Development
+2. Mobile App Development
+3. SaaS & Custom Software
+4. AI & Automation
+5. Game Development
+6. UI/UX & Product Design
+7. System Integrations
+8. Dedicated Development Teams
+9. Recruitment & Talent Solutions
+10. Training & Technical Enablement
+
+Cloud infrastructure and DevOps are **not** services. Their technical capability is folded into System Integrations and the implementation detail of the other services. Do not add a standalone entry.
+
+### Case Studies (4). Source: `src/lib/case-studies-data.ts`
+
+Anonymous descriptors only:
+1. Platform consolidation for a multi-location F&B group
+2. Performance and architecture remediation for a compliance SaaS platform
+3. Document intelligence for a professional services firm
+4. Dispatch and tracking platform for a last-mile logistics operator
+
+### Products, Games, Labs
+
+Empty by design. When a real, verified record exists, add it to the matching data file with `draft: false`; the listing, detail route, homepage ecosystem block and sitemap pick it up automatically. Never add scaffolds for unverified items.
+
+### INX Store
+
+Separate website (https://store.ideanestx.com/), presented as "INX Assets Store": 3D assets and UI kits for game developers, studios, UI designers and 3D creators. Only the verified positioning in `store-info.ts` may be used; no catalog, prices, ratings or counts.
 
 ### Industry Pages (5)
 
-| Industry | Slug | Key Capabilities |
-|---|---|---|
-| SaaS Development | `saas-development` | Multi-tenancy, billing, API-first, scalability |
-| Healthcare Software | `healthcare-software-development` | HIPAA, EHR integration, clinical workflows |
-| FinTech Software | `fintech-software-development` | Compliance, transaction processing, audit |
-| eCommerce Development | `ecommerce-development` | Commerce platforms, inventory, payments |
-| Gaming Software | `gaming-software-development` | Game backends, real-time, live ops |
+`saas-development`, `healthcare-software-development`, `fintech-software-development`, `ecommerce-development`, `gaming-software-development` (`src/lib/industries-data.ts`).
 
-Each industry page contains: Hero, 4 content sections (~1,200 words), 12 capability chips, 5 FAQ items, 3 related insight articles, CTA (with per-industry headline), Related Insights section, Related Areas navigation.
+### Insights Articles (15). Source: `src/lib/insights.ts`
 
-### Insights Articles (15 articles)
+Three authors (`src/lib/authors.ts`). Related-service links in the article page map to real service routes.
 
-Organized across 8 editorial categories:
+### Core Positioning
 
-| Category | Articles |
-|---|---|
-| Systems Architecture | 1 |
-| Engineering Practice | 2 |
-| Internal Systems | 1 |
-| Delivery Systems | 1 |
-| Custom Software | 3 |
-| Delivery Models | 2 |
-| Product Engineering | 3 |
-| SaaS Engineering | 2 |
-
-### Case Studies (4 — on /case-studies page)
-
-| Study | Industry | Key Outcome |
-|---|---|---|
-| Platform Consolidation — F&B Group | Food & Beverage | 40+ locations unified; 3 weeks → 4 days onboarding |
-| Compliance SaaS Remediation | SaaS / FinTech | P95 latency: 1.8s → 240ms; 6-week → 2-week release cycle |
-| Document Intelligence Pipeline | Professional Services | 8 min → 45s classification; 40 → 110 docs/day throughput |
-| Dispatch & Tracking Platform | Logistics | Vehicle utilisation +23%; SLA compliance 78% → 94% |
-
-### Core Positioning Statements
-
-- **Primary:** "INX is a custom software development company that engineers SaaS platforms, enterprise web applications, AI systems, and cloud infrastructure for global organisations — delivering production-grade systems from architecture through to live operation."
-- **Differentiator:** "Discovery-first. Architecture before code. Senior-only delivery. Full IP transfer."
-- **Tagline:** "MAKE IT PERFORM"
-- **Established:** ESTD 2026
-
-### Author Profiles
-
-| Author | Role | Articles |
-|---|---|---|
-| P Sai Vignesh | Founder & Director | 4 (systems architecture, technical strategy) |
-| Mohamed Farid | Co-Founder & Director | 5 (delivery, operations, culture) |
-| INX Engineering Editorial | Engineering Editorial | 6 (buyer-intent, evergreen topics) |
+- **Entity:** "INX (IDEANEST X PRIVATE LIMITED) is a technology and product engineering company headquartered in India. INX builds software, digital products, AI and automation systems, and games for global organizations — taking ideas from concept to a working product." (`ENTITY.description`)
+- **Brand line:** "Build Systems That Perform."
+- **Differentiators:** discovery-first, architecture before code, senior-only delivery, full IP transfer.
 
 ---
 
@@ -676,113 +549,35 @@ Organized across 8 editorial categories:
 
 ### CTA Strategy
 
-**Primary action across the site:** "Start a Project" → `/contact`  
-**Secondary action:** "View Services" → `/services`  
-**Urgency signal:** ContactCta on /contact mentions "INX maintains a limited number of active engagements"
+Primary action everywhere: **Start a Project → `/contact`**. The shared `CTASection` (`components/shared/CTASection.tsx`) is the only closing-CTA component; it accepts a primary CTA and an optional secondary one.
 
-**CTA consistency:**
-
-| Location | CTA Text | Destination |
+| Location | CTA | Destination |
 |---|---|---|
-| Navbar (desktop) | "Start Project" | /contact |
-| Hero (primary button) | "Start a Project" | /contact |
-| Hero (secondary button) | "Explore Services" | /services |
-| Mobile sticky bar | "Start a Project" | /contact |
-| Services page CTA | "Request a Discovery Call" | /contact |
-| Industry pages | "Start a Project" | /contact |
-| Homepage bottom CTA | "Start a Project" | /contact |
-| Footer CTA | "Submit an Inquiry" | #inquiry-form |
+| Header (desktop) | Start a Project | /contact |
+| Mobile menu and sticky bottom bar | Start a Project | /contact |
+| Homepage hero | Start a Project / Explore Our Work | /contact, /case-studies |
+| Homepage closing CTA | Start a Project / Explore Our Work | /contact, /case-studies |
+| Service, case-study, industry pages | Start a Project | /contact |
 
-### Homepage Funnel
+The mobile sticky bar is hidden on `/contact` and while the mobile menu is open.
 
-```
-Hero (Start a Project → /contact)
-    │
-TrustBar (6 engineering standards)
-    │
-OutcomeStrip (4 case study metrics)
-    │
-ServicesSection (6 service cards → /services)
-    │
-ProductShowcase (SaaS + enterprise capability)
-    │
-AIWorkflowSection (AI capability)
-    │
-TechnologiesSection
-    │
-EntitySummary (GEO — Who/What/Who/How)
-    │
-AeoAnswerBlock (6 common Q&As)
-    │
-CtaSection (Start a Project → /contact)
-```
+### Navigation and mobile menu
 
-### Contact Page Funnel
+Desktop: Work, Services, Products, Games, Labs, Store, Insights, About + CTA. Mobile: full-screen panel with the same primary routes, the CTA, and a "More" list (Industries, Technologies, Our Process, Partnerships, Careers, Contact). It is a semantic `<nav>`, closes on Escape, traps focus, locks body scroll while open, and closes if the viewport grows to desktop width. The footer adds Engagement Models, Our Expertise, Why INX and the legal pages.
 
-**Page order** (optimized for self-qualification before form completion):
+### Contact page funnel
 
-```
-ContactHero (headline + contact panel)
-    │
-InquiryCategories (4 engagement types — self-qualify)
-    │
-ContactForm (6 fields + Turnstile)
-    │
-EngagementExpectations (what happens next)
-    │
-AeoAnswerBlock (6 pre-contact Q&As)
-    │
-OfficePresence
-    │
-ContactCta
-```
-
-**Rationale:** InquiryCategories appears before the form so visitors self-qualify their inquiry type before completing fields — resulting in better-framed messages.
-
-### Industry Page Funnel
-
-```
-Hero (headline + hero subtext)
-    │
-4 content sections (1,200 words)
-    │
-Capabilities grid (12 chips)
-    │
-FAQ (5 questions, accordion)
-    │
-CTA ← CONVERSION POINT (per-industry headline + "Start a Project")
-    │
-Related Insights (3 articles)
-    │
-Related Areas (services, case studies, insights hub)
-```
-
-### Mobile CTA Implementation
-
-A sticky bottom bar (`fixed bottom-0`) renders on all mobile screens except `/contact`:
-- Full-width blue button: "Start a Project" → /contact
-- Hidden on lg+ breakpoints (desktop has persistent navbar CTA)
-- Hidden on /contact page to avoid redundancy
+ContactHero → InquiryCategories → ContactForm → EngagementExpectations → AeoAnswerBlock → OfficePresence → ContactCta.
 
 ### Outcome Strip
 
-`OutcomeStrip` component (`src/components/trust/OutcomeStrip.tsx`) renders on:
-- Homepage (between TrustBar and ServicesSection)
-- Services page (between DeliveryApproach and EngagementModels)
-
-Uses only verified case study data (no invented metrics):
-- "3 wks → 4 days" / Location onboarding (F&B Platform)
-- "1.8s → 240ms" / P95 API latency (Compliance SaaS)
-- "78% → 94%" / SLA compliance (Logistics Platform)
-- "8 min → 45s" / Document processing (AI Pipeline)
+`components/trust/OutcomeStrip.tsx` is used only on `/services` and only shows figures documented in the case studies. It is not used on the homepage: no company-level metrics are verified, so the homepage carries none.
 
 ### Form Optimization
 
-- `projectType` is a required field (added during conversion audit)
-- `budget` is optional (reduces form abandonment)
-- Minimum message length: 20 characters (reduces noise without eliminating valid short messages)
-- Commitment strip ("No unsolicited follow-ups", "Direct leadership response", "Honest fit assessment", "NDA available") reduces form anxiety
-- Success state shows 4-step next-action sequence + urgent email for time-sensitive requirements
+- `projectType` is required; `budget` is optional; message minimum 20 characters.
+- Project type options are the ten service titles (from `services-data.ts`) plus "General Inquiry".
+- Commitment strip and success-state next steps reduce form anxiety.
 
 ---
 
@@ -818,8 +613,8 @@ npm run start        # Serve production build locally
 npm run lint         # ESLint check
 ```
 
-**Build time:** Approximately 30–45 seconds (49 pages, Turbopack).  
-**Expected output:** `✓ Compiled successfully` + `✓ Generating static pages (49/49)`  
+**Build time:** roughly 15–45 seconds (Turbopack).  
+**Expected output:** `✓ Compiled successfully` + `✓ Generating static pages` for all routes  
 **TypeScript:** Must pass with zero errors. Any TS error fails the build.
 
 ### Deployment Process
@@ -887,25 +682,26 @@ git push origin main     # Triggers new build with reverted code
 
 ## 12. Environment Variables
 
-All variables are set in Vercel Dashboard → Project → Settings → Environment Variables.
+Set in Vercel Dashboard → Project → Settings → Environment Variables. A template lives in `.env.example`; real values go in the untracked `.env.local` locally.
 
-| Variable | Purpose | Required | Exposed to Browser | Used In |
+| Variable | Purpose | Required | Browser | Used In |
 |---|---|---|---|---|
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics 4 Measurement ID (format: G-XXXXXXXXXX) | Yes | ✓ | `GoogleAnalytics.tsx` |
-| `NEXT_PUBLIC_CLARITY_PROJECT_ID` | Microsoft Clarity project identifier | Yes | ✓ | `MicrosoftClarity.tsx` |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Cloudflare Turnstile public site key | Yes | ✓ | `ContactForm.tsx` (widget) |
-| `TURNSTILE_SECRET_KEY` | Cloudflare Turnstile secret for server verification | Yes | ✗ | `/api/contact` route |
-| `RESEND_API_KEY` | Resend API authentication key | Yes | ✗ | `/api/contact` route |
-| `ZOHO_CLIENT_ID` | Zoho OAuth2 application client ID | Yes | ✗ | `zoho.ts` |
-| `ZOHO_CLIENT_SECRET` | Zoho OAuth2 application client secret | Yes | ✗ | `zoho.ts` |
-| `ZOHO_REFRESH_TOKEN` | Zoho OAuth2 long-lived refresh token | Yes | ✗ | `zoho.ts` |
-| `ZOHO_SPREADSHEET_ID` | Zoho Sheets spreadsheet identifier | Yes | ✗ | `zoho.ts` |
-| `ZOHO_ACCOUNTS_URL` | Zoho OAuth2 token endpoint (optional override) | Optional | ✗ | `zoho.ts` (defaults to `https://accounts.zoho.com`) |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 Measurement ID (format `G-XXXXXXXXXX`). **Unset or placeholder = analytics disabled** | Production | ✓ | `GoogleAnalytics.tsx` |
+| `NEXT_PUBLIC_CLARITY_PROJECT_ID` | Microsoft Clarity project ID (unset = disabled) | Optional | ✓ | `MicrosoftClarity.tsx` |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Cloudflare Turnstile public site key | Yes | ✓ | `ContactForm.tsx` |
+| `TURNSTILE_SECRET_KEY` | Turnstile secret for server verification | Yes | ✗ | `/api/contact` |
+| `RESEND_API_KEY` | Resend API key | Yes | ✗ | `/api/contact` |
+| `ZOHO_CLIENT_ID` | Zoho OAuth2 client ID | Yes | ✗ | `zoho.ts` |
+| `ZOHO_CLIENT_SECRET` | Zoho OAuth2 client secret | Yes | ✗ | `zoho.ts` |
+| `ZOHO_REFRESH_TOKEN` | Zoho OAuth2 refresh token | Yes | ✗ | `zoho.ts` |
+| `ZOHO_SPREADSHEET_ID` | Zoho Sheets spreadsheet ID | Yes | ✗ | `zoho.ts` |
+| `ZOHO_ACCOUNTS_URL` | Zoho token endpoint override | Optional | ✗ | `zoho.ts` (default `https://accounts.zoho.com`) |
+| `ZOHO_SHEET_URL` | Zoho Sheets API base override | Optional | ✗ | `zoho.ts` (default `https://sheet.zoho.com`) |
 
 **Notes:**
-- Variables prefixed `NEXT_PUBLIC_` are embedded in the client-side JavaScript bundle during build. Do NOT prefix secrets with `NEXT_PUBLIC_`.
-- `NODE_ENV` is automatically set by Vercel (`production` in deploys, `development` in `npm run dev`)
-- Set environment scope: All variables should be set for **Production**, **Preview**, and **Development** environments unless service access differs by environment.
+- `NEXT_PUBLIC_` variables are embedded in the client bundle at build time. Never prefix secrets with it. Changing one requires a rebuild.
+- `GoogleAnalytics.tsx` only activates for a well-formed ID (`G-` plus 8–12 alphanumerics) that is not a placeholder, so a wrong value can never send traffic to a fake property.
+- Set variables for Production, Preview and Development unless service access differs by environment.
 
 ---
 
@@ -920,7 +716,7 @@ All variables are set in Vercel Dashboard → Project → Settings → Environme
 ```typescript
 {
   slug: "your-article-slug",          // URL: /insights/your-article-slug
-  index: "16",                         // Next sequential number (zero-padded)
+  index: "16",                         // Next sequential number (zero-padded); use the actual next number
   category: "Custom Software",         // Must match categoryArtMap in FeaturedEditorials
   readingTime: "7 min read",
   date: "June 2026",                   // "Month YYYY" format
@@ -949,7 +745,7 @@ All variables are set in Vercel Dashboard → Project → Settings → Environme
 
 3. Add `related` back-links: Open the 3 articles listed in `related[]` and add the new article's slug to their `related[]` array (to prevent orphaning).
 
-4. **No sitemap update needed** — sitemap.ts auto-includes all articles from the `articles` array.
+4. **No sitemap update needed**: sitemap.ts auto-includes all articles from the `articles` array.
 
 5. Push to `main` — Vercel rebuilds and deploys the new page automatically.
 
@@ -1006,7 +802,7 @@ Each page's metadata is in the `export const metadata: Metadata = {...}` block a
 
 To update the homepage title/description:
 ```
-src/app/page.tsx → metadata.description
+src/app/page.tsx → metadata (and the matching defaults in src/app/layout.tsx)
 ```
 
 To update the layout default title template:
@@ -1014,9 +810,21 @@ To update the layout default title template:
 src/app/layout.tsx → metadata.title.template
 ```
 
-### How to Update the Sitemap Priority or Frequency
+### How to Publish a Service, Case Study, Product, Game or Lab
 
-Edit the appropriate array in `src/app/sitemap.ts`. Priority ranges 0.0–1.0; changeFrequency options: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never".
+1. Edit the matching data file in `src/lib/` (`services-data.ts`, `case-studies-data.ts`, `products-data.ts`, `games-data.ts`, `labs-data.ts`).
+2. Set `draft: false` only when the record is complete and verified. Never invent content; use `null` / `[]` for anything unknown.
+3. Case studies must stay anonymous: no client names, logos, domains or testimonials, in any field (including alt text).
+4. Nothing else needs editing. Listings, detail routes (`generateStaticParams`), the homepage sections, structured data and the sitemap all read the published-only accessors.
+5. The service list is also used by the contact form, entity blocks and JSON-LD. Do not add Cloud / DevOps as a service.
+
+### How to Update the Sitemap
+
+`src/app/sitemap.ts` is generated from the data accessors; add a route there only for a brand-new static page. Priorities are relative hints; `lastModified` is set only where a real date exists.
+
+### How to Add a New Page With Metadata
+
+Export `metadata` with a unique title/description, `alternates.canonical`, and `openGraph`/`twitter` blocks that include `images: [DEFAULT_OG_IMAGE]` / `[DEFAULT_OG_IMAGE.url]` (import from `@/lib/seo`), otherwise the page loses its social image.
 
 ### How to Add a New Author
 
@@ -1077,15 +885,15 @@ git push origin feature/my-change
 ### SEO Monitoring
 
 **Google Search Console** (must be set up and verified):
-- Property: `https://www.ideanestx.com`
+- Property: `https://ideanestx.com`
 - Verification: DNS TXT record or HTML file method
 - Monitor: Index coverage, Core Web Vitals, search queries, click-through rates
-- Submit sitemap: GSC → Sitemaps → `https://www.ideanestx.com/sitemap.xml`
+- Submit sitemap: GSC → Sitemaps → `https://ideanestx.com/sitemap.xml`
 
 **Key SEO metrics to track monthly:**
 - Organic clicks and impressions (GSC)
 - Average position for target keywords
-- Pages indexed vs pages in sitemap (should match: 34)
+- Pages indexed vs pages in sitemap (should match: 52)
 - Any crawl errors (especially 404s on insight or industry pages)
 
 ### Analytics Monitoring
@@ -1111,49 +919,34 @@ git push origin feature/my-change
 
 ## 15. Future Roadmap
 
-### Immediate (0–30 days)
+Nothing below is committed work; it is the backlog as of Phase 10.
 
-| Item | Priority | Effort |
-|---|---|---|
-| Set up Google Search Console with sitemap submission | Critical | 30 min |
-| Verify GA4 conversion event fires correctly in DebugView | Critical | 1 hour |
-| Register GA4 custom dimensions (project_type, budget, service) | High | 30 min |
-| Verify Resend domain `ideanestx.com` is fully authenticated (DMARC, SPF, DKIM) | High | 1 hour |
-| Configure Vercel function error alerts via email | Medium | 15 min |
+### Before / at launch
 
-### Short-Term (1–3 months)
+| Item | Priority |
+|---|---|
+| Supply the real GA4 Measurement ID (`NEXT_PUBLIC_GA_MEASUREMENT_ID`) in Vercel, then verify Realtime + DebugView | Critical |
+| Submit `https://ideanestx.com/sitemap.xml` in Google Search Console (property on the non-www domain) | Critical |
+| Register GA4 conversion (`contact_form_submit`) and custom dimensions (`project_type`, `budget`, `service`) | High |
+| Confirm Clarity project ID is set (optional) | Medium |
 
-| Item | Priority | Notes |
-|---|---|---|
-| Add `/logistics` industry landing page | High | 6th vertical, significant search volume |
-| Add `/professional-services` industry landing page | Medium | 7th vertical |
-| Publish 5 additional insight articles | High | Increases domain authority at content hub |
-| Add `<Image>` for logo in Navbar/Footer | Medium | Currently `<img>` — ESLint warning |
-| Resolve remaining ESLint `static-components` warnings | Medium | In FeaturedEditorials, IndustryPerspectives |
-| Configure custom Content Security Policy headers | Medium | Security hardening |
-| Add Sentry error monitoring | Medium | Replace manual Vercel log review |
+### Content growth (only with real, verified material)
 
-### Medium-Term (3–6 months)
+| Item | Notes |
+|---|---|
+| First published Product / Game / Lab | Add to the data file with `draft: false`; everything else is automatic |
+| New case studies | Anonymous descriptors only, see the confidentiality header in `case-studies-data.ts` |
+| Additional industry pages | `/professional-services`, `/logistics` verticals are referenced in copy but have no landing page |
+| Trim long meta descriptions | A few insight and industry descriptions exceed ~170 characters |
 
-| Item | Priority | Notes |
-|---|---|---|
-| Case studies subpages (`/case-studies/[slug]`) | High | Individual case study pages improve SEO depth |
-| Team/Leadership page with Schema.org Person markup | High | EEAT signal |
-| Careers page with live job listings | Medium | Employer brand signal |
-| FAQ page (`/faq`) | Medium | Dedicated AEO target |
-| Redis-backed rate limiting for `/api/contact` | Medium | Required for multi-region Vercel deployment |
-| A/B test homepage hero CTA copy | Low | Optimize conversion rate |
+### Engineering
 
-### Long-Term (6–12 months)
-
-| Item | Priority | Notes |
-|---|---|---|
-| Blog/CMS integration (Contentlayer or Sanity) | Medium | Replace hardcoded articles with editable CMS |
-| Partnership directory page | Low | Support Partnerships revenue channel |
-| Client portal login (if needed) | Low | Engagement-specific feature |
-| Multilingual support | Low | If Middle East or European expansion requires it |
-| Core Web Vitals optimization pass | Medium | If LCP/CLS scores degrade |
-| Video testimonials section | Medium | EEAT trust signal upgrade |
+| Item | Notes |
+|---|---|
+| Replace in-memory contact rate limiting with a shared store | Per-instance today |
+| Migrate the six `<img>` elements in product/game/lab media components to `next/image` | Deferred: `MediaAsset` has no dimensions and CSP `img-src` is self-only; migrate when the first real asset arrives |
+| Resolve the two known lint errors | Baseline, unrelated to content |
+| Give legal pages their own `og:url` | They inherit the homepage value; harmless because they are `noindex` |
 
 ---
 
@@ -1212,72 +1005,38 @@ GA4 data is stored by Google and is not recoverable if the property is deleted. 
 
 ## 17. Final Production Checklist
 
-Use this checklist before any significant content or code release.
-
 ### Pre-Deploy Checks
 
-- [ ] `npm run build` completes with zero errors
-- [ ] `npm run lint` returns zero **errors** (warnings acceptable)
-- [ ] No TypeScript errors (`tsc --noEmit` or confirmed by build)
-- [ ] All new pages have `export const metadata` with `title`, `description`, `canonical`, `openGraph`, `twitter`
-- [ ] All new articles have `authorSlug` assigned
-- [ ] All new articles are in at least one other article's `related[]` array
-- [ ] New industry pages have entry in `ctaHeadlines` map in IndustryLandingPage.tsx
-- [ ] No `Math.random()` or `Date.now()` in component render functions (causes hydration mismatch)
-- [ ] No `console.log()` statements with sensitive data (form fields, API keys, tokens)
-- [ ] No development-only code (debug routes, test endpoints, feature flags)
+- [ ] `npx tsc --noEmit` clean
+- [ ] `npm run lint`: only the known baseline errors (2), no new ones
+- [ ] `npm run build` succeeds
+- [ ] All routes in §4 return 200; unpublished product/game/lab slugs and any `/services/cloud-*` route return 404
+- [ ] `/sitemap.xml` lists 52 URLs with no duplicates, no draft records, no external Store URL, no `/api`
+- [ ] `/robots.txt` allows `/`, disallows `/api/`, points at `https://ideanestx.com/sitemap.xml`
+- [ ] Every indexable page has a self-referencing canonical, a unique title/description, and an `og:image`
+- [ ] No environment secrets are committed (`.env.local` is untracked; `.env.example` holds names only)
 
 ### Post-Deploy Verification
 
-- [ ] Homepage loads and hero animation plays correctly
-- [ ] Navbar logo renders (not broken image) at `/`
-- [ ] Mobile sticky CTA appears on mobile viewport at `/`
-- [ ] `/contact` page loads and form fields render
-- [ ] `/sitemap.xml` returns 200 with correct URL count
-- [ ] `/robots.txt` returns 200 with `Allow: /` directive
-- [ ] Browser tab shows INX favicon (not Vercel or browser default)
-- [ ] Contact form submits successfully (test with real data)
-  - [ ] Notification email received at `info@ideanestx.com`
-  - [ ] Confirmation email received at submitter address
-  - [ ] Zoho row appended with correct Lead ID
-  - [ ] GA4 DebugView shows `contact_form_submit` event
-- [ ] All navigation links work (no 404s)
-- [ ] New pages appear in `/sitemap.xml`
-- [ ] Vercel deployment shows green in dashboard
+- [ ] Homepage renders all sections; header and mobile menu work (keyboard, Escape, scroll lock)
+- [ ] Contact form submits end-to-end (email, confirmation, Zoho row) and its project types match the ten services
+- [ ] GA4 Realtime shows pageviews (requires the real Measurement ID) and `contact_form_submit` fires once
+- [ ] Rich Results / schema validator shows no errors for `/`, `/services/web-development`, a case study, an article
+- [ ] Social preview (any Open Graph debugger) shows the INX card on `/`, `/services` and a service page
 
-### Branding Verification
+### Content / Branding Verification
 
-- [ ] Navbar: INX gradient logo mark visible, no broken image
-- [ ] Footer: INX logo mark visible above "IDEANEST X PRIVATE LIMITED"
-- [ ] Browser tab: INX favicon (not Vercel triangle)
-- [ ] Apple/mobile bookmark: INX icon (dark background)
-- [ ] Open Graph preview (test with opengraph.xyz): brand gradient wordmark
-- [ ] No "Vercel" branding visible anywhere on the site
-
-### SEO Verification
-
-- [ ] Canonical tags present (inspect page source → `<link rel="canonical">`)
-- [ ] OG tags present (inspect page source → `<meta property="og:...">`)
-- [ ] Structured data valid (Google Rich Results Test → https://search.google.com/test/rich-results)
-- [ ] No new pages accidentally marked noindex (legal pages only)
-- [ ] Sitemap submitted to Google Search Console
-
-### Analytics Verification
-
-- [ ] GA4 Realtime: sessions showing on page visit
-- [ ] Clarity: sessions recording on page visit
-- [ ] No console errors from analytics scripts
+- [ ] Brand line is "Build Systems That Perform." everywhere; no "MAKE IT PERFORM" or "Perform.Delivered."
+- [ ] Exactly the ten services appear in navigation, JSON-LD, the contact form and entity blocks; no standalone Cloud / DevOps service
+- [ ] Zero client-identifying strings in source, rendered HTML, JSON-LD, alt text or sitemap
+- [ ] Homepage has no direct link to the external Store; `/store` links to `https://store.ideanestx.com/`
+- [ ] American English spelling
 
 ---
 
 ## Document Revision History
 
-| Version | Date | Author | Changes |
-|---|---|---|---|
-| 1.0 | May 2026 | Claude Code (Anthropic) | Initial handover document — production release |
-
----
-
-*This document was prepared as the official technical handover for the INX corporate website project. It reflects the production state of the codebase at the time of authorship. Future developers should update this document alongside any significant architectural changes.*
-
-*For urgent operational issues: `info@ideanestx.com` · `+91 99403 32502`*
+| Date | Change |
+|---|---|
+| May 2026 | Initial handover |
+| Phase 10 (V2 evolution) | Rewritten to match the V2 architecture: new IA (Work/Services/Products/Games/Labs/Store), data layer with draft gating, navigation, sitemap/robots/canonical/OG rules, structured-data policy, ten-service catalog, analytics configuration |

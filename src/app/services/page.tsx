@@ -13,7 +13,7 @@ import Link from "next/link";
 import OutcomeStrip from "@/components/trust/OutcomeStrip";
 import JsonLd from "@/components/JsonLd";
 import ExpertiseBlock from "@/components/geo/ExpertiseBlock";
-import { BASE_URL, SITE_NAME, breadcrumbSchema, faqSchema, serviceCatalogSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, faqSchema, serviceCatalogSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { getPublishedServices } from "@/lib/services-data";
 
 const servicesFaqItems = [
@@ -67,6 +67,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/services`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Software Development Services | INX",
     description:
       "Web, mobile, SaaS, AI and automation, game development, UI/UX, system integrations, and dedicated engineering teams — ten service lines, one engineering standard.",
@@ -76,6 +77,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Software Development Services | INX",
     description:

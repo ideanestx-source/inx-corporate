@@ -12,7 +12,7 @@ import AboutCta from "@/components/about/AboutCta";
 import CompanyEeat from "@/components/about/CompanyEeat";
 import JsonLd from "@/components/JsonLd";
 import EntitySummary from "@/components/geo/EntitySummary";
-import { BASE_URL, SITE_NAME, breadcrumbSchema, organizationSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, organizationSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "About",
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/about`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "About | INX",
     description:
       "INX is a premium product engineering company. We build enterprise software, SaaS platforms, and AI systems for global organizations.",
@@ -31,6 +32,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "About | INX",
     description:

@@ -10,7 +10,7 @@ import LabTechnology from "@/components/labs/LabTechnology";
 import LabRelated from "@/components/labs/LabRelated";
 import CTASection from "@/components/shared/CTASection";
 import { getLabProject, getPublishedLabProjects } from "@/lib/labs-data";
-import { BASE_URL, SITE_NAME, breadcrumbSchema, labProjectSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, labProjectSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: labProject.seo.description,
     alternates: { canonical: url },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: `${labProject.seo.title} | INX`,
       description: labProject.seo.description,
       url,
@@ -40,6 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
     },
     twitter: {
+      images: [DEFAULT_OG_IMAGE.url],
       card: "summary_large_image",
       title: `${labProject.seo.title} | INX`,
       description: labProject.seo.description,

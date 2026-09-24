@@ -73,7 +73,7 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "A regional food and beverage group operating 40+ locations ran three separate point-of-sale systems, a disconnected online ordering solution, and no unified view of inventory, staffing, or revenue across sites. Operational decisions depended on day-old spreadsheet data. As the group expanded, the lack of system coherence had become a direct constraint on growth - each new location required weeks of manual configuration and produced inconsistent data.",
     solution:
-      "INX designed a unified platform around a central event-driven data layer, connecting POS integrations, kitchen display systems, inventory management, and a customer-facing ordering interface. The architecture was built around a multi-tenant model with location-level isolation, allowing each site to operate independently while feeding into a centralised operations dashboard. New location onboarding was designed as a configuration workflow, not an engineering task.",
+      "INX designed a unified platform around a central event-driven data layer, connecting POS integrations, kitchen display systems, inventory management, and a customer-facing ordering interface. The architecture was built around a multi-tenant model with location-level isolation, allowing each site to operate independently while feeding into a centralized operations dashboard. New location onboarding was designed as a configuration workflow, not an engineering task.",
     capabilities: [
       "Multi-tenant platform architecture",
       "Event-driven data architecture",
@@ -83,7 +83,7 @@ export const caseStudies: CaseStudy[] = [
     features: [
       "Event-driven backend with an append-only ledger for transaction integrity",
       "Multi-tenant PostgreSQL schema with row-level security enforcing location isolation",
-      "Real-time inventory synchronisation via WebSocket connections to kitchen display systems",
+      "Real-time inventory synchronization via WebSocket connections to kitchen display systems",
       "React-based management dashboard with location switching and consolidated reporting",
       "Stripe Connect for marketplace payment flows between the group entity and individual locations",
     ],
@@ -127,11 +127,11 @@ export const caseStudies: CaseStudy[] = [
       "Architecture review and remediation",
       "Database-enforced multi-tenancy",
       "Read/write path separation",
-      "Incremental frontend modernisation",
+      "Incremental frontend modernization",
     ],
     features: [
       "CQRS pattern applied to the reporting subsystem, separating read models from the transactional data store",
-      "Read replicas with query-optimised projections for dashboard and export workloads",
+      "Read replicas with query-optimized projections for dashboard and export workloads",
       "Tenant isolation enforced via PostgreSQL row-level security policies",
       "React component library built alongside the legacy interface and progressively replaced page-by-page",
       "Redis caching layer for session state and frequently-accessed reference data",
@@ -179,12 +179,12 @@ export const caseStudies: CaseStudy[] = [
       "Confidence-threshold routing",
     ],
     features: [
-      "Document ingestion service with format normalisation for PDF, Word, and structured data inputs",
+      "Document ingestion service with format normalization for PDF, Word, and structured data inputs",
       "Classification model with deterministic confidence thresholds routing documents to automated or human queues",
       "LLM-based extraction layer using structured output schemas validated against a field registry",
       "PostgreSQL-backed human review queue with assignment, escalation, and approval workflows",
       "Immutable audit log with cryptographic chaining for regulatory compliance",
-      "Inference service deployed as a stateless containerised workload, scaling independently of the application tier",
+      "Inference service deployed as a stateless containerized workload, scaling independently of the application tier",
     ],
     technologies: ["Python", "OpenAI API", "Next.js", "PostgreSQL", "Structured Output", "Docker", "Audit Logging"],
     timeline: null,
@@ -205,7 +205,7 @@ export const caseStudies: CaseStudy[] = [
     draft: false,
     needsContent: false,
     seo: {
-      title: "Document Intelligence Pipeline for a Professional Services Firm",
+      title: "Document Intelligence for a Professional Services Firm",
       description:
         "How INX built an auditable document classification and extraction pipeline that cut processing time from 8 minutes to under 45 seconds per document.",
     },
@@ -219,26 +219,26 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "A dispatch, driver, and customer-tracking platform replacing manual coordination for 200+ delivery drivers, deployed alongside the legacy system during a parallel-operation cutover.",
     challenge:
-      "A regional logistics operator coordinating 200+ delivery drivers across multiple urban zones was running daily operations on a combination of WhatsApp group messages, manual spreadsheets, and a legacy dispatch system with no real-time driver location visibility. Route assignment was reactive and manual, leading to significant inefficiency in vehicle utilisation and a customer SLA compliance rate of 78% - well below contractual thresholds with key accounts. The legacy system vendor had ceased active development and the operator faced a transition deadline.",
+      "A regional logistics operator coordinating 200+ delivery drivers across multiple urban zones was running daily operations on a combination of WhatsApp group messages, manual spreadsheets, and a legacy dispatch system with no real-time driver location visibility. Route assignment was reactive and manual, leading to significant inefficiency in vehicle utilization and a customer SLA compliance rate of 78% - well below contractual thresholds with key accounts. The legacy system vendor had ceased active development and the operator faced a transition deadline.",
     solution:
-      "INX designed and delivered a dispatch and tracking platform in three parallel workstreams: a mobile application for drivers, an operations command centre for dispatch teams, and a customer-facing delivery tracking interface. The platform was built to run alongside the legacy system during a parallel operation phase before full cutover, eliminating the risk of a hard migration. Route optimisation logic was implemented as a constraint-based engine that considered delivery time windows, vehicle capacity, and zone density - not a black-box external service.",
+      "INX designed and delivered a dispatch and tracking platform in three parallel workstreams: a mobile application for drivers, an operations command center for dispatch teams, and a customer-facing delivery tracking interface. The platform was built to run alongside the legacy system during a parallel operation phase before full cutover, eliminating the risk of a hard migration. Route optimization logic was implemented as a constraint-based engine that considered delivery time windows, vehicle capacity, and zone density - not a black-box external service.",
     capabilities: [
       "Real-time driver tracking",
-      "Constraint-based route optimisation",
+      "Constraint-based route optimization",
       "Parallel-operation migration",
       "Customer-facing delivery tracking",
     ],
     features: [
       "React Native driver application with offline-tolerant local state, syncing to the backend via WebSocket when connectivity is available",
       "Real-time driver location broadcast aggregated in the dispatch dashboard with sub-5-second update latency",
-      "Constraint-based route optimisation engine running as a background job triggered by new delivery assignments",
+      "Constraint-based route optimization engine running as a background job triggered by new delivery assignments",
       "Customer-facing tracking page with estimated arrival windows derived from real-time driver position and historical delivery patterns",
       "SMS notification service for customer updates at dispatch, en-route, and delivery events",
     ],
-    technologies: ["React Native", "Next.js", "Node.js", "PostgreSQL", "WebSocket", "SMS Notifications", "Route Optimisation"],
+    technologies: ["React Native", "Next.js", "Node.js", "PostgreSQL", "WebSocket", "SMS Notifications", "Route Optimization"],
     timeline: null,
     outcomes: [
-      "Vehicle utilisation improved by 23% in the first 60 days of full operation.",
+      "Vehicle utilization improved by 23% in the first 60 days of full operation.",
       "Customer SLA compliance rate improved from 78% to 94% within 90 days of cutover.",
       "Dispatch coordination time reduced by approximately 40%, allowing the same dispatch team to manage a 30% increase in daily volume.",
       "Legacy system decommissioned on schedule.",
@@ -254,7 +254,7 @@ export const caseStudies: CaseStudy[] = [
     draft: false,
     needsContent: false,
     seo: {
-      title: "Dispatch and Tracking Platform for a Last-Mile Logistics Operator",
+      title: "Dispatch and Tracking Platform for a Last-Mile Operator",
       description:
         "How INX replaced manual dispatch coordination with a real-time tracking platform, improving SLA compliance from 78% to 94% for a last-mile logistics operator.",
     },

@@ -8,30 +8,34 @@ import {
   SITE_NAME,
   ORG_NAME,
   ENTITY,
+  serviceCatalog,
   breadcrumbSchema,
+  DEFAULT_OG_IMAGE,
 } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Engineering Expertise",
   description:
-    "INX engineering expertise across systems architecture, cloud infrastructure, AI systems, SaaS platforms, and enterprise software — applied across 7 industry verticals.",
+    "Engineering expertise across systems architecture, cloud-native design, AI, SaaS, mobile, and delivery practices — applied across 7 industry verticals.",
   alternates: {
     canonical: `${BASE_URL}/expertise`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Engineering Expertise | INX",
     description:
-      "INX engineering expertise across systems architecture, cloud infrastructure, AI systems, SaaS platforms, and enterprise software — applied across 7 industry verticals.",
+      "Engineering expertise across systems architecture, cloud-native design, AI, SaaS, mobile, and delivery practices — applied across 7 industry verticals.",
     url: `${BASE_URL}/expertise`,
     siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Engineering Expertise | INX",
     description:
-      "INX engineering expertise across systems architecture, cloud infrastructure, AI systems, SaaS platforms, and enterprise software — applied across 7 industry verticals.",
+      "Engineering expertise across systems architecture, cloud-native design, AI, SaaS, mobile, and delivery practices — applied across 7 industry verticals.",
   },
 };
 
@@ -45,23 +49,23 @@ const technicalDomains = [
       "Distributed systems design",
       "Event-driven architecture",
       "API-first system design",
-      "Data modelling and schema design",
+      "Data modeling and schema design",
       "Integration architecture",
       "Scalability and capacity planning",
     ],
   },
   {
     index: "02",
-    domain: "Cloud Infrastructure Engineering",
+    domain: "Cloud-Native System Design",
     definition:
-      "The engineering of cloud-native infrastructure that supports production workloads — covering compute, networking, storage, observability, and security. INX designs infrastructure as code from day one, eliminating configuration drift and enabling reproducible environments.",
+      "How INX designs the software it builds to run on cloud platforms — compute, networking, storage, observability, and security considered as part of the system's architecture. This is implementation knowledge applied inside software engagements; INX does not offer cloud infrastructure or DevOps as a standalone service.",
     competencies: [
       "AWS, Google Cloud Platform, Azure",
       "Infrastructure as Code (Terraform, Pulumi)",
       "Container orchestration (Kubernetes, ECS)",
       "Observability pipelines (metrics, traces, logs)",
       "Network security and access control",
-      "Cost optimisation engineering",
+      "Cost optimization engineering",
     ],
   },
   {
@@ -103,14 +107,14 @@ const technicalDomains = [
       "Native Android (Kotlin, Jetpack Compose)",
       "Mobile CI/CD and deployment pipelines",
       "Offline-first architecture",
-      "Mobile performance and battery optimisation",
+      "Mobile performance and battery optimization",
     ],
   },
   {
     index: "06",
-    domain: "DevOps and Delivery Systems",
+    domain: "Release and Delivery Practices",
     definition:
-      "The engineering of the systems that deliver software to production reliably and repeatedly. INX treats CI/CD, deployment infrastructure, and observability as engineering concerns equal in importance to application code — because systems that cannot be deployed safely cannot be operated at scale.",
+      "How INX gets the software it builds into production reliably and repeatedly. CI/CD, deployment, and observability are treated as engineering concerns equal in importance to application code, and are delivered as part of each engagement rather than as a separate service.",
     competencies: [
       "CI/CD pipeline design (GitHub Actions, CircleCI, GitLab)",
       "Automated testing infrastructure",
@@ -177,7 +181,7 @@ const industries = [
   {
     name: "eCommerce and Retail",
     description:
-      "Commerce platform engineering, inventory and fulfilment systems, payment processing, and high-traffic product catalogue architecture.",
+      "Commerce platform engineering, inventory and fulfillment systems, payment processing, and high-traffic product catalog architecture.",
     link: "/industries/ecommerce-development",
   },
   {
@@ -215,19 +219,7 @@ function expertisePageSchema() {
       ...ENTITY.technologies,
       ...technicalDomains.map((d) => d.domain),
     ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "INX Technical Expertise",
-      itemListElement: ENTITY.services.map((s, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        item: {
-          "@type": "Service",
-          name: s,
-          provider: { "@type": "Organization", name: ORG_NAME },
-        },
-      })),
-    },
+    hasOfferCatalog: serviceCatalog(),
   };
 }
 
@@ -252,14 +244,14 @@ export default function ExpertisePage() {
           What INX Knows and How It Is Applied
         </h1>
         <p className="text-base sm:text-lg text-white/50 leading-relaxed max-w-3xl mb-6">
-          INX (IDEANEST X PRIVATE LIMITED) is a custom software development company with deep
+          INX (IDEANEST X PRIVATE LIMITED) is a technology and product engineering company with deep
           engineering competency across six technical domains. Every engagement applies that
           expertise through a structured discovery and delivery process — producing systems
           designed to perform in production, not just in demonstration conditions.
         </p>
         <p className="text-[13px] text-white/30 leading-relaxed max-w-2xl">
           Entity: INX — also known as IDEANEST X PRIVATE LIMITED or IdeanestX — is a
-          software engineering firm headquartered in India, operating globally across SaaS,
+          technology and product engineering company headquartered in India, operating globally across SaaS,
           healthcare, fintech, logistics, eCommerce, gaming, and professional services verticals.
         </p>
       </div>

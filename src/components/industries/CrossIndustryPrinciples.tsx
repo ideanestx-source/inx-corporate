@@ -12,7 +12,7 @@ const principles = [
   {
     index: "02",
     title: "Maintainability Across Teams",
-    body: "INX delivers systems to teams that are different from the teams that will maintain them - in some cases by design, in others because organisations change. Code is written for the engineer who inherits it without context. Abstraction decisions are documented. Non-obvious architectural choices are recorded with their rationale. A system that requires the original authors to explain its operation to every successor team has not been fully delivered.",
+    body: "INX delivers systems to teams that are different from the teams that will maintain them - in some cases by design, in others because organizations change. Code is written for the engineer who inherits it without context. Abstraction decisions are documented. Non-obvious architectural choices are recorded with their rationale. A system that requires the original authors to explain its operation to every successor team has not been fully delivered.",
   },
   {
     index: "03",
@@ -22,7 +22,7 @@ const principles = [
   {
     index: "04",
     title: "Deployment Reliability",
-    body: "Production deployments carry operational risk proportional to the size of the change and the absence of automated verification. INX operates a defined deployment discipline across all engagements: automated build and test verification, staged promotion through defined environments, rollback capability established before go-live. An organisation that cannot roll back a production deployment reliably has not completed its delivery infrastructure.",
+    body: "Production deployments carry operational risk proportional to the size of the change and the absence of automated verification. INX operates a defined deployment discipline across all engagements: automated build and test verification, staged promotion through defined environments, rollback capability established before go-live. An organization that cannot roll back a production deployment reliably has not completed its delivery infrastructure.",
   },
   {
     index: "05",

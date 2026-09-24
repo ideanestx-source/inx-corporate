@@ -87,7 +87,7 @@ export default function ExpertiseBlock() {
                 },
                 {
                   model: "Dedicated engineering team",
-                  desc: "Full team operating within the client's engineering organisation.",
+                  desc: "Full team operating within the client's engineering organization.",
                 },
                 {
                   model: "Support retainer",

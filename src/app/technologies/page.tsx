@@ -9,7 +9,7 @@ import DeliveryInfrastructure from "@/components/technologies/DeliveryInfrastruc
 import TechnologyPhilosophy from "@/components/technologies/TechnologyPhilosophy";
 import TechnologiesCta from "@/components/technologies/TechnologiesCta";
 import JsonLd from "@/components/JsonLd";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Technology Stack",
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/technologies`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Technology Stack | INX",
     description:
       "The technology stack, engineering standards, and architecture principles applied across INX engagements. Selected for operational fit, not trend.",
@@ -28,6 +29,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Technology Stack | INX",
     description:

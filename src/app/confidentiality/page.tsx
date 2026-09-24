@@ -24,7 +24,7 @@ const data: LegalPageData = {
       category: "Operating Principle",
       heading: "Confidentiality as Operational Standard",
       paragraphs: [
-        "INX treats client information - business logic, system architecture, operational data, strategic plans - as confidential by default. This is not contingent on a signed NDA or on the information being labelled confidential. If information is shared in the context of an engagement, INX treats it as not for disclosure.",
+        "INX treats client information - business logic, system architecture, operational data, strategic plans - as confidential by default. This is not contingent on a signed NDA or on the information being labeled confidential. If information is shared in the context of an engagement, INX treats it as not for disclosure.",
         "This standard applies to all INX team members involved in delivery work. It is not an aspiration; it is a condition of working on client engagements at INX.",
       ],
     },
@@ -73,7 +73,7 @@ const data: LegalPageData = {
       paragraphs: [
         "INX will sign mutual NDAs before detailed technical or commercial discussions. This is routine. INX's default NDA position is mutual confidentiality, reasonable scope, three-year term, and India jurisdiction - consistent with INX's standard engagement terms.",
         "INX does not sign NDAs with non-compete clauses, indefinite duration, or unlimited liability. These positions are non-negotiable. Where a client's standard NDA contains such provisions, INX will propose redlines before signature.",
-        "Signing an NDA does not expand INX's confidentiality obligations beyond the operational standards described on this page - it formalises them and provides a legal mechanism for enforcement. The practical standard of care is the same with or without a signed NDA.",
+        "Signing an NDA does not expand INX's confidentiality obligations beyond the operational standards described on this page - it formalizes them and provides a legal mechanism for enforcement. The practical standard of care is the same with or without a signed NDA.",
       ],
     },
     {

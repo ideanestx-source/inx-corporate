@@ -52,7 +52,7 @@ export default function PartnershipsHero() {
               transition={{ duration: 0.5, delay: 0.14 }}
               className="text-base text-white/68 leading-relaxed mb-8"
             >
-              INX does not operate a partner programme. Collaboration is
+              INX does not operate a partner program. Collaboration is
               structured around specific technical or delivery alignment -
               evaluated against engineering depth and operational compatibility,
               not lead volume or ecosystem presence.

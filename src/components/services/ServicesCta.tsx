@@ -18,7 +18,7 @@ export default function ServicesCta() {
           transition={{ duration: 0.6 }}
           className="relative overflow-hidden rounded-[4px] border border-white/[0.11] bg-[#090d1a] px-8 py-20 sm:px-16"
         >
-          {/* Ambient glow - offset left rather than centred */}
+          {/* Ambient glow - offset left rather than centered */}
           <div className="absolute top-0 left-1/3 w-[500px] h-[200px] rounded-full bg-blue-600/[0.05] blur-[90px] pointer-events-none" />
 
           {/* Accent line */}

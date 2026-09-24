@@ -54,7 +54,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Software specifications describe intended behaviour. They do not describe the operational environment in which that behaviour must function. This distinction is not a documentation problem - it is an epistemological one. The people who write specifications understand the business process in terms of its formal logic: the inputs, the transformations, the expected outputs. What they typically do not articulate - because it exists as tacit knowledge - is the texture of actual operations: which exceptions are common, which edge cases occupy the most staff time, how the formal process relates to the informal work that surrounds it.",
+            text: "Software specifications describe intended behavior. They do not describe the operational environment in which that behavior must function. This distinction is not a documentation problem - it is an epistemological one. The people who write specifications understand the business process in terms of its formal logic: the inputs, the transformations, the expected outputs. What they typically do not articulate - because it exists as tacit knowledge - is the texture of actual operations: which exceptions are common, which edge cases occupy the most staff time, how the formal process relates to the informal work that surrounds it.",
           },
           {
             type: "callout",
@@ -73,7 +73,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Process documentation compounds the problem rather than resolving it. Documentation tends to be written by subject matter experts who have internalised the exception-handling logic so thoroughly that they no longer perceive it as exceptional. The documented process is the formal path. The actual work is a negotiation between the formal path and the accumulated institutional knowledge of the people running it.",
+            text: "Process documentation compounds the problem rather than resolving it. Documentation tends to be written by subject matter experts who have internalized the exception-handling logic so thoroughly that they no longer perceive it as exceptional. The documented process is the formal path. The actual work is a negotiation between the formal path and the accumulated institutional knowledge of the people running it.",
           },
           {
             type: "pullquote",
@@ -106,7 +106,7 @@ export const articles: Article[] = [
           {
             type: "callout",
             label: "Architecture Principle",
-            text: "Architectural decisions are not just technical choices - they are hypotheses about the operational environment. An architecture that has not been validated against actual operational behaviour is a collection of unverified assumptions.",
+            text: "Architectural decisions are not just technical choices - they are hypotheses about the operational environment. An architecture that has not been validated against actual operational behavior is a collection of unverified assumptions.",
           },
         ],
       },
@@ -116,7 +116,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "The gap between architectural assumptions and operational reality becomes visible in predictable places. Support queues accumulate around edge cases the system doesn't handle. Operations staff develop manual workarounds for the cases the system rejects. Data quality erodes as real-world inputs fail validation rules designed for idealised inputs. Integration failures cluster around the conditions that were not included in acceptance testing because they were not in the specification.",
+            text: "The gap between architectural assumptions and operational reality becomes visible in predictable places. Support queues accumulate around edge cases the system doesn't handle. Operations staff develop manual workarounds for the cases the system rejects. Data quality erodes as real-world inputs fail validation rules designed for idealized inputs. Integration failures cluster around the conditions that were not included in acceptance testing because they were not in the specification.",
           },
           {
             type: "p",
@@ -135,11 +135,11 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "pullquote",
-            text: "Closing the context gap is not a pre-project activity that precedes real work. It is engineering work, and it deserves the same rigour, resourcing, and structural support as any other phase of delivery.",
+            text: "Closing the context gap is not a pre-project activity that precedes real work. It is engineering work, and it deserves the same rigor, resourcing, and structural support as any other phase of delivery.",
           },
           {
             type: "p",
-            text: "The practical response to the context gap is operational discovery conducted with engineering rigour. This means embedding engineers in the operational environment before the architecture is fixed - not to gather requirements in the traditional sense, but to observe what the formal process misses. Which exceptions occur frequently enough that staff have named them. Which workarounds are so embedded in daily practice that they are no longer perceived as workarounds. Which data conditions the system will encounter that no specification mentions because they are simply the texture of the domain.",
+            text: "The practical response to the context gap is operational discovery conducted with engineering rigor. This means embedding engineers in the operational environment before the architecture is fixed - not to gather requirements in the traditional sense, but to observe what the formal process misses. Which exceptions occur frequently enough that staff have named them. Which workarounds are so embedded in daily practice that they are no longer perceived as workarounds. Which data conditions the system will encounter that no specification mentions because they are simply the texture of the domain.",
           },
           {
             type: "list",
@@ -159,7 +159,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "An architecture that accounts for operational context looks different from one that does not. It has more explicit exception handling paths - not because the engineers anticipated every failure, but because the discovery process surfaced the exception categories that occur in practice. It has more flexible data handling at ingestion boundaries, because real-world data does not conform to idealised schemas. It has operational observability built into the design, because the team understands that production conditions will differ from test conditions.",
+            text: "An architecture that accounts for operational context looks different from one that does not. It has more explicit exception handling paths - not because the engineers anticipated every failure, but because the discovery process surfaced the exception categories that occur in practice. It has more flexible data handling at ingestion boundaries, because real-world data does not conform to idealized schemas. It has operational observability built into the design, because the team understands that production conditions will differ from test conditions.",
           },
           {
             type: "p",
@@ -227,8 +227,8 @@ export const articles: Article[] = [
           {
             type: "list",
             items: [
-              "Premature optimisation that hardcodes assumptions now violated by growth",
-              "Deferred abstractions - code that should have been generalised but was left specific",
+              "Premature optimization that hardcodes assumptions now violated by growth",
+              "Deferred abstractions - code that should have been generalized but was left specific",
               "Accumulated workarounds for constraints that no longer exist but whose effects persist",
               "Dependency upgrades deferred until the gap becomes a security or compatibility problem",
               "Test coverage gaps that make refactoring risky enough that it is never done",
@@ -284,7 +284,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Debt management starts with debt visibility. This requires converting the tacit knowledge that experienced engineers carry - the list of areas they avoid, the components they treat carefully - into explicit, structured records. The goal is not comprehensive documentation of every imperfection. It is a prioritised map of debt by impact: which debt is costing the most in actual delivery effort, and where that cost is growing fastest.",
+            text: "Debt management starts with debt visibility. This requires converting the tacit knowledge that experienced engineers carry - the list of areas they avoid, the components they treat carefully - into explicit, structured records. The goal is not comprehensive documentation of every imperfection. It is a prioritized map of debt by impact: which debt is costing the most in actual delivery effort, and where that cost is growing fastest.",
           },
           {
             type: "list",
@@ -304,16 +304,16 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Debt reduction that happens opportunistically - engineers refactoring when they find time - produces inconsistent results. It tends to address the debt that individual engineers find interesting rather than the debt whose reduction would most improve delivery capacity. It is not prioritised against the work that returns the greatest velocity improvement. And it competes against feature delivery in a competition it will consistently lose, because the short-term cost of refactoring is visible while the long-term cost of not refactoring is deferred.",
+            text: "Debt reduction that happens opportunistically - engineers refactoring when they find time - produces inconsistent results. It tends to address the debt that individual engineers find interesting rather than the debt whose reduction would most improve delivery capacity. It is not prioritized against the work that returns the greatest velocity improvement. And it competes against feature delivery in a competition it will consistently lose, because the short-term cost of refactoring is visible while the long-term cost of not refactoring is deferred.",
           },
           {
             type: "pullquote",
-            text: "Debt reduction that is not scheduled is not planned - it is wished for. Organisations that wish for debt reduction get feature delivery and increasing friction. Organisations that plan for it get both.",
+            text: "Debt reduction that is not scheduled is not planned - it is wished for. Organizations that wish for debt reduction get feature delivery and increasing friction. Organizations that plan for it get both.",
           },
           {
             type: "callout",
             label: "Structural Requirement",
-            text: "Debt reduction requires a protected allocation in the delivery schedule - a proportion of engineering capacity dedicated to reduction work each sprint, prioritised by impact rather than preference. Without structural protection, feature demand will always displace it.",
+            text: "Debt reduction requires a protected allocation in the delivery schedule - a proportion of engineering capacity dedicated to reduction work each sprint, prioritized by impact rather than preference. Without structural protection, feature demand will always displace it.",
           },
         ],
       },
@@ -429,13 +429,13 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Designing internal tools that achieve adoption requires shifting the design input from documented processes to observed practices. This means spending structured time with the people who will use the tool, watching them work in their actual environment, not describing their work in an interview context. It means examining the artefacts of their current practice - the spreadsheets they maintain in parallel to existing systems, the notes they keep about cases the current system cannot handle, the patterns in how they sequence their work to manage its constraints.",
+            text: "Designing internal tools that achieve adoption requires shifting the design input from documented processes to observed practices. This means spending structured time with the people who will use the tool, watching them work in their actual environment, not describing their work in an interview context. It means examining the artifacts of their current practice - the spreadsheets they maintain in parallel to existing systems, the notes they keep about cases the current system cannot handle, the patterns in how they sequence their work to manage its constraints.",
           },
           {
             type: "list",
             items: [
               "Shadow users in their actual work environment before writing a line of requirements",
-              "Catalogue all parallel artefacts - spreadsheets, notes, emails - as signals of tool gaps",
+              "Catalog all parallel artifacts - spreadsheets, notes, emails - as signals of tool gaps",
               "Map exception frequencies quantitatively, not qualitatively, before designing exception paths",
               "Prototype against real data samples, not constructed test data",
               "Run acceptance testing with actual users on actual cases before considering requirements met",
@@ -449,16 +449,16 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Internal tools that achieve sustained adoption share characteristics that are not primarily technical. They can be operated partially - a user can start a record, leave it in an intermediate state, and return to it without data loss. They accommodate the real range of input quality - valid data that fails idealised validation rules can be entered, flagged, and resolved without blocking progress. They surface the information users actually need in the context of the task at hand, rather than requiring navigation to separate views for information that is operationally adjacent.",
+            text: "Internal tools that achieve sustained adoption share characteristics that are not primarily technical. They can be operated partially - a user can start a record, leave it in an intermediate state, and return to it without data loss. They accommodate the real range of input quality - valid data that fails idealized validation rules can be entered, flagged, and resolved without blocking progress. They surface the information users actually need in the context of the task at hand, rather than requiring navigation to separate views for information that is operationally adjacent.",
           },
           {
             type: "p",
-            text: "These characteristics emerge from design that was informed by operational reality. They are not features that can be retrofitted easily to a tool designed against a formal process model. The foundation determines what is achievable. A data model that does not accommodate intermediate states cannot be extended to support them without significant restructuring. An interface designed around the standard case cannot be reorganised to surface exception handling without a redesign of the information architecture.",
+            text: "These characteristics emerge from design that was informed by operational reality. They are not features that can be retrofitted easily to a tool designed against a formal process model. The foundation determines what is achievable. A data model that does not accommodate intermediate states cannot be extended to support them without significant restructuring. An interface designed around the standard case cannot be reorganized to surface exception handling without a redesign of the information architecture.",
           },
           {
             type: "callout",
             label: "Key Finding",
-            text: "Successful internal tools are built by teams that treated operational discovery as a prerequisite to design - not as a phase that can be compressed or skipped in favour of a faster delivery timeline. The time invested in discovery is recovered in adoption. The time saved by skipping it is spent on retraining, workarounds, and eventual replacement.",
+            text: "Successful internal tools are built by teams that treated operational discovery as a prerequisite to design - not as a phase that can be compressed or skipped in favor of a faster delivery timeline. The time invested in discovery is recovered in adoption. The time saved by skipping it is spent on retraining, workarounds, and eventual replacement.",
           },
         ],
       },
@@ -482,11 +482,11 @@ export const articles: Article[] = [
     date: "February 2025",
     title: "Engineering Discipline at Scale",
     metaDescription:
-      "Code review rigour, specification before development, and outcome ownership don't survive team growth without deliberate structural support.",
+      "Code review rigor, specification before development, and outcome ownership don't survive team growth without deliberate structural support.",
     summary:
-      "Engineering discipline - code review rigour, specification before development, ownership of outcomes - doesn't survive team growth without deliberate structural support.",
+      "Engineering discipline - code review rigor, specification before development, ownership of outcomes - doesn't survive team growth without deliberate structural support.",
     executiveSummary:
-      "Engineering discipline - code review rigour, specification before development, ownership of outcomes - does not survive team growth without deliberate structural support. The practices that a five-person team maintains through proximity and shared context become invisible at fifteen people and absent at fifty. The question is not whether to maintain discipline through growth, but whether to do it deliberately or to watch it erode and spend the next eighteen months recovering the velocity that the erosion costs.",
+      "Engineering discipline - code review rigor, specification before development, ownership of outcomes - does not survive team growth without deliberate structural support. The practices that a five-person team maintains through proximity and shared context become invisible at fifteen people and absent at fifty. The question is not whether to maintain discipline through growth, but whether to do it deliberately or to watch it erode and spend the next eighteen months recovering the velocity that the erosion costs.",
     sections: [
       {
         id: "what-discipline-means",
@@ -541,7 +541,7 @@ export const articles: Article[] = [
           },
           {
             type: "p",
-            text: "The failure mode is ceremonial review: changes are reviewed, but the review is a checklist rather than an examination. Obvious problems are caught. Structural problems - the wrong abstraction, the accumulating coupling, the function that should not exist - are not, because the reviewer lacks context and lacks time. Ceremonial review creates a false confidence that is worse than acknowledged absence of review, because it provides the organisational cover for shipping problematic changes.",
+            text: "The failure mode is ceremonial review: changes are reviewed, but the review is a checklist rather than an examination. Obvious problems are caught. Structural problems - the wrong abstraction, the accumulating coupling, the function that should not exist - are not, because the reviewer lacks context and lacks time. Ceremonial review creates a false confidence that is worse than acknowledged absence of review, because it provides the organizational cover for shipping problematic changes.",
           },
           {
             type: "callout",
@@ -570,7 +570,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Engineering ownership means that a specific person or team is responsible for the behaviour of a system component in production - responsible for its reliability, for responding to its incidents, for understanding its performance characteristics, for making the decision to refactor it when its current form is no longer adequate. Ownership without accountability for outcomes produces components that are owned on paper and neglected in practice. Accountability without ownership produces engineers who are responsible for systems they do not have authority to change.",
+            text: "Engineering ownership means that a specific person or team is responsible for the behavior of a system component in production - responsible for its reliability, for responding to its incidents, for understanding its performance characteristics, for making the decision to refactor it when its current form is no longer adequate. Ownership without accountability for outcomes produces components that are owned on paper and neglected in practice. Accountability without ownership produces engineers who are responsible for systems they do not have authority to change.",
           },
           {
             type: "list",
@@ -594,7 +594,7 @@ export const articles: Article[] = [
           },
           {
             type: "p",
-            text: "The mechanism for maintaining standards is not documentation alone. Documentation describes what should happen. The mechanism that determines what does happen is structural: code review gates that cannot be bypassed, specification templates that must be completed before tickets enter implementation, ownership registries that are maintained as a first-class engineering artefact. These structures are not bureaucratic overhead - they are the replacement for the natural enforcement that proximity and shared context provided at small scale.",
+            text: "The mechanism for maintaining standards is not documentation alone. Documentation describes what should happen. The mechanism that determines what does happen is structural: code review gates that cannot be bypassed, specification templates that must be completed before tickets enter implementation, ownership registries that are maintained as a first-class engineering artifact. These structures are not bureaucratic overhead - they are the replacement for the natural enforcement that proximity and shared context provided at small scale.",
           },
           {
             type: "callout",
@@ -663,7 +663,7 @@ export const articles: Article[] = [
           {
             type: "list",
             items: [
-              "Automated validation at every stage - no stage gates that require human judgement to proceed",
+              "Automated validation at every stage - no stage gates that require human judgment to proceed",
               "Defined failure modes with automated recovery paths for each",
               "Observable pipeline state that surfaces the information needed to diagnose failures, not just their occurrence",
               "Rollback that is faster and more reliable than roll-forward under incident conditions",
@@ -678,7 +678,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Pipeline design follows from the properties the system must provide. Each stage must have a defined pass/fail criterion that is machine-evaluable - not human-judgement-dependent. The ordering of stages must reflect the cost of discovering failures: cheap validations run early, expensive validations run after cheaper ones have passed. The pipeline must be idempotent: running it twice on the same input produces the same result, and a failed run can be restarted from any stage without side effects.",
+            text: "Pipeline design follows from the properties the system must provide. Each stage must have a defined pass/fail criterion that is machine-evaluable - not human-judgment-dependent. The ordering of stages must reflect the cost of discovering failures: cheap validations run early, expensive validations run after cheaper ones have passed. The pipeline must be idempotent: running it twice on the same input produces the same result, and a failed run can be restarted from any stage without side effects.",
           },
           {
             type: "p",
@@ -757,7 +757,7 @@ export const articles: Article[] = [
           {
             type: "callout",
             label: "Starting Point",
-            text: "Begin with the step in your current deployment process that causes the most anxiety. Automate it. Measure the result. Repeat. This is not a transformation programme - it is engineering work, applied to the delivery system itself.",
+            text: "Begin with the step in your current deployment process that causes the most anxiety. Automate it. Measure the result. Repeat. This is not a transformation program - it is engineering work, applied to the delivery system itself.",
           },
         ],
       },
@@ -802,7 +802,7 @@ export const articles: Article[] = [
           },
           {
             type: "p",
-            text: "The consequence is that proposal comparison is a poor mechanism for evaluating software development partners. Proposals from competent and incompetent companies look similar because both are optimised for the same outcome. The evaluation needs to move beyond the proposal to the operational signals that predict delivery performance.",
+            text: "The consequence is that proposal comparison is a poor mechanism for evaluating software development partners. Proposals from competent and incompetent companies look similar because both are optimized for the same outcome. The evaluation needs to move beyond the proposal to the operational signals that predict delivery performance.",
           },
         ],
       },
@@ -830,7 +830,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Requirements change in software projects. This is not a failure of planning — it is a feature of complex work. The relevant evaluation criterion is not whether a partner claims requirements will not change, but how they handle change when it occurs. A partner who treats every requirement change as a contract modification is managing risk to themselves rather than to the project. A partner who absorbs every change without acknowledgement has no scope control mechanism and will deliver a product significantly different from what was agreed.",
+            text: "Requirements change in software projects. This is not a failure of planning — it is a feature of complex work. The relevant evaluation criterion is not whether a partner claims requirements will not change, but how they handle change when it occurs. A partner who treats every requirement change as a contract modification is managing risk to themselves rather than to the project. A partner who absorbs every change without acknowledgment has no scope control mechanism and will deliver a product significantly different from what was agreed.",
           },
           {
             type: "list",
@@ -892,11 +892,11 @@ export const articles: Article[] = [
     date: "May 2025",
     title: "When to Build Custom Software (and When Not To)",
     metaDescription:
-      "Custom software is not always the right answer. The cases where it is — and the cases where off-the-shelf is the better decision — are more specific than most organisations assume.",
+      "Custom software is not always the right answer. The cases where it is — and the cases where off-the-shelf is the better decision — are more specific than most organizations assume.",
     summary:
-      "Custom software is the right answer in fewer situations than most organisations assume. The cases that justify building from scratch are specific — and the cases where an existing platform is the better answer are underestimated.",
+      "Custom software is the right answer in fewer situations than most organizations assume. The cases that justify building from scratch are specific — and the cases where an existing platform is the better answer are underestimated.",
     executiveSummary:
-      "The decision to build custom software rather than use an existing platform is made too readily by organisations that have had frustrating experiences with off-the-shelf products and too rarely by organisations that have never evaluated the total cost of custom ownership. The correct answer is specific to the organisation's operational requirements, the availability of adequate off-the-shelf solutions, and the total cost of each path — including maintenance, migration, and opportunity cost over a realistic time horizon.",
+      "The decision to build custom software rather than use an existing platform is made too readily by organizations that have had frustrating experiences with off-the-shelf products and too rarely by organizations that have never evaluated the total cost of custom ownership. The correct answer is specific to the organization's operational requirements, the availability of adequate off-the-shelf solutions, and the total cost of each path — including maintenance, migration, and opportunity cost over a realistic time horizon.",
     sections: [
       {
         id: "default-to-off-the-shelf",
@@ -904,7 +904,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Off-the-shelf software represents thousands of engineering hours invested in solving problems that most organisations share. A CRM, an accounting system, a project management platform, a payroll system — these are solved problems. The organisations that have built custom versions of them have spent significant engineering resources solving a problem that existing software solves adequately, freeing no engineering capacity for the problems that are genuinely differentiating.",
+            text: "Off-the-shelf software represents thousands of engineering hours invested in solving problems that most organizations share. A CRM, an accounting system, a project management platform, a payroll system — these are solved problems. The organizations that have built custom versions of them have spent significant engineering resources solving a problem that existing software solves adequately, freeing no engineering capacity for the problems that are genuinely differentiating.",
           },
           {
             type: "callout",
@@ -913,7 +913,7 @@ export const articles: Article[] = [
           },
           {
             type: "p",
-            text: "The bias toward custom development is driven by frustration with off-the-shelf limitations and by the appeal of software that is exactly what the organisation wants. Both are understandable. Neither justifies the full cost of custom development: the initial build cost, the ongoing maintenance cost, the opportunity cost of engineering capacity spent on undifferentiated software, and the eventual migration cost when the custom system reaches the end of its useful life.",
+            text: "The bias toward custom development is driven by frustration with off-the-shelf limitations and by the appeal of software that is exactly what the organization wants. Both are understandable. Neither justifies the full cost of custom development: the initial build cost, the ongoing maintenance cost, the opportunity cost of engineering capacity spent on undifferentiated software, and the eventual migration cost when the custom system reaches the end of its useful life.",
           },
         ],
       },
@@ -924,11 +924,11 @@ export const articles: Article[] = [
           {
             type: "list",
             items: [
-              "The core operation of the business is not adequately served by any existing platform — the workflow is genuinely differentiated, not just customised",
+              "The core operation of the business is not adequately served by any existing platform — the workflow is genuinely differentiated, not just customized",
               "Integration requirements cannot be met by existing platforms without building so much custom integration logic that the off-the-shelf core provides no remaining value",
               "Data ownership, compliance, or security requirements preclude the use of any cloud-hosted solution",
               "Transaction volume or performance requirements that existing platforms cannot meet at acceptable cost",
-              "The organisation's competitive advantage is directly derived from the capabilities of the software — the software is the product",
+              "The organization's competitive advantage is directly derived from the capabilities of the software — the software is the product",
             ],
           },
           {
@@ -951,22 +951,22 @@ export const articles: Article[] = [
           },
           {
             type: "p",
-            text: "The maintenance cost also grows with time. A custom system built today will require progressively more investment to maintain as its dependencies age, as the team that built it turns over, and as the business requirements it was built to serve evolve. The organisation that commits to custom software is committing to ongoing investment in that software or accepting the eventual cost of migration when the system reaches the end of its serviceable life.",
+            text: "The maintenance cost also grows with time. A custom system built today will require progressively more investment to maintain as its dependencies age, as the team that built it turns over, and as the business requirements it was built to serve evolve. The organization that commits to custom software is committing to ongoing investment in that software or accepting the eventual cost of migration when the system reaches the end of its serviceable life.",
           },
         ],
       },
       {
         id: "hybrid-approach",
-        title: "The Hybrid Approach Most Organisations Miss",
+        title: "The Hybrid Approach Most Organizations Miss",
         blocks: [
           {
             type: "p",
-            text: "The binary of build-everything vs buy-everything misses the approach that provides the best outcomes for most organisations: use off-the-shelf software for solved problems and build custom software for the specific differentiating operations that existing platforms cannot adequately support. This requires honest assessment of which operations are genuinely differentiating and which are shared with every other organisation in the sector.",
+            text: "The binary of build-everything vs buy-everything misses the approach that provides the best outcomes for most organizations: use off-the-shelf software for solved problems and build custom software for the specific differentiating operations that existing platforms cannot adequately support. This requires honest assessment of which operations are genuinely differentiating and which are shared with every other organization in the sector.",
           },
           {
             type: "callout",
             label: "Practical Framework",
-            text: "Custom development is appropriate for the 20% of operations that are genuinely specific to the organisation. Off-the-shelf is appropriate for the 80% that are shared with every similar organisation. The mistake is applying the wrong approach to the wrong category.",
+            text: "Custom development is appropriate for the 20% of operations that are genuinely specific to the organization. Off-the-shelf is appropriate for the 80% that are shared with every similar organization. The mistake is applying the wrong approach to the wrong category.",
           },
         ],
       },
@@ -992,9 +992,9 @@ export const articles: Article[] = [
     metaDescription:
       "Staff augmentation and outsourcing are different answers to different problems. Choosing the wrong model costs time and produces friction regardless of team quality.",
     summary:
-      "Staff augmentation and outsourcing serve different purposes and fail for different reasons. The choice between them should be made on the basis of what the organisation needs — not on cost or familiarity with one model.",
+      "Staff augmentation and outsourcing serve different purposes and fail for different reasons. The choice between them should be made on the basis of what the organization needs — not on cost or familiarity with one model.",
     executiveSummary:
-      "Staff augmentation and software outsourcing are both used to supplement internal engineering capacity, but they are different answers to different problems. Staff augmentation extends an existing team with external engineers who operate under internal management. Outsourcing transfers delivery responsibility to an external team. The choice between them should be determined by where the organisation's internal capability gap actually sits — and that question is less frequently asked than it should be.",
+      "Staff augmentation and software outsourcing are both used to supplement internal engineering capacity, but they are different answers to different problems. Staff augmentation extends an existing team with external engineers who operate under internal management. Outsourcing transfers delivery responsibility to an external team. The choice between them should be determined by where the organization's internal capability gap actually sits — and that question is less frequently asked than it should be.",
     sections: [
       {
         id: "what-each-model-provides",
@@ -1002,16 +1002,16 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Staff augmentation provides engineering capacity without management capability. The external engineers integrate into the existing team, work within the existing processes, and are managed by the internal engineering leadership. The organisation retains full control over architecture, priorities, and delivery standards. The model works well when the internal team has strong management and clear direction but insufficient engineering capacity to execute. It fails when the internal management capability is the actual gap.",
+            text: "Staff augmentation provides engineering capacity without management capability. The external engineers integrate into the existing team, work within the existing processes, and are managed by the internal engineering leadership. The organization retains full control over architecture, priorities, and delivery standards. The model works well when the internal team has strong management and clear direction but insufficient engineering capacity to execute. It fails when the internal management capability is the actual gap.",
           },
           {
             type: "p",
-            text: "Outsourcing provides delivery capability: an external team that takes responsibility for a defined scope of work. The organisation specifies the outcome; the external team is accountable for delivering it. This model works well when the organisation has clear requirements and the external team has relevant capability. It fails when requirements are insufficiently specified, when the organisation's internal stakeholders cannot make decisions at the pace the delivery requires, or when the outsourced scope becomes entangled with internal systems in ways that require constant coordination.",
+            text: "Outsourcing provides delivery capability: an external team that takes responsibility for a defined scope of work. The organization specifies the outcome; the external team is accountable for delivering it. This model works well when the organization has clear requirements and the external team has relevant capability. It fails when requirements are insufficiently specified, when the organization's internal stakeholders cannot make decisions at the pace the delivery requires, or when the outsourced scope becomes entangled with internal systems in ways that require constant coordination.",
           },
           {
             type: "callout",
             label: "Diagnostic Question",
-            text: "If the organisation's internal engineering management is the bottleneck, augmenting headcount will not solve it. If the organisation has clear requirements and strong management but insufficient execution capacity, augmenting headcount will.",
+            text: "If the organization's internal engineering management is the bottleneck, augmenting headcount will not solve it. If the organization has clear requirements and strong management but insufficient execution capacity, augmenting headcount will.",
           },
         ],
       },
@@ -1024,7 +1024,7 @@ export const articles: Article[] = [
             items: [
               "The internal engineering leadership is already at capacity managing the existing team — adding engineers adds management load without adding management capability",
               "The codebase is in a state where onboarding new engineers requires extended ramp-up that consumes more senior engineer time than the augmentation produces",
-              "The organisation's processes and tooling are not designed to accommodate remote or external team members effectively",
+              "The organization's processes and tooling are not designed to accommodate remote or external team members effectively",
               "The requirement is for a discrete deliverable with a defined end, not ongoing capacity extension",
             ],
           },
@@ -1040,15 +1040,15 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "pullquote",
-            text: "Outsourcing does not transfer the requirement for clear decision-making to the external team. It transfers delivery responsibility. The decision-making requirement remains with the organisation.",
+            text: "Outsourcing does not transfer the requirement for clear decision-making to the external team. It transfers delivery responsibility. The decision-making requirement remains with the organization.",
           },
           {
             type: "p",
-            text: "Outsourcing fails most commonly when the organisation's requirements are not adequately specified before delivery begins. An external team that is building against an evolving brief will produce either a product that does not match the eventual requirements or a timeline that extends as the requirements solidify. Neither outcome is the result of external team incompetence — it is the result of attempting to begin delivery before the foundation for delivery exists.",
+            text: "Outsourcing fails most commonly when the organization's requirements are not adequately specified before delivery begins. An external team that is building against an evolving brief will produce either a product that does not match the eventual requirements or a timeline that extends as the requirements solidify. Neither outcome is the result of external team incompetence — it is the result of attempting to begin delivery before the foundation for delivery exists.",
           },
           {
             type: "p",
-            text: "The second common failure mode is stakeholder availability. An outsourced team that cannot get decisions from the client organisation will either halt or make assumptions. Assumptions that prove wrong require rework. The cost of that rework is proportional to how far into development the incorrect assumption was built upon. Successful outsourcing requires organisational commitment to decision-making speed that matches the delivery pace.",
+            text: "The second common failure mode is stakeholder availability. An outsourced team that cannot get decisions from the client organization will either halt or make assumptions. Assumptions that prove wrong require rework. The cost of that rework is proportional to how far into development the incorrect assumption was built upon. Successful outsourcing requires organizational commitment to decision-making speed that matches the delivery pace.",
           },
         ],
       },
@@ -1058,12 +1058,12 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "The choice follows from an honest assessment of where the organisation's gap sits. If the gap is engineering capacity under existing management, augmentation is appropriate. If the gap is delivery capability for a defined scope with defined outcomes, outsourcing is appropriate. If the gap is both — the organisation lacks both the capacity and the management capability — neither model addresses the full problem, and the engagement design should acknowledge this.",
+            text: "The choice follows from an honest assessment of where the organization's gap sits. If the gap is engineering capacity under existing management, augmentation is appropriate. If the gap is delivery capability for a defined scope with defined outcomes, outsourcing is appropriate. If the gap is both — the organization lacks both the capacity and the management capability — neither model addresses the full problem, and the engagement design should acknowledge this.",
           },
           {
             type: "callout",
             label: "Hybrid Models",
-            text: "Many engagements that work well in practice combine elements of both: an external team that takes delivery responsibility for a defined scope while embedding closely enough with the internal team to transfer knowledge. The delivery model should be designed to the organisation's actual situation rather than defaulting to a standard contract template.",
+            text: "Many engagements that work well in practice combine elements of both: an external team that takes delivery responsibility for a defined scope while embedding closely enough with the internal team to transfer knowledge. The delivery model should be designed to the organization's actual situation rather than defaulting to a standard contract template.",
           },
         ],
       },
@@ -1089,7 +1089,7 @@ export const articles: Article[] = [
     metaDescription:
       "MVP is one of the most misused concepts in product development. What a genuine minimum viable product is, what it is not, and how to scope one that produces useful learning.",
     summary:
-      "MVP is widely misunderstood as a stripped-down version of the full product. A genuine MVP is an instrument for learning — scoped to produce a specific insight, not to minimise build cost.",
+      "MVP is widely misunderstood as a stripped-down version of the full product. A genuine MVP is an instrument for learning — scoped to produce a specific insight, not to minimize build cost.",
     executiveSummary:
       "The MVP concept has been so thoroughly misapplied that the term now covers two distinct things: the genuine minimum viable product, which is an instrument for validating a core business hypothesis before full investment; and the 'MVP' that is simply a reduced-scope version of a product that was already decided, built cheaply to reach market faster. The distinction matters because they have different success criteria, different engineering requirements, and different failure modes.",
     sections: [
@@ -1108,7 +1108,7 @@ export const articles: Article[] = [
           },
           {
             type: "p",
-            text: "This distinction has significant engineering implications. A genuine MVP may be much smaller than the planned product in some dimensions and must be production-grade in others. The dimensions where it must be production-grade are the ones the hypothesis depends on. If the hypothesis requires real user behaviour under real conditions, the MVP must be reliable enough to produce that behaviour. If the hypothesis can be tested with a prototype or a concierge service, a production-grade build is waste.",
+            text: "This distinction has significant engineering implications. A genuine MVP may be much smaller than the planned product in some dimensions and must be production-grade in others. The dimensions where it must be production-grade are the ones the hypothesis depends on. If the hypothesis requires real user behavior under real conditions, the MVP must be reliable enough to produce that behavior. If the hypothesis can be tested with a prototype or a concierge service, a production-grade build is waste.",
           },
         ],
       },
@@ -1118,20 +1118,20 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "The most common failure in MVP development is an insufficiently specific hypothesis. 'Users will find this valuable' is not a testable hypothesis. 'Logistics operations managers at companies with 50-200 drivers will pay £200/month for route optimisation that reduces their planning time by more than 30%' is testable. The specificity of the hypothesis determines the specificity of the MVP and the specificity of the evidence required to act on the result.",
+            text: "The most common failure in MVP development is an insufficiently specific hypothesis. 'Users will find this valuable' is not a testable hypothesis. 'Logistics operations managers at companies with 50-200 drivers will pay £200/month for route optimization that reduces their planning time by more than 30%' is testable. The specificity of the hypothesis determines the specificity of the MVP and the specificity of the evidence required to act on the result.",
           },
           {
             type: "list",
             items: [
               "Who specifically is the user, at what stage of what workflow, with what existing alternatives?",
-              "What specific behaviour change is the hypothesis predicting?",
+              "What specific behavior change is the hypothesis predicting?",
               "What is the minimum evidence threshold that would cause you to proceed, and what would cause you to pivot or stop?",
               "What confounding factors might produce evidence that looks positive but does not actually validate the hypothesis?",
             ],
           },
           {
             type: "p",
-            text: "A hypothesis that cannot be specified to this level of detail is not ready to be tested. Attempting to build an MVP against an underspecified hypothesis produces a product that generates ambiguous evidence — neither confirming nor disconfirming the hypothesis — and leaves the organisation in the same position of uncertainty it was in before the investment.",
+            text: "A hypothesis that cannot be specified to this level of detail is not ready to be tested. Attempting to build an MVP against an underspecified hypothesis produces a product that generates ambiguous evidence — neither confirming nor disconfirming the hypothesis — and leaves the organization in the same position of uncertainty it was in before the investment.",
           },
         ],
       },
@@ -1159,7 +1159,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "The transition from MVP to product is the most underestimated phase of product development. An MVP built for hypothesis testing is not a foundation for a production product — it is a test instrument that produced evidence. The architecture decisions made to minimise MVP build cost are often incompatible with the requirements of a production system. The data model that was adequate for a test population of fifty users will not serve fifty thousand. The manual processes behind the automated interface will not scale.",
+            text: "The transition from MVP to product is the most underestimated phase of product development. An MVP built for hypothesis testing is not a foundation for a production product — it is a test instrument that produced evidence. The architecture decisions made to minimize MVP build cost are often incompatible with the requirements of a production system. The data model that was adequate for a test population of fifty users will not serve fifty thousand. The manual processes behind the automated interface will not scale.",
           },
           {
             type: "callout",
@@ -1192,7 +1192,7 @@ export const articles: Article[] = [
     summary:
       "Product engineering is a delivery discipline that connects technical execution to product outcomes. The distinction from software development shapes team structure, scope definition, and how success is measured.",
     executiveSummary:
-      "Product engineering has become a common term with inconsistent meaning. For some organisations it means software development with a product manager attached. For others it describes a delivery discipline where engineers are accountable for product outcomes, not just code output. The distinction is operationally significant: it changes how teams are structured, how work is scoped and prioritised, what competencies are required from individual engineers, and what success looks like at the engagement level.",
+      "Product engineering has become a common term with inconsistent meaning. For some organizations it means software development with a product manager attached. For others it describes a delivery discipline where engineers are accountable for product outcomes, not just code output. The distinction is operationally significant: it changes how teams are structured, how work is scoped and prioritized, what competencies are required from individual engineers, and what success looks like at the engagement level.",
     sections: [
       {
         id: "beyond-feature-delivery",
@@ -1204,12 +1204,12 @@ export const articles: Article[] = [
           },
           {
             type: "p",
-            text: "Product engineering extends the engineering team's accountability to include the product outcome. Engineers in a product engineering model are expected to understand why a feature is being built, what behaviour change it is intended to produce in users, and how that will be measured. They are expected to push back on requirements that will not produce the intended outcome, to propose alternative implementations when their technical understanding surfaces a better path, and to treat ambiguous requirements as an invitation to participate in clarifying the product decision rather than to make a default implementation choice.",
+            text: "Product engineering extends the engineering team's accountability to include the product outcome. Engineers in a product engineering model are expected to understand why a feature is being built, what behavior change it is intended to produce in users, and how that will be measured. They are expected to push back on requirements that will not produce the intended outcome, to propose alternative implementations when their technical understanding surfaces a better path, and to treat ambiguous requirements as an invitation to participate in clarifying the product decision rather than to make a default implementation choice.",
           },
           {
             type: "callout",
             label: "Accountability Difference",
-            text: "Feature delivery teams are accountable for output: features shipped to specification. Product engineering teams are accountable for outcome: whether the features produced the intended change in user behaviour or business metrics.",
+            text: "Feature delivery teams are accountable for output: features shipped to specification. Product engineering teams are accountable for outcome: whether the features produced the intended change in user behavior or business metrics.",
           },
         ],
       },
@@ -1224,7 +1224,7 @@ export const articles: Article[] = [
               "Capability to engage in product scope discussions — to have informed opinions about what to build and why",
               "Willingness to surface technical constraints that affect product decisions before those decisions are made",
               "Comfort with ambiguity in requirements and the ability to resolve it through evidence rather than assumption",
-              "Accountability for the production behaviour of systems they have built, not just the correctness of the implementation",
+              "Accountability for the production behavior of systems they have built, not just the correctness of the implementation",
             ],
           },
           {
@@ -1234,20 +1234,20 @@ export const articles: Article[] = [
         ],
       },
       {
-        id: "what-it-requires-from-organisations",
-        title: "What It Requires from the Organisation",
+        id: "what-it-requires-from-organizations",
+        title: "What It Requires from the Organization",
         blocks: [
           {
             type: "pullquote",
-            text: "Product engineering cannot operate in an organisation where every product decision is made above the team and handed down as a requirement. The model requires the team to have product-level input, which requires the organisation to create the conditions for that input to be useful.",
+            text: "Product engineering cannot operate in an organization where every product decision is made above the team and handed down as a requirement. The model requires the team to have product-level input, which requires the organization to create the conditions for that input to be useful.",
           },
           {
             type: "p",
-            text: "Product engineering requires an organisational structure that creates meaningful decision space for the engineering team. If every product decision is made by senior stakeholders and transmitted to the team as requirements, the team cannot exercise product engineering capability regardless of their individual competence. The model requires some level of team-level autonomy over how product problems are solved — which requires that the organisation has sufficient trust in the team to grant it.",
+            text: "Product engineering requires an organizational structure that creates meaningful decision space for the engineering team. If every product decision is made by senior stakeholders and transmitted to the team as requirements, the team cannot exercise product engineering capability regardless of their individual competence. The model requires some level of team-level autonomy over how product problems are solved — which requires that the organization has sufficient trust in the team to grant it.",
           },
           {
             type: "p",
-            text: "It also requires measurement that connects engineering output to product outcome. A team measured only on velocity will optimise for velocity. A team measured on the product outcomes produced by their engineering work will optimise for those outcomes — including slowing down when the work is not well enough understood to build confidently, which is slower in the short term and faster over the full product lifecycle.",
+            text: "It also requires measurement that connects engineering output to product outcome. A team measured only on velocity will optimize for velocity. A team measured on the product outcomes produced by their engineering work will optimize for those outcomes — including slowing down when the work is not well enough understood to build confidently, which is slower in the short term and faster over the full product lifecycle.",
           },
         ],
       },
@@ -1257,12 +1257,12 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Product engineering produces better outcomes than pure feature delivery when the work involves genuine uncertainty about what should be built. When the problem is well-understood, the requirements are clear, and the technical path is known, a capable implementation team will produce comparable results. When the problem involves unknown user behaviour, competing product hypotheses, or technical constraints that affect the viable solution space, the product engineering model — where the engineering team participates in resolving those uncertainties — produces better outcomes.",
+            text: "Product engineering produces better outcomes than pure feature delivery when the work involves genuine uncertainty about what should be built. When the problem is well-understood, the requirements are clear, and the technical path is known, a capable implementation team will produce comparable results. When the problem involves unknown user behavior, competing product hypotheses, or technical constraints that affect the viable solution space, the product engineering model — where the engineering team participates in resolving those uncertainties — produces better outcomes.",
           },
           {
             type: "callout",
             label: "When to Apply It",
-            text: "Product engineering is the right delivery model for building new products, entering new markets, and iterating on products where the optimal direction is uncertain. It is not always necessary for mature products with clear requirements and stable user behaviour.",
+            text: "Product engineering is the right delivery model for building new products, entering new markets, and iterating on products where the optimal direction is uncertain. It is not always necessary for mature products with clear requirements and stable user behavior.",
           },
         ],
       },
@@ -1310,14 +1310,14 @@ export const articles: Article[] = [
               "Shared schema: lowest cost, weakest isolation, highest compliance audit complexity",
               "Separate schemas: moderate cost, moderate isolation, migration complexity scales with tenant count",
               "Database per tenant: highest infrastructure cost, strongest isolation, simplest compliance posture",
-              "Hybrid: enterprise customers on dedicated infrastructure, SMB customers on shared — adds operational complexity but optimises for commercial requirements",
+              "Hybrid: enterprise customers on dedicated infrastructure, SMB customers on shared — adds operational complexity but optimizes for commercial requirements",
             ],
           },
         ],
       },
       {
         id: "tenant-configuration",
-        title: "Tenant Configuration and Customisation",
+        title: "Tenant Configuration and Customization",
         blocks: [
           {
             type: "callout",
@@ -1330,13 +1330,13 @@ export const articles: Article[] = [
           },
           {
             type: "p",
-            text: "The architectural response is to design the configuration model as a first-class system early — before the configuration surface is large enough that a model constraint feels unnecessary. This means defining what categories of configuration exist, how they are versioned, how they interact with feature flag systems, and how they are observable in production. A configuration change that cannot be traced to the tenant, the actor, and the time of change is an operational risk in a system where configuration errors affect customer-visible behaviour.",
+            text: "The architectural response is to design the configuration model as a first-class system early — before the configuration surface is large enough that a model constraint feels unnecessary. This means defining what categories of configuration exist, how they are versioned, how they interact with feature flag systems, and how they are observable in production. A configuration change that cannot be traced to the tenant, the actor, and the time of change is an operational risk in a system where configuration errors affect customer-visible behavior.",
           },
         ],
       },
       {
-        id: "noisy-neighbour",
-        title: "The Noisy Neighbour Problem",
+        id: "noisy-neighbor",
+        title: "The Noisy Neighbor Problem",
         blocks: [
           {
             type: "pullquote",
@@ -1344,11 +1344,11 @@ export const articles: Article[] = [
           },
           {
             type: "p",
-            text: "In a shared infrastructure SaaS platform, a single tenant that generates unusually high load — through legitimate high usage, through a runaway automated process, or through a misconfigured integration — can degrade the experience of all other tenants sharing the same infrastructure. This is the noisy neighbour problem, and it is a predictable consequence of resource sharing without isolation controls.",
+            text: "In a shared infrastructure SaaS platform, a single tenant that generates unusually high load — through legitimate high usage, through a runaway automated process, or through a misconfigured integration — can degrade the experience of all other tenants sharing the same infrastructure. This is the noisy neighbor problem, and it is a predictable consequence of resource sharing without isolation controls.",
           },
           {
             type: "p",
-            text: "The technical controls are established: per-tenant rate limiting on API endpoints, per-tenant job queue prioritisation, per-tenant database query timeouts and resource limits. The operational challenge is implementing these controls before the first noisy neighbour incident, at a point when they seem like premature optimisation. Teams that implement tenant isolation controls after the first incident that warrants them are doing so reactively, under operational pressure, with a degraded service affecting customers.",
+            text: "The technical controls are established: per-tenant rate limiting on API endpoints, per-tenant job queue prioritization, per-tenant database query timeouts and resource limits. The operational challenge is implementing these controls before the first noisy neighbor incident, at a point when they seem like premature optimization. Teams that implement tenant isolation controls after the first incident that warrants them are doing so reactively, under operational pressure, with a degraded service affecting customers.",
           },
         ],
       },
@@ -1386,11 +1386,11 @@ export const articles: Article[] = [
     date: "June 2025",
     title: "Staff Augmentation: When It Works and When It Does Not",
     metaDescription:
-      "Staff augmentation produces different results in different organisational contexts. The conditions that make it effective — and the conditions that make it a costly disappointment.",
+      "Staff augmentation produces different results in different organizational contexts. The conditions that make it effective — and the conditions that make it a costly disappointment.",
     summary:
-      "Staff augmentation is a delivery model with specific conditions for success. Organisations that misread those conditions spend more on augmentation than on the problem it was supposed to solve.",
+      "Staff augmentation is a delivery model with specific conditions for success. Organizations that misread those conditions spend more on augmentation than on the problem it was supposed to solve.",
     executiveSummary:
-      "Staff augmentation works well in a narrow set of conditions and poorly in a wider set than most organisations anticipate before committing to the model. The conditions for success are specific and the failure modes are consistent. Organisations that understand the model accurately select it for the right situations and get results that justify the cost. Organisations that treat it as a generic solution to engineering capacity problems experience outcomes that range from disappointing to counterproductive.",
+      "Staff augmentation works well in a narrow set of conditions and poorly in a wider set than most organizations anticipate before committing to the model. The conditions for success are specific and the failure modes are consistent. Organizations that understand the model accurately select it for the right situations and get results that justify the cost. Organizations that treat it as a generic solution to engineering capacity problems experience outcomes that range from disappointing to counterproductive.",
     sections: [
       {
         id: "what-augmentation-solves",
@@ -1398,7 +1398,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Staff augmentation solves one problem: engineering capacity under existing engineering leadership. The organisation has clear work to do, capable management to direct that work, and established processes for the team to operate within. It does not have enough engineers to execute the work at the pace the business requires. Augmentation adds engineering capacity without changing any of the other variables. If any of the other variables are also problems — unclear priorities, weak management, poor processes — augmentation does not address them and may make them more visible.",
+            text: "Staff augmentation solves one problem: engineering capacity under existing engineering leadership. The organization has clear work to do, capable management to direct that work, and established processes for the team to operate within. It does not have enough engineers to execute the work at the pace the business requires. Augmentation adds engineering capacity without changing any of the other variables. If any of the other variables are also problems — unclear priorities, weak management, poor processes — augmentation does not address them and may make them more visible.",
           },
           {
             type: "callout",
@@ -1413,11 +1413,11 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "The cost of onboarding augmented engineers is consistently underestimated. An augmented engineer joining a team with an established, complex codebase and undocumented conventions requires senior engineer time to become productive. That senior engineer time is the organisation's scarcest resource — the reason augmentation was sought in the first place. If the onboarding of each augmented engineer consumes four weeks of senior engineer time, the net capacity addition from a six-month augmentation engagement is less than it appears on paper.",
+            text: "The cost of onboarding augmented engineers is consistently underestimated. An augmented engineer joining a team with an established, complex codebase and undocumented conventions requires senior engineer time to become productive. That senior engineer time is the organization's scarcest resource — the reason augmentation was sought in the first place. If the onboarding of each augmented engineer consumes four weeks of senior engineer time, the net capacity addition from a six-month augmentation engagement is less than it appears on paper.",
           },
           {
             type: "pullquote",
-            text: "The organisation that can least afford to spend senior engineer time on onboarding is the organisation that most frequently finds itself needing to.",
+            text: "The organization that can least afford to spend senior engineer time on onboarding is the organization that most frequently finds itself needing to.",
           },
           {
             type: "list",
@@ -1450,11 +1450,11 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Choose augmentation when: the organisation has clear priorities and engineering management with capacity to direct additional engineers; the codebase is well-structured enough that new engineers can become productive within a reasonable period; the work is ongoing rather than a discrete deliverable; and the organisation has time to invest in onboarding before the capacity is urgently needed.",
+            text: "Choose augmentation when: the organization has clear priorities and engineering management with capacity to direct additional engineers; the codebase is well-structured enough that new engineers can become productive within a reasonable period; the work is ongoing rather than a discrete deliverable; and the organization has time to invest in onboarding before the capacity is urgently needed.",
           },
           {
             type: "p",
-            text: "Choose outsourcing or a managed delivery engagement when: the work has a clearly defined scope and end state; the organisation lacks internal management capacity to direct additional engineers; the timeline does not allow for onboarding; or the work requires a capability that does not exist internally and cannot be developed quickly through augmentation. The honest answer to which model fits requires assessing the actual organisational situation rather than defaulting to the model that feels most familiar.",
+            text: "Choose outsourcing or a managed delivery engagement when: the work has a clearly defined scope and end state; the organization lacks internal management capacity to direct additional engineers; the timeline does not allow for onboarding; or the work requires a capability that does not exist internally and cannot be developed quickly through augmentation. The honest answer to which model fits requires assessing the actual organizational situation rather than defaulting to the model that feels most familiar.",
           },
         ],
       },
@@ -1510,7 +1510,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "The most reliable way to assess a SaaS development partner's competence is to present them with the core architectural decisions facing the specific product and evaluate the quality of their analysis. For a SaaS product, this means asking how they would approach the tenancy model for the specific customer mix and compliance requirements of the product, how they would design the billing system to accommodate the pricing evolution the business expects, and how they would instrument the system to make tenant-level operational behaviour observable.",
+            text: "The most reliable way to assess a SaaS development partner's competence is to present them with the core architectural decisions facing the specific product and evaluate the quality of their analysis. For a SaaS product, this means asking how they would approach the tenancy model for the specific customer mix and compliance requirements of the product, how they would design the billing system to accommodate the pricing evolution the business expects, and how they would instrument the system to make tenant-level operational behavior observable.",
           },
           {
             type: "callout",
@@ -1529,7 +1529,7 @@ export const articles: Article[] = [
           },
           {
             type: "p",
-            text: "A SaaS development engagement that ends at launch leaves the product in the hands of a team that did not build it, with knowledge transfer as the bridge. The quality of that bridge determines whether the internal team can operate, extend, and debug the system effectively. Evaluate how the partner approaches knowledge transfer — whether they write documentation as a delivery artefact, whether they conduct handover sessions, whether they support the internal team during the first operational incidents.",
+            text: "A SaaS development engagement that ends at launch leaves the product in the hands of a team that did not build it, with knowledge transfer as the bridge. The quality of that bridge determines whether the internal team can operate, extend, and debug the system effectively. Evaluate how the partner approaches knowledge transfer — whether they write documentation as a delivery artifact, whether they conduct handover sessions, whether they support the internal team during the first operational incidents.",
           },
           {
             type: "p",
@@ -1575,9 +1575,9 @@ export const articles: Article[] = [
     metaDescription:
       "Software development outsourcing has a poor reputation that is partly deserved and partly the result of applying the model incorrectly. The failure modes are specific and preventable.",
     summary:
-      "Software development outsourcing fails for reasons that are specific and preventable. The failure modes appear across organisations of different sizes and sectors, and they are almost always traceable to the engagement structure rather than the technical capability of the external team.",
+      "Software development outsourcing fails for reasons that are specific and preventable. The failure modes appear across organizations of different sizes and sectors, and they are almost always traceable to the engagement structure rather than the technical capability of the external team.",
     executiveSummary:
-      "Software development outsourcing carries a poor reputation among organisations that have experienced it. The reputation is partly deserved: outsourcing does fail frequently. But the failure modes are specific and consistent — they appear across engagements with different partners, different sectors, and different scales of project. They are almost always traceable to how the engagement was structured rather than to the technical capability of the external team. Understanding the failure modes makes them preventable.",
+      "Software development outsourcing carries a poor reputation among organizations that have experienced it. The reputation is partly deserved: outsourcing does fail frequently. But the failure modes are specific and consistent — they appear across engagements with different partners, different sectors, and different scales of project. They are almost always traceable to how the engagement was structured rather than to the technical capability of the external team. Understanding the failure modes makes them preventable.",
     sections: [
       {
         id: "requirements-failure",
@@ -1585,7 +1585,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "The most common failure mode in software outsourcing is beginning development before requirements are adequate to build against. The organisation has a business problem it wants to solve. It describes that problem to a prospective development partner. The partner produces a proposal and a timeline. Development begins. During development, the requirements evolve as the organisation's understanding of the product clarifies — as stakeholders engage with prototypes, as technical constraints surface design decisions that were assumed, and as the business context changes.",
+            text: "The most common failure mode in software outsourcing is beginning development before requirements are adequate to build against. The organization has a business problem it wants to solve. It describes that problem to a prospective development partner. The partner produces a proposal and a timeline. Development begins. During development, the requirements evolve as the organization's understanding of the product clarifies — as stakeholders engage with prototypes, as technical constraints surface design decisions that were assumed, and as the business context changes.",
           },
           {
             type: "callout",
@@ -1641,11 +1641,11 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "Software outsourcing engagements that end without a structured handover leave the organisation with a system it cannot maintain. The external team has the architectural context, the operational knowledge, and the understanding of design decisions that were made during development. When the engagement ends, that knowledge does not transfer automatically — it dissipates unless explicitly captured. The internal team inherits a system they can operate in normal conditions and cannot debug effectively when something goes wrong.",
+            text: "Software outsourcing engagements that end without a structured handover leave the organization with a system it cannot maintain. The external team has the architectural context, the operational knowledge, and the understanding of design decisions that were made during development. When the engagement ends, that knowledge does not transfer automatically — it dissipates unless explicitly captured. The internal team inherits a system they can operate in normal conditions and cannot debug effectively when something goes wrong.",
           },
           {
             type: "p",
-            text: "Handover must be designed into the engagement from the start, not treated as a final-phase activity. This means documentation written as a delivery artefact — not written at the end because the contract requires it — and a handover period where the internal team operates the system with the external team available to support, rather than a clean handover where external team access ends on a specific date.",
+            text: "Handover must be designed into the engagement from the start, not treated as a final-phase activity. This means documentation written as a delivery artifact — not written at the end because the contract requires it — and a handover period where the internal team operates the system with the external team available to support, rather than a clean handover where external team access ends on a specific date.",
           },
         ],
       },
@@ -1681,7 +1681,7 @@ export const articles: Article[] = [
         blocks: [
           {
             type: "p",
-            text: "MVP architecture is optimised for speed of hypothesis testing, not for production operational requirements. This is the correct optimisation for an MVP — spending engineering time on production-grade architecture before the hypothesis is validated is waste. But it creates a transition cost: the architecture decisions that minimised MVP build time often create constraints on the production system. A data model designed for a hundred test users does not necessarily serve a hundred thousand production users. A deployment process that works for a single-region MVP does not serve a globally distributed user base.",
+            text: "MVP architecture is optimized for speed of hypothesis testing, not for production operational requirements. This is the correct optimization for an MVP — spending engineering time on production-grade architecture before the hypothesis is validated is waste. But it creates a transition cost: the architecture decisions that minimized MVP build time often create constraints on the production system. A data model designed for a hundred test users does not necessarily serve a hundred thousand production users. A deployment process that works for a single-region MVP does not serve a globally distributed user base.",
           },
           {
             type: "p",

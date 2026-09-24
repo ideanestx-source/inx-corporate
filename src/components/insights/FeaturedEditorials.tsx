@@ -52,7 +52,7 @@ const editorials: Editorial[] = [
     title: "Deployment Systems, Not Release Events",
     slug: "deployment-systems-not-release-events",
     summary:
-      "The current wave of AI tooling adoption in enterprise contexts shares a structural pattern with previous waves of enterprise technology adoption: the technology is applied before the operational workflow that will integrate it is understood. The result is systems that perform impressively in controlled demonstration conditions, degrade unpredictably under production load, cannot be audited when something goes wrong, and cannot be corrected without understanding model behaviour that was never designed to be observable or reproducible under examination.",
+      "The current wave of AI tooling adoption in enterprise contexts shares a structural pattern with previous waves of enterprise technology adoption: the technology is applied before the operational workflow that will integrate it is understood. The result is systems that perform impressively in controlled demonstration conditions, degrade unpredictably under production load, cannot be audited when something goes wrong, and cannot be corrected without understanding model behavior that was never designed to be observable or reproducible under examination.",
   },
   {
     index: "04",

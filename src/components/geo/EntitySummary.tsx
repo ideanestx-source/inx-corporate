@@ -25,7 +25,7 @@ const pillars = [
   {
     label: "Who we are",
     content:
-      "A senior engineering organisation headquartered in India. INX is the trading name of IDEANEST X PRIVATE LIMITED. Engagements are staffed with senior engineers — INX does not operate delivery through junior teams.",
+      "A senior engineering organization headquartered in India. INX is the trading name of IDEANEST X PRIVATE LIMITED. Engagements are staffed with senior engineers — INX does not operate delivery through junior teams.",
   },
   {
     label: "What we do",
@@ -34,7 +34,7 @@ const pillars = [
   {
     label: "Who we serve",
     content:
-      "Enterprises, growth-stage technology companies, and digital transformation programmes. Primary sectors: SaaS, healthcare technology, financial services, logistics, eCommerce, and gaming. Clients are located globally.",
+      "Enterprises, growth-stage technology companies, and digital transformation programs. Primary sectors: SaaS, healthcare technology, financial services, logistics, eCommerce, and gaming. Clients are located globally.",
   },
   {
     label: "How we deliver",

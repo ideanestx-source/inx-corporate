@@ -9,6 +9,7 @@ import {
   ORG_NAME,
   breadcrumbSchema,
   faqSchema,
+  DEFAULT_OG_IMAGE,
 } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/engagement-models`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Engagement Models | INX",
     description:
       "How to work with INX: discovery engagements, fixed-scope project delivery, staff augmentation, and dedicated engineering teams. Commercial structures for every stage.",
@@ -28,6 +30,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Engagement Models | INX",
     description:
@@ -43,7 +46,7 @@ const models = [
     tagline: "Understand before you build",
     duration: "2 – 4 weeks",
     commercial: "Billable at a fixed rate. Scoped and agreed before it begins.",
-    bestFor: "Any organisation that needs to define scope, de-risk architecture, or evaluate technical options before committing to a development budget.",
+    bestFor: "Any organization that needs to define scope, de-risk architecture, or evaluate technical options before committing to a development budget.",
     description:
       "A discovery engagement is a structured technical and commercial investigation. It precedes all development work and is always billable — because the output is a professional deliverable, not a sales activity.",
     included: [
@@ -57,7 +60,7 @@ const models = [
     ],
     output:
       "A Technical Specification that defines scope, architecture approach, milestones, and acceptance criteria. This document governs all subsequent engineering work.",
-    notFor: "Organisations seeking a free scoping process. Discovery is a professional service engagement, not a pre-sales activity.",
+    notFor: "Organizations seeking a free scoping process. Discovery is a professional service engagement, not a pre-sales activity.",
   },
   {
     index: "02",
@@ -66,7 +69,7 @@ const models = [
     tagline: "Defined scope. Defined outcome.",
     duration: "Milestone-based — typically 3 to 12 months",
     commercial: "Fixed price against the Technical Specification, or time-and-materials with agreed monthly caps.",
-    bestFor: "Organisations with a defined initiative — a new platform, a system migration, a product launch — and a clear outcome to deliver against.",
+    bestFor: "Organizations with a defined initiative — a new platform, a system migration, a product launch — and a clear outcome to deliver against.",
     description:
       "Project-based delivery is the standard INX engagement for defined initiatives. The Technical Specification (produced during discovery or provided by the client) governs scope. Milestones are agreed. Delivery is documented.",
     included: [
@@ -90,7 +93,7 @@ const models = [
     tagline: "Senior engineers. Your team. Your management.",
     duration: "Monthly — typically 3 months minimum",
     commercial: "Monthly retainer per engineer. Priced at seniority level.",
-    bestFor: "Organisations with strong engineering management and direction, where the constraint is execution capacity — not technical leadership or process clarity.",
+    bestFor: "Organizations with strong engineering management and direction, where the constraint is execution capacity — not technical leadership or process clarity.",
     description:
       "Staff augmentation places senior INX engineers within an existing client team — integrated into tools, ceremonies, and processes, under client engineering management. The engagement adds capacity, not direction.",
     included: [
@@ -114,7 +117,7 @@ const models = [
     duration: "Ongoing — typically 6 months minimum",
     commercial: "Monthly retainer covering the full team. Includes engineering management.",
     bestFor:
-      "Organisations that need a complete engineering capability — including technical leadership, delivery management, and execution — without building an internal function.",
+      "Organizations that need a complete engineering capability — including technical leadership, delivery management, and execution — without building an internal function.",
     description:
       "A dedicated team engagement provides a fully assembled senior engineering team operating as an embedded delivery partner. The team is responsible for technical direction, architecture, and delivery outcomes — under agreed governance with the client.",
     included: [
@@ -129,7 +132,7 @@ const models = [
     output:
       "A fully operating engineering function accountable for technical outcomes — not just task completion.",
     notFor:
-      "Organisations that already have strong technical leadership and only need execution capacity. Dedicated teams include leadership; augmentation does not.",
+      "Organizations that already have strong technical leadership and only need execution capacity. Dedicated teams include leadership; augmentation does not.",
   },
 ];
 
@@ -152,7 +155,7 @@ const commercialFaqs = [
   {
     question: "Can INX begin work immediately?",
     answer:
-      "Discovery engagements can begin within one week of initial alignment and NDA execution. Project-based and dedicated team engagements require a two to four week mobilisation period following agreement to allow for team assembly, context transfer, and environment setup.",
+      "Discovery engagements can begin within one week of initial alignment and NDA execution. Project-based and dedicated team engagements require a two to four week mobilization period following agreement to allow for team assembly, context transfer, and environment setup.",
   },
   {
     question: "Who owns the intellectual property?",
@@ -216,7 +219,7 @@ export default function EngagementModelsPage() {
         <p className="text-base sm:text-lg text-white/50 leading-relaxed max-w-3xl mb-6">
           INX operates four commercial engagement structures. Each is designed for a specific
           set of circumstances — defined scope versus exploratory work, full team delivery versus
-          capacity augmentation. The right model depends on what the organisation actually needs.
+          capacity augmentation. The right model depends on what the organization actually needs.
         </p>
         <p className="text-[13px] text-white/30 leading-relaxed max-w-2xl">
           All engagements begin with an initial conversation with the INX leadership team.

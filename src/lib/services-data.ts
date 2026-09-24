@@ -41,7 +41,7 @@ export const services: Service[] = [
       "Distributed systems design",
       "Event-driven architecture",
       "API-first system design",
-      "Data modelling and schema design",
+      "Data modeling and schema design",
       "Integration architecture",
       "Scalability and capacity planning",
     ],
@@ -68,7 +68,7 @@ export const services: Service[] = [
       "Native Android (Kotlin, Jetpack Compose)",
       "Mobile CI/CD and deployment pipelines",
       "Offline-first architecture",
-      "Mobile performance and battery optimisation",
+      "Mobile performance and battery optimization",
     ],
     technologies: ["React Native", "Expo", "Swift", "SwiftUI", "Kotlin", "Jetpack Compose", "WebSocket"],
     relatedIndustrySlugs: ["ecommerce-development", "healthcare-software-development", "fintech-software-development"],
@@ -146,12 +146,12 @@ export const services: Service[] = [
       "Cross-platform account and progression systems",
       "Leaderboard and competitive ranking infrastructure",
       "Live operations tooling and content management",
-      "Player analytics and behaviour tracking",
+      "Player analytics and behavior tracking",
       "In-app purchase and subscription infrastructure",
     ],
     // Generic backend technologies INX uses company-wide, applicable to the
     // real-time/persistence needs described on the gaming industry page.
-    // No game-specific stack (engines, specialised game infra) is evidenced
+    // No game-specific stack (engines, specialized game infra) is evidenced
     // in existing content — hence needsContent: true below.
     technologies: ["Node.js", "PostgreSQL", "Redis", "WebSocket"],
     relatedIndustrySlugs: ["gaming-software-development"],
@@ -203,7 +203,7 @@ export const services: Service[] = [
       "Third-party API and platform integration",
       "Observability pipelines (metrics, traces, logs)",
       "Network security and access control",
-      "Cost optimisation engineering",
+      "Cost optimization engineering",
     ],
     technologies: ["AWS", "Google Cloud Platform", "Terraform", "Docker", "Kubernetes", "GitHub Actions"],
     relatedIndustrySlugs: ["saas-development", "fintech-software-development"],
@@ -221,10 +221,10 @@ export const services: Service[] = [
     title: "Dedicated Development Teams",
     category: "Embedded Delivery",
     summary:
-      "Senior engineers — individually or as a full dedicated team — embedded within your organisation under your engineering management, operating with full institutional context and delivery accountability from day one.",
+      "Senior engineers — individually or as a full dedicated team — embedded within your organization under your engineering management, operating with full institutional context and delivery accountability from day one.",
     capabilities: [
       "Staff augmentation: senior engineers integrated under client management",
-      "Dedicated engineering team: full team operating within the client's engineering organisation",
+      "Dedicated engineering team: full team operating within the client's engineering organization",
       "No ramp-up delay — delivery from day one",
     ],
     technologies: [],
@@ -235,7 +235,7 @@ export const services: Service[] = [
     seo: {
       title: "Dedicated Development Teams",
       description:
-        "Staff augmentation and dedicated engineering teams from INX — senior engineers embedded within your organisation under your management, from day one.",
+        "Staff augmentation and dedicated engineering teams from INX — senior engineers embedded within your organization under your management, from day one.",
     },
   },
   {
@@ -247,7 +247,7 @@ export const services: Service[] = [
     // bar, not a service offered to clients). Kept deliberately short and
     // structural rather than a claims-based pitch. needsContent: true.
     summary:
-      "Technical hiring support for organisations building or scaling an engineering function — candidate technical evaluation and team-scaling advisory, informed by the same hiring standards INX applies to its own engineering hires.",
+      "Technical hiring support for organizations building or scaling an engineering function — candidate technical evaluation and team-scaling advisory, informed by the same hiring standards INX applies to its own engineering hires.",
     capabilities: [
       "Technical hiring support for engineering roles",
       "Candidate technical evaluation",

@@ -9,29 +9,31 @@ import IdealPartners from "@/components/partnerships/IdealPartners";
 import PartnershipEvaluation from "@/components/partnerships/PartnershipEvaluation";
 import PartnershipsCta from "@/components/partnerships/PartnershipsCta";
 import JsonLd from "@/components/JsonLd";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Partnerships",
   description:
-    "INX partnership models for technology vendors, product companies, and delivery organisations. Engineering alignment, not lead volume.",
+    "INX partnership models for technology vendors, product companies, and delivery organizations. Engineering alignment, not lead volume.",
   alternates: {
     canonical: `${BASE_URL}/partnerships`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Partnerships | INX",
     description:
-      "INX partnership models for technology vendors, product companies, and delivery organisations. Engineering alignment, not lead volume.",
+      "INX partnership models for technology vendors, product companies, and delivery organizations. Engineering alignment, not lead volume.",
     url: `${BASE_URL}/partnerships`,
     siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Partnerships | INX",
     description:
-      "INX partnership models for technology vendors, product companies, and delivery organisations. Engineering alignment, not lead volume.",
+      "INX partnership models for technology vendors, product companies, and delivery organizations. Engineering alignment, not lead volume.",
   },
 };
 

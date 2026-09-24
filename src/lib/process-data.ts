@@ -1,7 +1,7 @@
 // The INX five-phase delivery process, in its condensed form. The full,
 // long-form version lives on /our-process; this is the summary shared by the
 // homepage and the per-service pages so it is written once. Phase names match
-// /our-process ("Optimisation" — the site's dominant British spelling).
+// /our-process ("Optimization" — the site's dominant British spelling).
 
 export type ProcessPhase = {
   index: string;
@@ -32,7 +32,7 @@ export const PROCESS_PHASES: ProcessPhase[] = [
   },
   {
     index: "05",
-    name: "Optimisation",
+    name: "Optimization",
     body: "Post-deployment performance measurement and bottleneck resolution under real production load.",
   },
 ];

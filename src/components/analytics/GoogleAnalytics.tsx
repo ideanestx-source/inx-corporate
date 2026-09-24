@@ -4,7 +4,14 @@ import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+// Only a well-formed GA4 measurement ID (G-XXXXXXXX…) enables analytics. An
+// unset variable or a placeholder such as "G-PLACEHOLDER" renders nothing, so
+// no traffic is ever sent to a fake property.
+const RAW_GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
+const GA_ID =
+  RAW_GA_ID && /^G-[A-Z0-9]{8,12}$/.test(RAW_GA_ID) && !/PLACEHOLDER|XXXX/i.test(RAW_GA_ID)
+    ? RAW_GA_ID
+    : undefined;
 
 declare global {
   interface Window {

@@ -13,7 +13,7 @@ import ServiceRelatedWork from "@/components/services/ServiceRelatedWork";
 import ServiceProcess from "@/components/services/ServiceProcess";
 import CTASection from "@/components/shared/CTASection";
 import { getService, getPublishedServices, SERVICE_CTA } from "@/lib/services-data";
-import { BASE_URL, SITE_NAME, breadcrumbSchema, serviceSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, serviceSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import {
   WebDiagram,
   MobileDiagram,
@@ -62,6 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: url,
     },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: `${service.seo.title} | INX`,
       description: service.seo.description,
       url,
@@ -70,6 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
     },
     twitter: {
+      images: [DEFAULT_OG_IMAGE.url],
       card: "summary_large_image",
       title: `${service.seo.title} | INX`,
       description: service.seo.description,

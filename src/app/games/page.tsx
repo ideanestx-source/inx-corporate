@@ -8,7 +8,7 @@ import GameGrid from "@/components/games/GameGrid";
 import GamesCapabilities from "@/components/games/GamesCapabilities";
 import GamesEcosystem from "@/components/games/GamesEcosystem";
 import CTASection from "@/components/shared/CTASection";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Games",
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/games`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Games | INX",
     description:
       "Games and interactive experiences designed and built by INX — a separate discipline from client game-development engagements.",
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Games | INX",
     description:

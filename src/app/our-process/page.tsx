@@ -3,29 +3,31 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { BASE_URL, SITE_NAME, breadcrumbSchema, howToSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, howToSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Our Process",
   description:
-    "How INX delivers software engineering engagements: a five-phase methodology covering discovery, architecture, engineering, deployment, and optimisation.",
+    "How INX delivers software engineering engagements: a five-phase methodology covering discovery, architecture, engineering, deployment, and optimization.",
   alternates: {
     canonical: `${BASE_URL}/our-process`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Our Process | INX",
     description:
-      "How INX delivers software engineering engagements: a five-phase methodology covering discovery, architecture, engineering, deployment, and optimisation.",
+      "How INX delivers software engineering engagements: a five-phase methodology covering discovery, architecture, engineering, deployment, and optimization.",
     url: `${BASE_URL}/our-process`,
     siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Our Process | INX",
     description:
-      "How INX delivers software engineering engagements: a five-phase methodology covering discovery, architecture, engineering, deployment, and optimisation.",
+      "How INX delivers software engineering engagements: a five-phase methodology covering discovery, architecture, engineering, deployment, and optimization.",
   },
 };
 
@@ -60,7 +62,7 @@ const phases = [
       "API contract specification (REST, GraphQL, or gRPC)",
       "System boundary and service decomposition design",
       "Third-party integration architecture",
-      "Scalability and performance constraint modelling",
+      "Scalability and performance constraint modeling",
       "Security architecture and access control design",
     ],
     produces:
@@ -85,7 +87,7 @@ const phases = [
     produces:
       "A production-ready codebase with documented test coverage, passing CI, and code reviewed against the specification. Deployment-ready artifacts produced at each milestone.",
     principle:
-      "Engineering is not where design decisions should be made. When engineering proceeds against a clear specification, delivery is predictable and quality is measurable — not a matter of individual judgement.",
+      "Engineering is not where design decisions should be made. When engineering proceeds against a clear specification, delivery is predictable and quality is measurable — not a matter of individual judgment.",
   },
   {
     index: "04",
@@ -108,13 +110,13 @@ const phases = [
   },
   {
     index: "05",
-    name: "Optimisation",
-    tagline: "Measuring production behaviour against operational requirements",
+    name: "Optimization",
+    tagline: "Measuring production behavior against operational requirements",
     summary:
-      "After deployment, INX continues to monitor and optimise the system under real production load. The warranty period provides structured post-delivery support before transition to ongoing support or handover.",
+      "After deployment, INX continues to monitor and optimize the system under real production load. The warranty period provides structured post-delivery support before transition to ongoing support or handover.",
     what: [
       "Production performance measurement against specification targets",
-      "Query and API endpoint optimisation under load",
+      "Query and API endpoint optimization under load",
       "Bottleneck identification and resolution",
       "Dependency and security patching",
       "User feedback integration and product iteration",
@@ -123,7 +125,7 @@ const phases = [
     produces:
       "A validated production system performing within specified parameters, with documented performance baselines and a clear operational handover.",
     principle:
-      "Production behaviour is the only reliable measure of engineering quality. Systems that perform well in staging but fail under real load are a systemic failure of the delivery process — not an acceptable outcome.",
+      "Production behavior is the only reliable measure of engineering quality. Systems that perform well in staging but fail under real load are a systemic failure of the delivery process — not an acceptable outcome.",
   },
 ];
 
@@ -139,7 +141,7 @@ const qualityControls = [
 const processSchema = howToSchema({
   name: "INX Five-Phase Software Engineering Delivery Process",
   description:
-    "The structured delivery methodology INX applies to every software engineering engagement — from discovery through to production optimisation.",
+    "The structured delivery methodology INX applies to every software engineering engagement — from discovery through to production optimization.",
   url: `${BASE_URL}/our-process`,
   steps: phases.map((p) => ({
     name: p.name,
@@ -175,7 +177,7 @@ export default function OurProcessPage() {
         </h1>
         <p className="text-base sm:text-lg text-white/50 leading-relaxed max-w-3xl mb-6">
           Every INX engagement follows the same five-phase delivery model: Discovery, Architecture,
-          Engineering, Deployment, and Optimisation. The model is adapted to context — never abandoned
+          Engineering, Deployment, and Optimization. The model is adapted to context — never abandoned
           for convenience.
         </p>
         <p className="text-[13px] text-white/30 leading-relaxed max-w-2xl">

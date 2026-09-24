@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 import { getFeaturedServices, getPublishedServices } from "@/lib/services-data";
 
-// A summary, not the full catalogue: the featured services from
+// A summary, not the full catalog: the featured services from
 // services-data.ts as an editorial index, with the remaining services
 // surfaced as links beneath so nothing is hidden. All ten live on /services.
 export default function HomeCapabilities() {

@@ -60,7 +60,7 @@ const categories: Category[] = [
       },
       {
         name: "PostgreSQL",
-        note: "Relational database selected for transactional integrity, row-level security enforcement, and predictable behaviour under production load.",
+        note: "Relational database selected for transactional integrity, row-level security enforcement, and predictable behavior under production load.",
       },
       {
         name: "Redis",
@@ -84,7 +84,7 @@ const categories: Category[] = [
       },
       {
         name: "Docker",
-        note: "Containerisation standard for all application services. Guarantees environment parity between development, staging, and production.",
+        note: "Containerization standard for all application services. Guarantees environment parity between development, staging, and production.",
       },
       {
         name: "Terraform",
@@ -120,7 +120,7 @@ const categories: Category[] = [
     index: "05",
     name: "Mobile Engineering",
     philosophy:
-      "Mobile applications are built to operate reliably under variable connectivity, with local state management that synchronises without user intervention or data loss on reconnection.",
+      "Mobile applications are built to operate reliably under variable connectivity, with local state management that synchronizes without user intervention or data loss on reconnection.",
     technologies: [
       {
         name: "React Native",
@@ -136,7 +136,7 @@ const categories: Category[] = [
       },
       {
         name: "WebSocket",
-        note: "Real-time data synchronisation for operational applications where sub-5-second update latency is a defined acceptance criterion.",
+        note: "Real-time data synchronization for operational applications where sub-5-second update latency is a defined acceptance criterion.",
       },
     ],
   },
@@ -152,7 +152,7 @@ const categories: Category[] = [
       },
       {
         name: "Docker Compose",
-        note: "Local environment standardisation. Eliminates the class of defects caused by development-to-production environment configuration drift.",
+        note: "Local environment standardization. Eliminates the class of defects caused by development-to-production environment configuration drift.",
       },
       {
         name: "Structured Logging",

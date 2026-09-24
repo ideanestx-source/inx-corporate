@@ -102,7 +102,7 @@ const data: LegalPageData = {
       heading: "Handling Client Confidential Information",
       paragraphs: [
         "Confidential information shared by clients during an engagement - business logic, user data, operational data used for testing - is handled under the confidentiality obligations described in the engagement agreement and on this site's Confidentiality page.",
-        "Production data is not used in development or test environments without explicit written consent. Where sanitised or synthetic test data can serve the same purpose, that is the default approach.",
+        "Production data is not used in development or test environments without explicit written consent. Where sanitized or synthetic test data can serve the same purpose, that is the default approach.",
         "Client data is not retained beyond the period required for delivery unless specifically agreed. Upon engagement conclusion, INX confirms in writing what data was held and how it was disposed of.",
       ],
     },

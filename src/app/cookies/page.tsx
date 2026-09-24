@@ -43,7 +43,7 @@ const data: LegalPageData = {
         {
           heading: "Analytics Cookies",
           paragraphs: [
-            "Where INX uses analytics tooling to understand how visitors use this site - for example, which pages are visited and how long visitors spend on them - this is done using aggregated, anonymised data. No individual visitor profiles are built.",
+            "Where INX uses analytics tooling to understand how visitors use this site - for example, which pages are visited and how long visitors spend on them - this is done using aggregated, anonymized data. No individual visitor profiles are built.",
             "Analytics data is used solely to improve the site's content and structure. If analytics cookies are in use, they are identified in the cookie declaration below.",
           ],
         },
@@ -60,7 +60,7 @@ const data: LegalPageData = {
       category: "Cookie Declaration",
       heading: "Cookies in Use",
       paragraphs: [
-        "This site currently sets the following cookies: session management cookies (strictly necessary, session-scoped, deleted when the browser is closed) and, where analytics is active, anonymised page view tracking cookies (persistent, maximum 13-month expiry, no personal identifiers).",
+        "This site currently sets the following cookies: session management cookies (strictly necessary, session-scoped, deleted when the browser is closed) and, where analytics is active, anonymized page view tracking cookies (persistent, maximum 13-month expiry, no personal identifiers).",
         "INX does not use cookies for advertising, retargeting, cross-site tracking, or the construction of behavioural profiles.",
       ],
     },
@@ -69,7 +69,7 @@ const data: LegalPageData = {
       category: "Your Controls",
       heading: "Managing Cookie Preferences",
       paragraphs: [
-        "You can control cookie behaviour through your browser settings. Most browsers allow you to refuse new cookies, delete existing cookies, or be notified when a new cookie is set. Browser documentation for your specific browser will explain how to do this.",
+        "You can control cookie behavior through your browser settings. Most browsers allow you to refuse new cookies, delete existing cookies, or be notified when a new cookie is set. Browser documentation for your specific browser will explain how to do this.",
         "Disabling strictly necessary cookies may affect site functionality - in particular, form submission and security features may not work correctly.",
         "For analytics cookies, you may opt out by adjusting your browser settings. INX does not operate a separate cookie consent management platform on this site at present, given the minimal and non-commercial nature of the cookies in use.",
       ],

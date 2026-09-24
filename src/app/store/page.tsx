@@ -7,7 +7,7 @@ import StoreOverview from "@/components/store/StoreOverview";
 import StoreCategories from "@/components/store/StoreCategories";
 import StoreEcosystem from "@/components/store/StoreEcosystem";
 import StoreCTA from "@/components/store/StoreCTA";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 // The title is set absolutely: the layout's "%s | INX" template would
 // otherwise produce "INX Store | INX".
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/store`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: TITLE,
     description: DESCRIPTION,
     url: `${BASE_URL}/store`,
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,

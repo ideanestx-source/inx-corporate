@@ -5,6 +5,7 @@ import Script from "next/script";
 import { motion, useInView } from "framer-motion";
 import { ChevronDown, ArrowRight, CheckCircle } from "lucide-react";
 import { fireGAEvent } from "@/lib/analytics";
+import { getPublishedServices } from "@/lib/services-data";
 
 type FormData = {
   name: string;
@@ -17,15 +18,9 @@ type FormData = {
 
 type FieldError = Partial<Record<keyof FormData, string>>;
 
-const projectTypes = [
-  "Enterprise Web Development",
-  "SaaS Engineering",
-  "AI Systems",
-  "Staff Augmentation",
-  "Mobile Applications",
-  "UI/UX Systems",
-  "General Inquiry",
-];
+// Project types mirror the public service catalog (single source of truth in
+// services-data.ts); "General Inquiry" covers everything that is not a service.
+const projectTypes = [...getPublishedServices().map((s) => s.title), "General Inquiry"];
 
 const budgetRanges = [
   "Under $25,000",

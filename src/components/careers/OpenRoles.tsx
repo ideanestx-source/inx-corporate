@@ -22,7 +22,7 @@ const roles: Role[] = [
     expectations:
       "You build production-quality frontend systems using Next.js, React, and TypeScript in strict mode. You have formed opinions about rendering architecture, component design, and performance profiling - and you can justify them under technical review. You do not treat TypeScript errors as warnings. You write code that the engineer who inherits the codebase in six months can understand without asking you for context.",
     collaboration:
-      "Direct involvement in architecture decisions for frontend systems. You participate in technical specification review before development begins. You review pull requests with the same rigour you expect applied to your own code. You communicate blockers when they are identified - not at the end of a cycle. You are expected to raise quality concerns directly, including on work that is functionally complete but below the standard the system requires.",
+      "Direct involvement in architecture decisions for frontend systems. You participate in technical specification review before development begins. You review pull requests with the same rigor you expect applied to your own code. You communicate blockers when they are identified - not at the end of a cycle. You are expected to raise quality concerns directly, including on work that is functionally complete but below the standard the system requires.",
     profile:
       "Three or more years of production React experience. Deep understanding of Next.js rendering models, including SSR, SSG, and React Server Components. TypeScript proficiency at strict mode - you treat the type system as a design tool, not a compliance requirement. You have made architectural decisions that proved incorrect and can describe what you learned without deflection. You have delivered systems that other engineers have maintained, and you understand what makes that go well.",
     workingStyle:
@@ -46,7 +46,7 @@ const roles: Role[] = [
     department: "Design & Engineering",
     title: "UI/UX Systems Designer",
     expectations:
-      "You design interfaces for operational software - not consumer products optimised for engagement, not marketing pages. You understand data density, cognitive workflow, and the operational difference between making something look polished and making it usable under load. You produce specifications that frontend engineers can implement without interpretation. You understand component-based design systems well enough to reason about their constraints before you push against them.",
+      "You design interfaces for operational software - not consumer products optimized for engagement, not marketing pages. You understand data density, cognitive workflow, and the operational difference between making something look polished and making it usable under load. You produce specifications that frontend engineers can implement without interpretation. You understand component-based design systems well enough to reason about their constraints before you push against them.",
     collaboration:
       "You are involved from the operational requirements stage - not after engineering decisions have constrained the design space. You work alongside engineers to produce interface designs that reflect the data model accurately, not designs that require the data model to adapt to your visual decisions. You produce specifications with states, error conditions, empty states, and edge cases documented. A mockup that shows only the happy path is an incomplete specification.",
     profile:
@@ -72,7 +72,7 @@ const roles: Role[] = [
     department: "Growth & Partnerships",
     title: "Business Development Executive",
     expectations:
-      "You develop client relationships with organisations that have defined technical problems and the operational maturity to engage with a structured discovery process. You qualify, you do not pitch. You understand INX's delivery model well enough to explain discovery, specification, and phased development to a technical or executive audience accurately - without overpromising timelines, misrepresenting scope, or describing capabilities that do not exist.",
+      "You develop client relationships with organizations that have defined technical problems and the operational maturity to engage with a structured discovery process. You qualify, you do not pitch. You understand INX's delivery model well enough to explain discovery, specification, and phased development to a technical or executive audience accurately - without overpromising timelines, misrepresenting scope, or describing capabilities that do not exist.",
     collaboration:
       "You work closely with the technical team to qualify inbound and outbound opportunities. You do not commit technical resources or delivery timelines without engineering input. You manage the commercial relationship from initial contact through to the start of a discovery engagement. You do not compete with the technical team for ownership of an engagement once it has begun - your role transfers to relationship management at that point.",
     profile:

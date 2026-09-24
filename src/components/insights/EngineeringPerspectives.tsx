@@ -17,12 +17,12 @@ const perspectives = [
   {
     label: "Delivery Discipline",
     statement: "The delivery process is part of the product. It is not separate from it.",
-    body: "An organisation's ability to deploy reliably, roll back safely, and respond to production incidents without disruption is as much a product characteristic as the features the product contains. The team that treats delivery infrastructure as an operational afterthought ships less frequently, deploys with more risk, and recovers from incidents more slowly - at scale, these are competitive disadvantages as significant as any feature gap.",
+    body: "An organization's ability to deploy reliably, roll back safely, and respond to production incidents without disruption is as much a product characteristic as the features the product contains. The team that treats delivery infrastructure as an operational afterthought ships less frequently, deploys with more risk, and recovers from incidents more slowly - at scale, these are competitive disadvantages as significant as any feature gap.",
   },
   {
     label: "Technical Debt",
     statement: "Technical debt that cannot be located cannot be managed.",
-    body: "The most dangerous technical debt is the kind that exists implicitly - in team knowledge, in undocumented assumptions, in conventions that were obvious when the system was built and are opaque to anyone who was not present. Making technical debt visible, named, and tracked is not an acknowledgement of failure. It is the precondition for managing it intentionally rather than discovering it through production incidents.",
+    body: "The most dangerous technical debt is the kind that exists implicitly - in team knowledge, in undocumented assumptions, in conventions that were obvious when the system was built and are opaque to anyone who was not present. Making technical debt visible, named, and tracked is not an acknowledgment of failure. It is the precondition for managing it intentionally rather than discovering it through production incidents.",
   },
   {
     label: "Infrastructure Maturity",

@@ -8,7 +8,7 @@ import EngineeringPrinciples from "@/components/case-studies/EngineeringPrincipl
 import EngagementPhilosophy from "@/components/case-studies/EngagementPhilosophy";
 import CaseStudiesCta from "@/components/case-studies/CaseStudiesCta";
 import JsonLd from "@/components/JsonLd";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Case Studies",
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/case-studies`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Case Studies | INX",
     description:
       "Selected INX engineering engagements across enterprise web platforms, SaaS products, AI systems, and logistics operations. Documented without hyperbole.",
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Case Studies | INX",
     description:

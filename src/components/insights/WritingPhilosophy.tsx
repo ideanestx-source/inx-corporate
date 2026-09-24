@@ -18,7 +18,7 @@ const positions = [
   {
     index: "03",
     title: "Systems Thinking Over Growth Narratives",
-    body: "The dominant language of the technology industry is growth: growth hacking, scaling startups, hypergrowth infrastructure. INX writes in the language of systems: operational reliability, maintainability across team changes, delivery predictability under constraint. These are the concerns of organisations building systems they intend to operate for years, not organisations building systems they intend to demo for investors.",
+    body: "The dominant language of the technology industry is growth: growth hacking, scaling startups, hypergrowth infrastructure. INX writes in the language of systems: operational reliability, maintainability across team changes, delivery predictability under constraint. These are the concerns of organizations building systems they intend to operate for years, not organizations building systems they intend to demo for investors.",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function WritingPhilosophy() {
             </div>
             <p className="text-base text-white/65 leading-relaxed">
               Publishing is not a marketing function at INX. It is an extension
-              of the engineering organisation - a record of positions formed
+              of the engineering organization - a record of positions formed
               through delivery work and stated precisely enough to be disagreed
               with. If a piece cannot be argued against, it has not said
               anything.

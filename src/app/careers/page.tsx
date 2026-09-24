@@ -9,29 +9,31 @@ import EngineeringCulture from "@/components/careers/EngineeringCulture";
 import HiringPhilosophy from "@/components/careers/HiringPhilosophy";
 import CareersCta from "@/components/careers/CareersCta";
 import JsonLd from "@/components/JsonLd";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Engineering Careers",
   description:
-    "Open roles at INX. A small, senior engineering organisation building operational systems across enterprise verticals. High ownership, low ceremony.",
+    "Open roles at INX. A small, senior engineering organization building operational systems across enterprise verticals. High ownership, low ceremony.",
   alternates: {
     canonical: `${BASE_URL}/careers`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Engineering Careers | INX",
     description:
-      "Open roles at INX. A small, senior engineering organisation building operational systems across enterprise verticals. High ownership, low ceremony.",
+      "Open roles at INX. A small, senior engineering organization building operational systems across enterprise verticals. High ownership, low ceremony.",
     url: `${BASE_URL}/careers`,
     siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Engineering Careers | INX",
     description:
-      "Open roles at INX. A small, senior engineering organisation building operational systems across enterprise verticals. High ownership, low ceremony.",
+      "Open roles at INX. A small, senior engineering organization building operational systems across enterprise verticals. High ownership, low ceremony.",
   },
 };
 

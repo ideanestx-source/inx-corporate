@@ -7,7 +7,7 @@ import ProductsOverview from "@/components/products/ProductsOverview";
 import ProductGrid from "@/components/products/ProductGrid";
 import ProductsEcosystem from "@/components/products/ProductsEcosystem";
 import CTASection from "@/components/shared/CTASection";
-import { BASE_URL, SITE_NAME, breadcrumbSchema } from "@/lib/seo";
+import { BASE_URL, SITE_NAME, breadcrumbSchema, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/products`,
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Products | INX",
     description:
       "Digital products and software systems built and owned by INX — engineered with the same discipline applied across every client engagement.",
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: [DEFAULT_OG_IMAGE.url],
     card: "summary_large_image",
     title: "Products | INX",
     description:
