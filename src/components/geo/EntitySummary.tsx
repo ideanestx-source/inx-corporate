@@ -1,14 +1,16 @@
 import Link from "next/link";
 import { ENTITY } from "@/lib/seo";
+import { getPublishedServices } from "@/lib/services-data";
 
-const serviceLinks: { label: string; href: string }[] = [
-  { label: "Custom Software Development", href: "/services" },
-  { label: "SaaS Platform Development", href: "/industries/saas-development" },
-  { label: "Product Engineering", href: "/services" },
-  { label: "Staff Augmentation", href: "/services" },
-  { label: "Web Application Development", href: "/services" },
-  { label: "AI Systems Integration", href: "/services" },
-];
+// Derived from services-data.ts — the current ten service categories, each linking
+// to its own page — rather than a hand-written list of older service names.
+const serviceLinks: { label: string; href: string }[] = getPublishedServices().map((s) => ({
+  label: s.title,
+  href: `/services/${s.slug}`,
+}));
+
+const serviceTitles = serviceLinks.map((s) => s.label);
+const whatWeDo = `${serviceTitles.slice(0, -1).join(", ")}, and ${serviceTitles[serviceTitles.length - 1]}.`;
 
 const industryLinks: { label: string; href: string }[] = [
   { label: "SaaS", href: "/industries/saas-development" },
@@ -27,8 +29,7 @@ const pillars = [
   },
   {
     label: "What we do",
-    content:
-      "Custom software development, SaaS platform engineering, product engineering, staff augmentation, AI systems integration, mobile application development, and cloud infrastructure engineering.",
+    content: whatWeDo,
   },
   {
     label: "Who we serve",

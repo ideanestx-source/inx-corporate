@@ -18,20 +18,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ideanestx.com"),
   title: {
-    default: "INX | Custom Software Development & Product Engineering",
+    default: "INX | Build Systems That Perform",
     template: "%s | INX",
   },
   description:
-    "Custom software development, SaaS engineering, and product delivery for global organizations. Enterprise-grade systems built to perform in production.",
+    "INX builds software, digital products, AI and automation systems, and games — taking ideas from concept to a working product.",
   icons: {
     icon: "/icon.png",
     shortcut: "/favicon.ico",
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "INX | Custom Software Development & Product Engineering",
+    title: "INX | Build Systems That Perform",
     description:
-      "Custom software development, SaaS engineering, and product delivery for global organizations.",
+      "INX builds software, digital products, AI and automation systems, and games — taking ideas from concept to a working product.",
     siteName: "INX",
     locale: "en_US",
     type: "website",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "INX | Custom Software Development & Product Engineering",
+    title: "INX | Build Systems That Perform",
     description:
-      "Custom software development, SaaS engineering, and product delivery for global organizations.",
+      "INX builds software, digital products, AI and automation systems, and games — taking ideas from concept to a working product.",
   },
   manifest: "/site.webmanifest",
 };

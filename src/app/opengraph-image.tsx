@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "INX | Custom Software Development & Product Engineering";
+export const alt = "INX | Build Systems That Perform";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -64,7 +64,7 @@ export default function Image() {
           fontFamily: "sans-serif",
           marginBottom: "16px",
         }}>
-          Custom Software Development
+          Build Systems That Perform.
         </div>
 
         {/* Sub-tagline */}
@@ -75,7 +75,7 @@ export default function Image() {
           fontFamily: "sans-serif",
           letterSpacing: "0.04em",
         }}>
-          Product Engineering · SaaS · AI Systems · Cloud Infrastructure
+          Software · Products · AI & Automation · Games
         </div>
 
         {/* Bottom accent */}

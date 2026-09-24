@@ -5,7 +5,7 @@ import AbstractGameVisual from "@/components/visuals/AbstractGameVisual";
 // atmosphere visual and a second, violet-toned ambient glow layered under
 // the existing blue one — still restrained, not neon, staying inside the
 // same token palette used elsewhere (the indigo/violet tones already
-// appear in HeroSection.tsx's secondary glow).
+// appear in HomeHero.tsx's secondary glow).
 export default function GamesHero() {
   return (
     <section className="relative overflow-hidden bg-[#05070e] pt-36 pb-0">

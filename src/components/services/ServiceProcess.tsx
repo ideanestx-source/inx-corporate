@@ -1,35 +1,5 @@
 import Reveal from "@/components/motion/Reveal";
-
-// Same five-phase delivery model already published in DeliveryApproach.tsx
-// on the services listing page — condensed for the per-service detail-page
-// context, not a new or different process.
-const phases = [
-  {
-    index: "01",
-    name: "Discovery",
-    body: "Structured technical and commercial discovery — scope, architecture requirements, and risk identified before engineering begins.",
-  },
-  {
-    index: "02",
-    name: "Architecture",
-    body: "A full technical specification is produced before production code is written.",
-  },
-  {
-    index: "03",
-    name: "Engineering",
-    body: "Senior-only delivery against the defined technical specification.",
-  },
-  {
-    index: "04",
-    name: "Deployment",
-    body: "Production deployment with full observability — monitoring, alerting, and runbook documentation.",
-  },
-  {
-    index: "05",
-    name: "Optimization",
-    body: "Post-deployment performance measurement and bottleneck resolution under real production load.",
-  },
-];
+import { PROCESS_PHASES as phases } from "@/lib/process-data";
 
 export default function ServiceProcess() {
   return (

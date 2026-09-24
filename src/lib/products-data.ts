@@ -3,10 +3,9 @@ import { filterPublished } from "./content-shared";
 
 /**
  * No INX product has been verified from existing repository/site content as
- * of this phase — ProductShowcase.tsx on the homepage markets SaaS/platform
- * engineering *capability*, not a named INX product. Per the Phase 2
- * instruction not to invent product names, `products` is intentionally
- * empty. This file exists to establish the architecture; entries are added
+ * of this phase — earlier homepage copy marketed SaaS/platform engineering
+ * *capability*, not a named INX product. Per the Phase 2 instruction not to
+ * invent product names, `products` is intentionally empty. This file exists to establish the architecture; entries are added
  * only once a real, verified product is supplied.
  */
 

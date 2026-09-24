@@ -1,3 +1,5 @@
+import { getPublishedServices } from "./services-data";
+
 export const BASE_URL = "https://ideanestx.com";
 export const SITE_NAME = "INX";
 export const ORG_NAME = "IDEANEST X PRIVATE LIMITED";
@@ -5,17 +7,10 @@ export const ORG_NAME = "IDEANEST X PRIVATE LIMITED";
 // Entity definitions — consistent strings used across schema and visible content
 export const ENTITY = {
   description:
-    "INX (IDEANEST X PRIVATE LIMITED) is a custom software development company headquartered in India. INX engineers SaaS platforms, enterprise web applications, AI systems, mobile applications, and cloud infrastructure for global organisations — delivering production-grade systems from architecture through to live operation.",
-  services: [
-    "Custom Software Development",
-    "SaaS Platform Development",
-    "Product Engineering",
-    "Staff Augmentation",
-    "Web Application Development",
-    "Mobile Application Development",
-    "AI Systems Integration",
-    "MVP Development",
-  ],
+    "INX (IDEANEST X PRIVATE LIMITED) is a technology and product engineering company headquartered in India. INX builds software, digital products, AI and automation systems, and games for global organisations — taking ideas from concept to a working product.",
+  // Derived from services-data.ts so structured data can never drift from the
+  // real, current service categories.
+  services: getPublishedServices().map((s) => s.title),
   industries: [
     "SaaS",
     "Healthcare Technology",
@@ -66,75 +61,17 @@ export function organizationSchema() {
     knowsAbout: ENTITY.services,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "INX Engineering Services",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Custom Software Development",
-            description:
-              "End-to-end engineering of bespoke software systems — from architecture specification through to production delivery and operational support.",
-            url: `${BASE_URL}/services`,
-            provider: { "@type": "Organization", name: ORG_NAME },
-          },
+      name: "INX Services",
+      itemListElement: getPublishedServices().map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          description: service.summary,
+          url: `${BASE_URL}/services/${service.slug}`,
+          provider: { "@type": "Organization", name: ORG_NAME },
         },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "SaaS Platform Development",
-            description:
-              "Engineering of multi-tenant SaaS products with subscription billing infrastructure, API-first architecture, and scalability designed for commercial growth.",
-            url: `${BASE_URL}/industries/saas-development`,
-            provider: { "@type": "Organization", name: ORG_NAME },
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Product Engineering",
-            description:
-              "A delivery discipline that connects technical execution to product outcomes. Engineers accountable for production behaviour, not just specification compliance.",
-            url: `${BASE_URL}/services`,
-            provider: { "@type": "Organization", name: ORG_NAME },
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Staff Augmentation",
-            description:
-              "Senior external engineers integrated into client teams under client management — adding execution capacity without transferring delivery responsibility.",
-            url: `${BASE_URL}/services`,
-            provider: { "@type": "Organization", name: ORG_NAME },
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Web Application Development",
-            description:
-              "Enterprise-grade web applications built with React, Next.js, and modern backend stacks — from internal tooling to customer-facing products.",
-            url: `${BASE_URL}/services`,
-            provider: { "@type": "Organization", name: ORG_NAME },
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "AI Systems Integration",
-            description:
-              "Engineering AI capabilities into existing products — LLM integration, vector search, inference pipelines, and AI-augmented workflow automation.",
-            url: `${BASE_URL}/services`,
-            provider: { "@type": "Organization", name: ORG_NAME },
-          },
-        },
-      ],
+      })),
     },
     contactPoint: {
       "@type": "ContactPoint",
@@ -151,10 +88,8 @@ export function organizationSchema() {
 /**
  * Narrowly scoped to the /services listing page: builds structured data
  * from the real, current service catalog (services-data.ts). ENTITY.services
- * and organizationSchema() still use the older service names — reconciling
- * them with the ten current categories is deferred to the dedicated SEO
- * phase. (The retired standalone cloud/DevOps entries have already been
- * removed from ENTITY.services.)
+ * and organizationSchema() derive from the same source, so no structured
+ * data lists a service category that is not current.
  */
 export function serviceCatalogSchema(
   items: Array<{ name: string; description: string; url: string }>

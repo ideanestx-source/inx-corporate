@@ -1,33 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
-
-const links = {
-  Company: [
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Industries", href: "/industries" },
-    { label: "Technologies", href: "/technologies" },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Insights", href: "/insights" },
-    { label: "Partnerships", href: "/partnerships" },
-    { label: "Careers", href: "/careers" },
-  ],
-  "How We Work": [
-    { label: "Our Process", href: "/our-process" },
-    { label: "Engagement Models", href: "/engagement-models" },
-    { label: "Our Expertise", href: "/expertise" },
-    { label: "Why INX", href: "/why-inx" },
-  ],
-  Legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms & Conditions", href: "/terms" },
-    { label: "Cookie Policy", href: "/cookies" },
-    { label: "Security Policy", href: "/security" },
-    { label: "Confidentiality", href: "/confidentiality" },
-    { label: "Accessibility", href: "/accessibility" },
-  ],
-};
+import { FOOTER_NAV } from "@/lib/navigation";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -38,9 +12,9 @@ export default function Footer() {
       <div className="h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-6 lg:gap-x-10">
           {/* Brand column */}
-          <div className="col-span-2 sm:col-span-2 lg:col-span-1 lg:pr-8">
+          <div className="col-span-2 lg:pr-8">
             <div className="mb-4">
               <Image
                 src="/logo-mark.png"
@@ -55,9 +29,8 @@ export default function Footer() {
               IDEANEST X PRIVATE LIMITED
             </p>
             <p className="text-sm text-white/55 leading-relaxed mb-5">
-              Premium global product engineering and digital infrastructure.
-              Enterprise software, SaaS platforms, AI systems, mobile
-              applications, and cloud architecture for organizations worldwide.
+              INX builds software, digital products, AI and automation systems,
+              and games — from concept to a working product.
             </p>
             <div className="space-y-2">
               <a
@@ -78,7 +51,7 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          {Object.entries(links).map(([section, sectionLinks]) => (
+          {Object.entries(FOOTER_NAV).map(([section, sectionLinks]) => (
             <div key={section}>
               <p className="text-[10px] font-medium text-white/32 tracking-[0.16em] uppercase mb-5">
                 {section}

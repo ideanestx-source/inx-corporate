@@ -92,6 +92,24 @@ body {
   50% { transform: translateY(-6px); }
 }
 
+/* Hero entrance — pure CSS on purpose: the headline is the LCP element and
+   must be visible without waiting for JavaScript to hydrate. Under
+   prefers-reduced-motion the global rule below collapses it to its end state. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero-rise {
+  animation: hero-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--rise-delay, 0s);
+}
+
+@keyframes soft-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
 /* Gradient text */
 .text-gradient {
   background: linear-gradient(135deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
@@ -200,6 +218,7 @@ select:-webkit-autofill {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
