@@ -406,7 +406,7 @@ export default function ContactForm() {
                     <button
                       type="submit"
                       disabled={status === "loading"}
-                      className="inline-flex items-center gap-2.5 rounded-[3px] bg-blue-500 text-white px-7 py-3 text-sm font-semibold hover:bg-blue-400 transition-colors duration-150 shadow-[0_0_20px_rgba(59,130,246,0.25)] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-500"
+                      className="inline-flex items-center gap-2.5 rounded-[3px] bg-blue-600 text-white px-7 py-3 text-sm font-semibold hover:bg-blue-500 transition-colors duration-150 shadow-[0_0_20px_rgba(59,130,246,0.25)] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600"
                     >
                       {status === "loading" ? (
                         <>

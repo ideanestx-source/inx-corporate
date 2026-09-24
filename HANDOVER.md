@@ -93,7 +93,7 @@ Next.js 16.2.6 (App Router, Turbopack), React 19, TypeScript (strict), Tailwind 
 
 **Rendering model:** pages and most components are Server Components. Client Components are limited to the Navbar (scroll state, mobile menu), animated sections (Framer Motion), the contact form, industry FAQ accordion and the article table of contents. The homepage hero uses CSS-only entrance animation so it paints before hydration.
 
-**Motion & accessibility:** `<MotionConfig reducedMotion="user">` in the root layout plus a global `prefers-reduced-motion` CSS block gate all animation. The shared `Reveal` component handles scroll-in.
+**Motion & accessibility:** `<MotionConfig reducedMotion="user">` in the root layout plus a global `prefers-reduced-motion` CSS block gate all animation. The shared `Reveal` component handles scroll-in. Reveal content is server-rendered at opacity 0, so `layout.tsx` ships a `<noscript>` rule that makes it visible when JavaScript is off. **Contrast:** `globals.css` has a utilities-layer floor that lifts the muted `text-white/NN` (<50) and `text-blue-400/NN` steps to AA-compliant values; hover variants still win. Primary CTA buttons use `bg-blue-600` (white text on `blue-500` fails AA).
 
 ```
 src/

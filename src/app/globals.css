@@ -223,3 +223,41 @@ select:-webkit-autofill {
     scroll-behavior: auto !important;
   }
 }
+
+/* WCAG AA contrast floor for the muted text utilities used across the site.
+   The original opacity steps rendered small secondary text at roughly
+   1.6-4.4:1 on the dark background. These rules lift only text at or below
+   those steps to AA-compliant values (>= 4.5:1 on #05070e and on the panel
+   backgrounds). They sit in the utilities layer so hover/focus variants
+   (e.g. hover:text-white/80) and larger opacity steps still win. */
+@layer utilities {
+  .text-white\/12,
+  .text-white\/15,
+  .text-white\/18,
+  .text-white\/20,
+  .text-white\/22,
+  .text-white\/25,
+  .text-white\/28,
+  .text-white\/30,
+  .text-white\/32,
+  .text-white\/35,
+  .text-white\/38,
+  .text-white\/40,
+  .text-white\/42,
+  .text-white\/45,
+  .text-white\/48 {
+    color: rgb(255 255 255 / 0.5);
+  }
+  .text-blue-400\/40,
+  .text-blue-400\/45,
+  .text-blue-400\/50,
+  .text-blue-400\/55,
+  .text-blue-400\/60,
+  .text-blue-400\/65,
+  .text-blue-400\/70 {
+    color: rgb(96 165 250 / 0.75);
+  }
+  .text-blue-300\/60 {
+    color: rgb(147 197 253 / 0.7);
+  }
+}

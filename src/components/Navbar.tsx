@@ -195,7 +195,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={closeMenu}
-                className={`mt-7 flex min-h-[48px] items-center justify-center gap-2 rounded-[3px] bg-blue-500 text-white text-sm font-semibold hover:bg-blue-400 transition-colors ${focusRing}`}
+                className={`mt-7 flex min-h-[48px] items-center justify-center gap-2 rounded-[3px] bg-blue-600 text-white text-sm font-semibold hover:bg-blue-500 transition-colors ${focusRing}`}
               >
                 Start a Project
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -233,7 +233,7 @@ export default function Navbar() {
         <div className="fixed bottom-0 left-0 right-0 lg:hidden z-40 px-4 py-3 bg-[#05070e]/95 backdrop-blur-xl border-t border-white/[0.08]">
           <Link
             href="/contact"
-            className={`flex items-center justify-center gap-2 w-full rounded-[3px] bg-blue-500 text-white py-3 text-sm font-semibold hover:bg-blue-400 transition-colors duration-150 shadow-[0_0_20px_rgba(59,130,246,0.2)] ${focusRing}`}
+            className={`flex items-center justify-center gap-2 w-full rounded-[3px] bg-blue-600 text-white py-3 text-sm font-semibold hover:bg-blue-500 transition-colors duration-150 shadow-[0_0_20px_rgba(59,130,246,0.2)] ${focusRing}`}
           >
             Start a Project
             <ArrowRight className="h-3.5 w-3.5" />

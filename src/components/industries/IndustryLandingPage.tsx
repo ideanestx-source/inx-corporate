@@ -218,7 +218,7 @@ export default function IndustryLandingPage({
           <div className="flex flex-wrap items-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-[3px] bg-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-400 transition-colors duration-150 shadow-[0_0_20px_rgba(59,130,246,0.25)]"
+              className="inline-flex items-center gap-2 rounded-[3px] bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-500 transition-colors duration-150 shadow-[0_0_20px_rgba(59,130,246,0.25)]"
             >
               Start a Project
               <ArrowRight className="h-3.5 w-3.5" />

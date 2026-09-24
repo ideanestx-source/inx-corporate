@@ -53,6 +53,7 @@ export default function ServiceGrid() {
   return (
     <section id="service-discovery" className="py-10 bg-[#05070e]">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-5">
+        <h2 className="sr-only">All services</h2>
         {firstLarge && (
           <ServiceCard
             service={firstLarge}

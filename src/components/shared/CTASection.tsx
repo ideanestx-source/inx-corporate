@@ -24,7 +24,7 @@ type Props = {
 };
 
 const PRIMARY_TAIL =
-  "gap-2.5 rounded-[3px] bg-blue-500 text-white px-7 py-[13px] text-sm font-semibold hover:bg-blue-400 transition-all duration-200 shadow-[0_0_24px_rgba(59,130,246,0.24)] shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400";
+  "gap-2.5 rounded-[3px] bg-blue-600 text-white px-7 py-[13px] text-sm font-semibold hover:bg-blue-500 transition-all duration-200 shadow-[0_0_24px_rgba(59,130,246,0.24)] shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400";
 
 const SECONDARY =
   "inline-flex items-center justify-center gap-2 rounded-[3px] border border-white/[0.14] text-white/70 px-7 py-[13px] text-sm font-medium hover:border-white/[0.26] hover:text-white transition-all duration-200";

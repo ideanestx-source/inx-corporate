@@ -45,7 +45,7 @@ export default function ContactCta() {
             <div className="lg:col-span-5 space-y-4">
               <Link
                 href="#inquiry-form"
-                className="flex items-center justify-between gap-4 rounded-[3px] bg-blue-500 text-white px-6 py-4 text-sm font-semibold hover:bg-blue-400 transition-colors duration-150 shadow-[0_0_24px_rgba(59,130,246,0.25)] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                className="flex items-center justify-between gap-4 rounded-[3px] bg-blue-600 text-white px-6 py-4 text-sm font-semibold hover:bg-blue-500 transition-colors duration-150 shadow-[0_0_24px_rgba(59,130,246,0.25)] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
                 <span>Submit an Inquiry</span>
                 <ArrowRight className="h-4 w-4 shrink-0" />

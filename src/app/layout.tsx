@@ -56,6 +56,14 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Scroll-reveal sections are server-rendered at opacity 0 and revealed
+            by client JS. Without JavaScript they would stay invisible, so this
+            noscript rule shows them. It has no effect when JS is enabled. */}
+        <noscript>
+          <style>{`[style*="opacity:0;"],[style$="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+      </head>
       <body className="min-h-full flex flex-col bg-[#05070e]">
         <GoogleAnalytics />
         <MicrosoftClarity />

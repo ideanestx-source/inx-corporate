@@ -54,7 +54,7 @@ export default function HomeHero() {
             <div className="hero-rise flex flex-col sm:flex-row gap-3.5" style={rise(0.26)}>
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-[3px] bg-blue-500 text-white px-7 py-3.5 text-sm font-semibold hover:bg-blue-400 transition-all duration-200 shadow-[0_0_28px_rgba(59,130,246,0.28)] hover:shadow-[0_0_44px_rgba(59,130,246,0.48)] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-[3px] bg-blue-600 text-white px-7 py-3.5 text-sm font-semibold hover:bg-blue-500 transition-all duration-200 shadow-[0_0_28px_rgba(59,130,246,0.28)] hover:shadow-[0_0_44px_rgba(59,130,246,0.48)] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
                 Start a Project
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform duration-150" />

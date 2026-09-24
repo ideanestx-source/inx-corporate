@@ -45,7 +45,7 @@ export default function ServicesCta() {
             <div className="lg:col-span-5 flex flex-col gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-between gap-4 rounded-[3px] bg-blue-500 text-white px-6 py-4 text-sm font-semibold hover:bg-blue-400 transition-all duration-200 shadow-[0_0_24px_rgba(59,130,246,0.28)] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                className="inline-flex items-center justify-between gap-4 rounded-[3px] bg-blue-600 text-white px-6 py-4 text-sm font-semibold hover:bg-blue-500 transition-all duration-200 shadow-[0_0_24px_rgba(59,130,246,0.28)] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
                 <span>Request a Discovery Call</span>
                 <ArrowRight className="h-4 w-4 shrink-0" />

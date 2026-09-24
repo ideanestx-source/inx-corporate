@@ -11,6 +11,7 @@ export default function CaseStudyGrid() {
   return (
     <section className="py-10 bg-[#05070e]">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-5">
+        <h2 className="sr-only">Case studies</h2>
         {lead && <CaseStudyCard caseStudy={lead} variant="large" />}
         {rest.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

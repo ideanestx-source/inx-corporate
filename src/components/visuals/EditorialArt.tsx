@@ -1,4 +1,7 @@
+
 "use client";
+
+import { useId } from "react";
 
 export function SystemsArchArt() {
   return (
@@ -163,10 +166,11 @@ export function InternalSystemsArt() {
 }
 
 export function PerformanceArt() {
+  const uid = useId();
   return (
     <svg viewBox="0 0 200 110" width="100%" height="100%" aria-hidden="true" style={{ display: "block" }}>
       <defs>
-        <linearGradient id="perfGrad" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id={`${uid}-perf`} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="rgba(59,130,246,0.2)" />
           <stop offset="100%" stopColor="rgba(59,130,246,0)" />
         </linearGradient>
@@ -178,7 +182,7 @@ export function PerformanceArt() {
       {/* Area fill */}
       <path
         d="M 10,70 C 25,70 30,35 50,35 C 70,35 75,55 95,52 C 115,49 120,22 140,20 C 160,18 165,38 185,36 L 190,36 L 190,90 L 10,90 Z"
-        fill="url(#perfGrad)"
+        fill={`url(#${uid}-perf)`}
       />
       {/* Waveform line */}
       <path

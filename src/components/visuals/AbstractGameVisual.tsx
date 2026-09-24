@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 /**
  * Purely abstract atmosphere/world visual — gradient glows, a horizon
  * grid, and ambient particles. Deliberately not a UI-panel mockup (that's
@@ -5,21 +7,23 @@
  * screenshot; used wherever a game has no supplied screenshots/artwork.
  */
 export default function AbstractGameVisual() {
+  // Unique per instance: the visual can appear more than once on a page.
+  const uid = useId();
   return (
     <svg viewBox="0 0 400 240" width="100%" height="100%" aria-hidden="true" style={{ display: "block" }}>
       <defs>
-        <radialGradient id="game-glow-a" cx="30%" cy="32%" r="60%">
+        <radialGradient id={`${uid}-glow-a`} cx="30%" cy="32%" r="60%">
           <stop offset="0%" stopColor="rgba(59,130,246,0.22)" />
           <stop offset="100%" stopColor="rgba(59,130,246,0)" />
         </radialGradient>
-        <radialGradient id="game-glow-b" cx="76%" cy="62%" r="55%">
+        <radialGradient id={`${uid}-glow-b`} cx="76%" cy="62%" r="55%">
           <stop offset="0%" stopColor="rgba(167,139,250,0.16)" />
           <stop offset="100%" stopColor="rgba(167,139,250,0)" />
         </radialGradient>
       </defs>
       <rect width="400" height="240" fill="#060a12" />
-      <rect width="400" height="240" fill="url(#game-glow-a)" />
-      <rect width="400" height="240" fill="url(#game-glow-b)" />
+      <rect width="400" height="240" fill={`url(#${uid}-glow-a)`} />
+      <rect width="400" height="240" fill={`url(#${uid}-glow-b)`} />
 
       {/* Horizon grid */}
       <g stroke="rgba(255,255,255,0.06)" strokeWidth="1">
